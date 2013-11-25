@@ -1,0 +1,10 @@
+- flash.each do |key, value|
+  - if key.to_s == "alert"
+    - className = "danger"
+  - elsif key.to_s == "notice"
+    - className = "success"
+  - else
+    - className = key
+  %div{ class: "alert alert-#{className} alert-dismissable"}
+    %button{type: "button", class: "close", data: { dismiss: "alert" } } ×
+    = value
