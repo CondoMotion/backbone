@@ -1,4 +1,4 @@
 describe "CondoMotionApp", ->
     it "passes a sanity test", ->
-        app = new Backbone()
+        app = new CmoBackbone()
         expect(app.sanity()).toEqual(true)
