@@ -22,4 +22,3 @@
 //= require_tree ./admin/collections
 //= require_tree ./admin/views
 //= require_tree ./admin/routers
-//= require_tree ./admin
