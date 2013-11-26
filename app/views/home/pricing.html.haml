@@ -1,1 +1,4 @@
 %h1 Pricing
+
+- @plans.each do |plan|
+  = link_to raw(plan.name + "<br>" + number_to_currency(plan.amount / 100) + " per " + plan.interval), new_user_registration_path(plan_id: plan.id), class: "plan pull-left center"

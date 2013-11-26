@@ -35,4 +35,17 @@ class User < ActiveRecord::Base
   def last_name
     name.split(" ", 2).last
   end
+
+  # Stripe
+  def save_with_payment
+    if valid?
+      customer = Stripe::Customer.create(description: name, email: email, plan: self.owned_company.plan_id, card: self.owned_company.stripe_card_token)
+      self.owned_company.stripe_customer_token = customer.id
+      self.save!
+    end
+  rescue Stripe::InvalidRequestError => e
+    logger.error "Stripe error while creating customer: #{e.message}"
+    errors.add :base, "There was a problem with your credit card."
+    false
+  end
 end

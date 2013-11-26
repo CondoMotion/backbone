@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131126190944) do
+ActiveRecord::Schema.define(:version => 20131126202544) do
 
   create_table "addresses", :force => true do |t|
     t.string   "address1"
@@ -34,8 +34,9 @@ ActiveRecord::Schema.define(:version => 20131126190944) do
     t.string   "phone"
     t.string   "website"
     t.string   "logo"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.string   "stripe_customer_token"
   end
 
   create_table "users", :force => true do |t|
