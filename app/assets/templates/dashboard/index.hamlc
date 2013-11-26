@@ -1,3 +1,5 @@
 .container
   %h1 Dashboard
+  %p 
+    %a{href: "users/sign_out", rel: "nofollow", data: { method: "delete" }} Sign Out
   = @message
