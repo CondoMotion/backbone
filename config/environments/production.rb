@@ -67,5 +67,5 @@ Backbone::Application.configure do
 
   config.action_mailer.default_url_options = { :host => 'condomotion.net' }
 
-  config.assets.precompile += %w( admin.js )
+  config.assets.precompile += %w( dashboard.js )
 end
