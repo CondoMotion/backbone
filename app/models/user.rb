@@ -19,18 +19,20 @@ class User < ActiveRecord::Base
   # Callbacks
   after_create :set_company
 
+  # Callback functions
+  def set_company
+    if self.owned_company
+      self.company = self.owned_company
+      self.save
+    end
+  end
+
+  # Virtual attributes
   def first_name
     name.split(" ", 2).first
   end
 
   def last_name
     name.split(" ", 2).last
-  end
-
-  def set_company
-    if self.owned_company
-      self.company = self.owned_company
-      self.save
-    end
   end
 end

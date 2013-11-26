@@ -7,9 +7,19 @@ class Company < ActiveRecord::Base
   attr_accessible :logo, :name, :phone, :subdomain, :website, :address_attributes
 
   # Validations
+  validates_presence_of :name, :subdomain
+  validates_uniqueness_of :subdomain
   
   # Nested attributes
   accepts_nested_attributes_for :address
   
   # Callbacks
+  before_create :format_subdomain
+
+  # Callback function
+  def format_subdomain
+    self.subdomain = self.subdomain.parameterize
+  end
+
+  # Virtual attributes
 end

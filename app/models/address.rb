@@ -6,11 +6,15 @@ class Address < ActiveRecord::Base
   attr_accessible :address1, :address2, :city, :state, :zip
 
   # Validations
+  validates_presence_of :address1, :city, :state, :zip
   
   # Nested attributes
   
   # Callbacks
 
+  # Callback functions
+
+  # Virtual attributes
   def city_state_zip
     city + ", " + state + " " + zip
   end
