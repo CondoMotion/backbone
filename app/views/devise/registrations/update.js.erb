@@ -1,0 +1,6 @@
+<% if resource.errors.any? %>
+  alert("<%= raw resource.errors.full_messages[0] %>");
+<% else %>
+  alert("Success");
+  $("#edit_user")[0].reset();
+<% end %>

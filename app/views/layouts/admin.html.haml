@@ -7,4 +7,7 @@
     = javascript_include_tag "admin/dashboard.js"
     = csrf_meta_tags
   %body
+    = render "admin/navigation"
+    .container
+      = render "messages"
     = yield
