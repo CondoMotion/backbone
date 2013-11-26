@@ -56,9 +56,13 @@ class RegistrationsController < Devise::RegistrationsController
 
 protected
   def validate_plan
-    unless %W[monthly annual].include? params[:plan_id]
+    if params[:plan_id].present? && Stripe::Plan.retrieve(params[:plan_id])
+      @plan = Stripe::Plan.retrieve(params[:plan_id])
+    else
       redirect_to pricing_path, flash: { notice: "Please select a plan" }
     end
+  rescue Stripe::InvalidRequestError => e
+    redirect_to pricing_path, flash: { notice: "Please select a valid plan" }
   end
 
   def after_update_path_for(resource)
