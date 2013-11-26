@@ -1,2 +1,2 @@
-#= require ../../app/assets/javascripts/admin
+#= require ../../app/assets/javascripts/admin/dashboard
 #= require_tree ./ 
