@@ -85,6 +85,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     multi_json (1.8.2)
+    newrelic_rpm (3.6.9.171)
     orm_adapter (0.5.0)
     pg (0.17.0)
     polyglot (0.3.3)
@@ -171,6 +172,7 @@ DEPENDENCIES
   haml_coffee_assets
   jasminerice
   jquery-rails
+  newrelic_rpm
   pg
   powder
   rails (= 3.2.13)
