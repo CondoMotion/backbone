@@ -48,4 +48,18 @@ class User < ActiveRecord::Base
     errors.add :base, "There was a problem with your credit card."
     false
   end
+
+  def update_stripe
+    return if self.owned_company.nil?
+    return unless valid?
+    customer = Stripe::Customer.retrieve(self.owned_company.stripe_customer_token)
+    customer.email = self.email
+    customer.description = self.name
+    customer.save
+    true
+  rescue Stripe::StripeError => e
+    logger.error "Stripe Error: " + e.message
+    errors.add :base, "#{e.message}."
+    false
+  end
 end
