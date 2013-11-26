@@ -1,10 +1,21 @@
 .container
   %h2 Edit Your Profile
+  %strong= resource.company.name
+  %address
+    = resource.company.address.address1
+    %br
+    - unless resource.company.address.address2.blank?
+      = resource.company.address.address2
+      %br
+    = resource.company.address.city_state_zip
   = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }, remote: true) do |f|
     = devise_error_messages!
     .form-group
+      = f.label :name
+      = f.text_field :name, :autofocus => true, class: "form-control"
+    .form-group
       = f.label :email
-      = f.email_field :email, :autofocus => true, class: "form-control"
+      = f.email_field :email, class: "form-control"
     - if devise_mapping.confirmable? && resource.pending_reconfirmation?
       %div
         Currently waiting confirmation for: #{resource.unconfirmed_email}
