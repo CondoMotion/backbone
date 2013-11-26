@@ -24,6 +24,7 @@ class RegistrationsController < Devise::RegistrationsController
     else
       @company = resource.build_owned_company(params[:user][:owned_company_attributes])
       @address = @company.build_address(params[:user][:owned_company_attributes][:address_attributes])
+      @plan = Stripe::Plan.retrieve(params[:user][:owned_company_attributes][:plan_id])
       clean_up_passwords resource
       respond_with resource
     end
