@@ -31,39 +31,46 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def update
-    self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
-    prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)
+    @user = User.find(current_user.id)
 
-    if update_resource(resource, account_update_params)
-      yield resource if block_given?
-      if is_flashing_format?
-        flash_key = update_needs_confirmation?(resource, prev_unconfirmed_email) ?
-          :update_needs_confirmation : :updated
-        set_flash_message :notice, flash_key
-      end
-      sign_in resource_name, resource, :bypass => true
+    successfully_updated = if needs_password?(@user, params)
+      @user.update_with_password(params[:user])
+    else
+      # remove the virtual current_password attribute update_without_password
+      # doesn't know how to ignore it
+      params[:user].delete(:current_password)
+      @user.update_without_password(params[:user])
+    end
+
+    if successfully_updated
+      # Sign in the user bypassing validation in case his password changed
+      sign_in @user, :bypass => true
       respond_to do |format|
-        format.html { respond_with resource, :location => after_update_path_for(resource) }
+        format.html { redirect_to after_update_path_for(@user), notice: :updated }
         format.js
       end
     else
-      clean_up_passwords resource
       respond_to do |format|
-        format.html { redirect_to edit_user_registration_path, flash: { error: "There was an error updating your profile: #{resource.errors.full_messages[0]}" } }
+        format.html { render "edit" }
         format.js
       end
     end
   end
 
+
 protected
   def validate_plan
-    if params[:plan_id].present? && Stripe::Plan.retrieve(params[:plan_id])
+    if params[:plan_id].present?
       @plan = Stripe::Plan.retrieve(params[:plan_id])
     else
       redirect_to pricing_path, flash: { notice: "Please select a plan" }
     end
   rescue Stripe::InvalidRequestError => e
     redirect_to pricing_path, flash: { notice: "Please select a valid plan" }
+  end
+
+  def needs_password?(user, params)
+    params[:user][:password].present?
   end
 
   def after_update_path_for(resource)
