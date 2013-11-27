@@ -4,6 +4,7 @@ class Company < ActiveRecord::Base
   # Associations
   belongs_to :owner, class_name: "User"
   has_one :address, as: :addressable, dependent: :destroy
+  has_one :subscription, dependent: :destroy
   
   # Setup accessible (or protected) attributes for your model
   attr_accessible :logo, :name, :phone, :subdomain, :website, :stripe_card_token, :plan_id, :address_attributes

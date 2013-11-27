@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   # Associations
+  # TODO: Check for other managers and transfer ownership before destroying company
   has_one :owned_company, class_name: "Company", foreign_key: :owner_id, dependent: :destroy
   belongs_to :company
 
@@ -40,7 +41,7 @@ class User < ActiveRecord::Base
   def save_with_payment
     if valid?
       customer = Stripe::Customer.create(description: name, email: email, plan: self.owned_company.plan_id, card: self.owned_company.stripe_card_token)
-      self.owned_company.stripe_customer_token = customer.id
+      subscription = self.owned_company.build_subscription(name: name, email: email, stripe_customer_token: customer.id, last_4_digits: customer.active_card.last4)
       self.save!
     end
   rescue Stripe::InvalidRequestError => e
@@ -49,17 +50,17 @@ class User < ActiveRecord::Base
     false
   end
 
-  def update_stripe
-    return if self.owned_company.nil?
-    return unless valid?
-    customer = Stripe::Customer.retrieve(self.owned_company.stripe_customer_token)
-    customer.email = self.email
-    customer.description = self.name
-    customer.save
-    true
-  rescue Stripe::StripeError => e
-    logger.error "Stripe Error: " + e.message
-    errors.add :base, "#{e.message}."
-    false
-  end
+  # def update_stripe
+  #   return if self.owned_company.nil?
+  #   return unless valid?
+  #   customer = Stripe::Customer.retrieve(self.owned_company.stripe_customer_token)
+  #   customer.email = self.email
+  #   customer.description = self.name
+  #   customer.save
+  #   true
+  # rescue Stripe::StripeError => e
+  #   logger.error "Stripe Error: " + e.message
+  #   errors.add :base, "#{e.message}."
+  #   false
+  # end
 end

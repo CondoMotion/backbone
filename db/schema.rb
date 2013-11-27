@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131126202544) do
+ActiveRecord::Schema.define(:version => 20131127133052) do
 
   create_table "addresses", :force => true do |t|
     t.string   "address1"
@@ -34,10 +34,21 @@ ActiveRecord::Schema.define(:version => 20131126202544) do
     t.string   "phone"
     t.string   "website"
     t.string   "logo"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "subscriptions", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "last_4_digits"
+    t.string   "stripe_customer_token"
+    t.integer  "company_id"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
-    t.string   "stripe_customer_token"
   end
+
+  add_index "subscriptions", ["company_id"], :name => "index_subscriptions_on_company_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
