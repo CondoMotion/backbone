@@ -25,7 +25,7 @@ private
   def load_plan
     @plan = Plan.find_by_name(params[:plan_id])
     unless @plan
-      redirect_to pricing_path, flash: { error: "Please select a valid plan." }
+      redirect_to pricing_url, flash: { error: "Please select a valid plan." }
     end
   end
 end
