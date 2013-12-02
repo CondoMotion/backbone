@@ -9,6 +9,7 @@ class HomeController < ApplicationController
   end
 
   def pricing
-    @plans = Stripe::Plan.all
+    flash.keep
+    @plans = Plan.all
   end
 end

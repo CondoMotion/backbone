@@ -3,11 +3,11 @@
   %head
     %title Condo Motion
     = tag :meta, name: "viewport", content: "width=device-width, initial-scale=1.0"
-    = tag :meta, name: "stripe-key", content: STRIPE_PUBLIC_KEY
+    = yield(:head)
     = stylesheet_link_tag    "application", :media => "all"
     = yield(:styles)
-    = javascript_include_tag "admin/dashboard.js"
     = yield(:scripts)
+    = javascript_include_tag "admin/dashboard.js"
     = csrf_meta_tags
   %body
     = render "admin/navigation"

@@ -18,6 +18,7 @@ end
 
 group :development do
   gem 'powder'
+  gem 'letter_opener'
 end
 
 group :development, :test do 

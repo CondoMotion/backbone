@@ -1,0 +1,8 @@
+= render 'success'
+= simple_form_for @company, url: admin_company_path, remote: true do |f|
+  = f.input :name
+  = f.input :website
+  = f.input :phone
+  = f.simple_fields_for :address do |builder|
+    = render 'addresses/address_fields', f: builder
+  = f.submit "Update", class: "btn btn-primary"

@@ -13,7 +13,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :owned_company_attributes
 
   # Validations
-
+  validates_presence_of :name
+  
   # Nested attributes
   accepts_nested_attributes_for :owned_company
 

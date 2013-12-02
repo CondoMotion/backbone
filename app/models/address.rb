@@ -7,6 +7,8 @@ class Address < ActiveRecord::Base
 
   # Validations
   validates_presence_of :address1, :city, :state, :zip
+  validates_numericality_of :zip
+  validates_length_of :zip, is: 5
   
   # Nested attributes
   
