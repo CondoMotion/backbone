@@ -2,4 +2,5 @@ $("#profile_form").html("<%= j render 'profile_form' %>");
 $("#password_form").html("<%= j render 'password_form' %>");
 <% unless @user.errors.any? %>
   $("#success").show().delay(3000).fadeOut();
+  $(".user-name").html("<%= j @user.name %> <b class='caret'></b>");
 <% end %>
