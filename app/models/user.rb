@@ -10,13 +10,13 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :owned_company_attributes
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :owned_company_attributes, :company_attributes
 
   # Validations
   validates_presence_of :name
   
   # Nested attributes
-  accepts_nested_attributes_for :owned_company
+  accepts_nested_attributes_for :owned_company, :company
 
   # Callbacks
   after_create :set_company

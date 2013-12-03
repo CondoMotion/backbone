@@ -1,6 +1,0 @@
-$("#company_form").html("<%= j render 'company_form' %>");
-$("#subscription_form").html("<%= j render 'subscription_form' %>");
-<% unless @company.errors.any? %>
-  $(".tab-pane.active .success").show().delay(3000).fadeOut();
-  $(".company-name").text("<%= @company.name %>");
-<% end %>

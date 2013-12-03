@@ -1,0 +1,4 @@
+= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }, remote: true) do |f|
+  = f.simple_fields_for :company do |builder|
+    = render "admin/companies/company_fields", f: builder
+  = f.button :submit, "Update", class: "btn btn-primary"

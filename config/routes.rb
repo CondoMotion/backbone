@@ -2,7 +2,6 @@ Backbone::Application.routes.draw do
 
   constraints lambda { |r| r.subdomain.present? && r.subdomain != 'www' } do
     namespace :admin do
-      resource :company, only: [:edit, :update]
       devise_for :users, skip: [:sessions]
       root to: 'dashboard#index'
     end
