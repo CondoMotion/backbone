@@ -9,7 +9,7 @@ class Company < ActiveRecord::Base
   has_many :users
   
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :logo, :name, :phone, :website, :stripe_card_token, :plan_id, :address_attributes, :owner_id, :subdomain_attributes
+  attr_accessible :logo, :name, :phone, :website, :stripe_card_token, :plan_id, :address_attributes, :owner_id, :subdomain_attributes, :subscription_attributes
 
   # Validations
   validates_presence_of :name
@@ -17,6 +17,7 @@ class Company < ActiveRecord::Base
   # Nested attributes
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :subdomain
+  accepts_nested_attributes_for :subscription
   
   # Callbacks
 

@@ -1,5 +1,19 @@
 .container
-  %h2 Edit Company
+  .row.mt30
+    .col-sm-3
+      %ul.stacked-tabs
+        %li.active= link_to "Edit Company", '#company', data: { toggle: 'tab' }
+        %li= link_to "Edit Subscription", '#subscription', data: { toggle: 'tab' }
+    .col-sm-9
+      .tab-content
+        .tab-pane.active#company
+          %h2.mt0 Edit Company
+          = render 'success'
+          #company_form
+            = render 'company_form'
 
-  #form
-    = render 'form'
+        .tab-pane#subscription
+          %h2.mt0 Edit Subscription
+          = render 'success'
+          #subscription_form
+            = render 'subscription_form'

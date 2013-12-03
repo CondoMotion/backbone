@@ -14,6 +14,7 @@
 
           %h4.mt30 Unhappy?
           %p= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete
+
         .tab-pane#password
           %h2.mt0 Change Password
           = render 'success'

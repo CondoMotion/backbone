@@ -1,0 +1,4 @@
+= simple_form_for @company, url: admin_company_path, remote: true do |f|
+  = f.simple_fields_for :subscription do |builder|
+    = render 'admin/subscriptions/subscription_fields', f: builder
+  = f.submit "Update", class: "btn btn-primary"

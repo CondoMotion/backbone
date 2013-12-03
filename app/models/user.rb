@@ -42,7 +42,9 @@ class User < ActiveRecord::Base
   def save_with_payment
     if valid?
       customer = Stripe::Customer.create(description: name, email: email, plan: self.owned_company.plan_id, card: self.owned_company.stripe_card_token)
+      plan = Plan.find_by_name(self.owned_company.plan_id)
       subscription = self.owned_company.build_subscription(name: name, email: email, stripe_customer_token: customer.id, last_4_digits: customer.active_card.last4)
+      subscription.plan = plan
       self.save!
     end
   rescue Stripe::InvalidRequestError => e

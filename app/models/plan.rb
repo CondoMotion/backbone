@@ -4,4 +4,8 @@ class Plan < ActiveRecord::Base
   def trial_period_days
     30
   end
+
+  def titleized_name
+    name.titleize
+  end
 end
