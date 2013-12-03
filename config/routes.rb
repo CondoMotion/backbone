@@ -2,7 +2,7 @@ Backbone::Application.routes.draw do
 
   constraints lambda { |r| r.subdomain.present? && r.subdomain != 'www' } do
     namespace :admin do
-      devise_for :users, skip: [:sessions]
+      devise_for :users, skip: [:sessions, :registrations]
       root to: 'dashboard#index'
     end
     root to: 'admin/companies#show', as: :company_root
@@ -10,6 +10,8 @@ Backbone::Application.routes.draw do
       get 'admin/sign_in' => 'admin/sessions#new', :as => :new_admin_user_session
       post 'admin/sign_in' => 'admin/sessions#create', :as => :admin_user_session
       delete 'admin/sign_out' => 'admin/sessions#destroy', :as => :destroy_admin_user_session
+      get 'admin/settings' => 'admin/registrations#edit', :as => :edit_admin_user_registration
+      put 'admin/settings' => 'admin/registrations#update', :as => :admin_user_registration
     end
   end 
 
