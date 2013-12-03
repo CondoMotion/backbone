@@ -1,15 +1,21 @@
 .container
-  = render 'success'
-  
-  %h2 Edit Profile
-  #profile_form
-    = render 'profile_form'
+  .row.mt30
+    .col-sm-3
+      %ul.stacked-tabs
+        %li.active= link_to "Edit Profile", '#profile', data: { toggle: 'tab' }
+        %li= link_to "Change Password", '#password', data: { toggle: 'tab' }
+    .col-sm-9
+      .tab-content
+        .tab-pane.active#profile
+          %h2.mt0 Edit Profile
+          = render 'success'
+          #profile_form
+            = render 'profile_form'  
 
-  %h2 Change Password
-  #password_form
-    = render 'password_form'
-  
-  %h3 Cancel my account
-  %p 
-    Unhappy? 
-    = link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete
+          %h4.mt30 Unhappy?
+          %p= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete
+        .tab-pane#password
+          %h2.mt0 Change Password
+          = render 'success'
+          #password_form
+            = render 'password_form'

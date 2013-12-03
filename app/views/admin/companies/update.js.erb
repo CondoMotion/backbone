@@ -1,5 +1,5 @@
 $("#form").html("<%= j render 'form' %>");
 <% unless @company.errors.any? %>
-  $("#success").show().delay(3000).fadeOut();
-  $(".navbar-brand").text("<%= @company.name %>");
+  $(".success").show().delay(3000).fadeOut();
+  $(".company-name").text("<%= @company.name %>");
 <% end %>
