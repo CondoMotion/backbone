@@ -3,7 +3,11 @@ module Admin
     before_filter :authenticate_admin_user!, except: :show
 
     def show
-      @company = current_company
+      if admin_user_signed_in? 
+        redirect_to admin_root_url
+      else
+        @company = current_company
+      end
     end
 
     def edit
