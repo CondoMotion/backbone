@@ -25,5 +25,6 @@ subscription =
       $('#user_owned_company_attributes_stripe_card_token').val(response.id)
       $('#new_user')[0].submit()
     else
-      $('#stripe_error').text(response.error.message)
+      alert = "<div class='alert alert-danger'>" + response.error.message + "</div>"
+      $('#stripe_error').html(alert)
       $('input[type=submit]').attr('disabled', false)
