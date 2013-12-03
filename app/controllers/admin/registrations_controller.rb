@@ -3,7 +3,7 @@ module Admin
     layout "admin"
     before_filter :authenticate_admin_user!, only: [:edit, :update]
     around_filter :scope_current_company, only: [:edit, :update]
-    before_filter :check_user_company, only: [:edit, :update]
+    before_filter :check_admin_user_company, only: [:edit, :update]
 
     def update
       @user = current_admin_user
