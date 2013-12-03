@@ -6,7 +6,7 @@
 
 %h2 Sign Up
 
-= simple_form_for(@user, :url => registration_path(resource_name)) do |f|
+= simple_form_for(@user, as: resource_name, :url => registration_path(resource_name)) do |f|
   = f.input :name, :required => true, :autofocus => true
   = f.input :email, :required => true
   = f.input :password, :required => true

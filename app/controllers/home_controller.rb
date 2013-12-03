@@ -9,7 +9,6 @@ class HomeController < ApplicationController
   end
 
   def pricing
-    flash.keep
     @plans = Plan.all
   end
 end
