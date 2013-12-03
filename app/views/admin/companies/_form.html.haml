@@ -3,7 +3,7 @@
   = f.input :name
   = f.input :website
   = f.input :phone
-  = f.association :owner, include_blank: false #, collection: @company.managers
+  = f.association :owner, include_blank: false, collection: @company.users
   = f.simple_fields_for :address do |builder|
     = render 'addresses/address_fields', f: builder
   = f.submit "Update", class: "btn btn-primary"

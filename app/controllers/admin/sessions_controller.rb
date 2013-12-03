@@ -3,7 +3,7 @@ module Admin
     layout "admin"
     around_filter :scope_current_company, only: [:new, :create]
 
-    private
+  private
     
     def after_sign_in_path_for(resource)
       admin_root_url

@@ -15,7 +15,8 @@
   %h3 Company Info
   = f.simple_fields_for :owned_company do |cf|
     = cf.input :name
-    = cf.input :subdomain
+    = cf.simple_fields_for :subdomain do |sf|
+      = sf.input :name, label: "Subdomain"
     = cf.input :phone
     = cf.input :website
     = cf.simple_fields_for :address do |af|

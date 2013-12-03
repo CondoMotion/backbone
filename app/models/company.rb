@@ -5,9 +5,11 @@ class Company < ActiveRecord::Base
   belongs_to :owner, class_name: "User"
   has_one :address, as: :addressable, dependent: :destroy
   has_one :subscription, dependent: :destroy
+  has_one :subdomain, as: :subdomainable, dependent: :destroy
+  has_many :users
   
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :logo, :name, :phone, :subdomain, :website, :stripe_card_token, :plan_id, :address_attributes, :owner_id
+  attr_accessible :logo, :name, :phone, :subdomain, :website, :stripe_card_token, :plan_id, :address_attributes, :owner_id, :subdomain_attributes
 
   # Validations
   validates_presence_of :name, :subdomain
@@ -15,14 +17,11 @@ class Company < ActiveRecord::Base
   
   # Nested attributes
   accepts_nested_attributes_for :address
+  accepts_nested_attributes_for :subdomain
   
   # Callbacks
-  before_create :format_subdomain
 
   # Callback function
-  def format_subdomain
-    self.subdomain = self.subdomain.parameterize
-  end
 
   # Virtual attributes
   def self.current_id=(id)

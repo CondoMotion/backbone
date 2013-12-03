@@ -21,7 +21,9 @@ Backbone::Application.routes.draw do
   end
 
   namespace :api do
-
+    namespace :v1 do
+      resources :properties
+    end
   end
 
   constraints lambda { |r| !r.subdomain.present? || r.subdomain == 'www' } do

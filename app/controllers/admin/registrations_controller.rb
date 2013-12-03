@@ -3,6 +3,7 @@ module Admin
     layout "admin"
     before_filter :authenticate_admin_user!, only: [:edit, :update]
     around_filter :scope_current_company, only: [:edit, :update]
+    before_filter :check_user_company, only: [:edit, :update]
 
     def update
       @user = current_admin_user
@@ -32,6 +33,7 @@ module Admin
     end
 
   private 
+
     def after_update_path_for(resource)
       edit_admin_user_registration_path
     end
