@@ -3,3 +3,31 @@
     = cf.simple_fields_for :subscription do |sf|
       = render 'admin/subscriptions/subscription_fields', f: sf
   = f.button :submit, "Update", class: "btn btn-primary"
+
+%h3.mt30{style: "font-weight: 100;"} Billing Details
+.well{style: "padding-bottom: 10px;"}
+  - if @subscription.last_4_digits.nil?
+    %p No card on file
+  - else
+    %p Using card **** **** **** #{@subscription.last_4_digits}
+  - unless @stripe.nil?
+    %p Plan: #{@stripe.subscription.plan.name} billing at #{number_to_currency @stripe.subscription.plan.amount.to_f / 100} a month per property
+    %p Number of Properties: #{@stripe.subscription.quantity}
+    %p Monthly Total: #{number_to_currency (@stripe.subscription.quantity * @stripe.subscription.plan.amount).to_f / 100}
+    %p Status: #{@stripe.subscription.status == "trialing" ? "Trial" : @stripe.subscription.status.humanize}
+    - if @stripe.subscription.status == "trialing"
+      %p Trial Ends: #{Time.at(@stripe.subscription.trial_end).to_datetime.strftime("%b %d, %Y")}
+
+- unless @stripe.nil?
+  .row
+    .col-xs-12
+      %h3{style: "margin-top: 0; font-weight: 100;"} Payment History
+      - if @stripe.charges.count == 0
+        .well No Payments
+      - else
+        %table#payments.table.table-condensed
+          - @stripe.charges.each do |charge|
+            %tr
+              %td= image_tag "cards/#{charge.card.type}.png"
+              %td= Time.at(charge.created).to_datetime.strftime("%b %d, %Y")
+              %td= number_to_currency(charge.amount.to_f/100)

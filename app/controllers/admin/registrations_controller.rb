@@ -5,6 +5,12 @@ module Admin
     around_filter :scope_current_company, only: [:edit, :update]
     before_filter :check_admin_user_company, only: [:edit, :update]
 
+    def edit
+      @subscription = current_company.subscription
+      @stripe = @subscription.stripe_customer
+      super
+    end
+
     def update
       @user = current_admin_user
 
