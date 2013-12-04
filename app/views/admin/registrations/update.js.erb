@@ -1,4 +1,4 @@
-$("#<%= @tab %>_form").html("<%= j render @partial %>");
+$("#<%= @partial %>").html("<%= j render @partial %>");
 
 <% unless @user.errors.any? %>
   $(".tab-pane.active .success").show().delay(3000).fadeOut();

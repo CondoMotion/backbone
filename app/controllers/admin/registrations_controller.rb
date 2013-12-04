@@ -19,8 +19,7 @@ module Admin
         @stripe = @subscription.stripe_customer
         @charges = @stripe.charges
       end
-      @tab = params[:active_tab]
-      @partial = @tab + "_form"
+      @partial = params[:active_tab] + "_form"
 
       successfully_updated = if needs_password?(@user, params)
         @user.update_with_password(params[:admin_user])
