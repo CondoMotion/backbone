@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
 
   # Callbacks
   after_create :set_company
+  before_update :update_stripe
 
   # Callback functions
   def set_company
@@ -53,17 +54,10 @@ class User < ActiveRecord::Base
     false
   end
 
-  # def update_stripe
-  #   return if self.owned_company.nil?
-  #   return unless valid?
-  #   customer = Stripe::Customer.retrieve(self.owned_company.stripe_customer_token)
-  #   customer.email = self.email
-  #   customer.description = self.name
-  #   customer.save
-  #   true
-  # rescue Stripe::StripeError => e
-  #   logger.error "Stripe Error: " + e.message
-  #   errors.add :base, "#{e.message}."
-  #   false
-  # end
+  def update_stripe
+    if company.stripe_card_token.present?
+      company.subscription.save!
+      company.stripe_card_token = nil
+    end
+  end
 end

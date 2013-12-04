@@ -1,11 +1,12 @@
-jQuery ->
+$ ->
   Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'))
   subscription.setupForm()
 
 subscription =
   setupForm: ->
     $('.card-form').submit ->
-      $('input[type=submit]').attr('disabled', true)
+    $('body').on 'submit', '.card-form', ->
+      $('.card-form input[type=submit]').attr('disabled', true)
       if $('#card_number').length
         subscription.processCard()
         false
@@ -22,9 +23,9 @@ subscription =
   
   handleStripeResponse: (status, response) ->
     if status == 200
-      $('#user_owned_company_attributes_stripe_card_token').val(response.id)
-      $('.card-form')[0].submit()
+      $('#admin_user_company_attributes_stripe_card_token').val(response.id)
+      $('.card-form').trigger('submit.rails')
     else
       alert = "<div class='alert alert-danger'>" + response.error.message + "</div>"
       $('#stripe_error').html(alert)
-      $('input[type=submit]').attr('disabled', false)
+      $('.card-form input[type=submit]').attr('disabled', false)

@@ -1,3 +1,9 @@
+- content_for :head do
+  = tag :meta, :name => "stripe-key", :content => STRIPE_PUBLIC_KEY
+
+- content_for :scripts do
+  = javascript_include_tag "https://js.stripe.com/v1/"
+
 .container
   .row.mt30
     .col-sm-3
@@ -6,6 +12,7 @@
         %li= link_to "Change Password", '#password', data: { toggle: 'tab' }
         %li= link_to "Edit Company", '#company', data: { toggle: 'tab' }
         %li= link_to "Edit Subscription", '#subscription', data: { toggle: 'tab' }
+        %li= link_to "Update Credit Card", '#card', data: { toggle: 'tab' }
     .col-sm-9
       .tab-content
         .tab-pane.active#profile
@@ -34,3 +41,9 @@
           = render 'success'
           #subscription_form
             = render 'subscription_form'
+
+        .tab-pane#card
+          %h2.mt0 Update Credit Card
+          = render 'success'
+          #card_form
+            = render 'card_form'
