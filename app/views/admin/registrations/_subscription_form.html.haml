@@ -1,4 +1,5 @@
 = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }, remote: true) do |f|
+  = hidden_field_tag :active_tab, "subscription"
   = f.simple_fields_for :company do |cf|
     = cf.simple_fields_for :subscription do |sf|
       = render 'admin/subscriptions/subscription_fields', f: sf
@@ -18,15 +19,15 @@
     - if @stripe.subscription.status == "trialing"
       %p Trial Ends: #{Time.at(@stripe.subscription.trial_end).to_datetime.strftime("%b %d, %Y")}
 
-- unless @stripe.nil?
+- unless @charges.nil?
   .row
     .col-xs-12
       %h3{style: "margin-top: 0; font-weight: 100;"} Payment History
-      - if @stripe.charges.count == 0
+      - if @charges.count == 0
         .well No Payments
       - else
         %table#payments.table.table-condensed
-          - @stripe.charges.each do |charge|
+          - @charges.each do |charge|
             %tr
               %td= image_tag "cards/#{charge.card.type}.png"
               %td= Time.at(charge.created).to_datetime.strftime("%b %d, %Y")

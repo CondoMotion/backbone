@@ -8,11 +8,19 @@ module Admin
     def edit
       @subscription = current_company.subscription
       @stripe = @subscription.stripe_customer
+      @charges = @stripe.charges
       super
     end
 
     def update
       @user = current_admin_user
+      if params[:active_tab] == "subscription"
+        @subscription = current_company.subscription
+        @stripe = @subscription.stripe_customer
+        @charges = @stripe.charges
+      end
+      @tab = params[:active_tab]
+      @partial = @tab + "_form"
 
       successfully_updated = if needs_password?(@user, params)
         @user.update_with_password(params[:admin_user])
