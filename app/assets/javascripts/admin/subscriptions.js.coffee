@@ -28,4 +28,5 @@ subscription =
     else
       alert = "<div class='alert alert-danger'>" + response.error.message + "</div>"
       $('#stripe_error').html(alert)
+      $(".alert-danger").delay(3000).fadeOut()
       $('.card-form input[type=submit]').attr('disabled', false).val('Update')

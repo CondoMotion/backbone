@@ -13,6 +13,7 @@ class Company < ActiveRecord::Base
 
   # Validations
   validates_presence_of :name
+  validate :owner_must_be_company_manager, on: :update
   
   # Nested attributes
   accepts_nested_attributes_for :address
@@ -30,5 +31,11 @@ class Company < ActiveRecord::Base
 
   def self.current_id
     Thread.current[:company_id]
+  end
+
+  def owner_must_be_company_manager
+    unless User.find(self.owner_id).company_id == self.id
+      errors.add(:owner_id, "must be a member of this company")
+    end
   end
 end

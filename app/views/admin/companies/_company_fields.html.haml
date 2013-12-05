@@ -1,6 +1,6 @@
+= f.association :owner, include_blank: false, collection: f.object.users
 = f.input :name
 = f.input :website
 = f.input :phone
-= f.association :owner, include_blank: false, collection: f.object.users
 = f.simple_fields_for :address do |builder|
   = render 'addresses/address_fields', f: builder

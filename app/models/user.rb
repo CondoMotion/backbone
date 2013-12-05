@@ -19,14 +19,12 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :owned_company, :company
 
   # Callbacks
-  after_create :set_company
-  before_update :update_stripe
+  before_create :set_company
 
   # Callback functions
   def set_company
     if self.owned_company
       self.company = self.owned_company
-      self.save
     end
   end
 
@@ -52,12 +50,5 @@ class User < ActiveRecord::Base
     logger.error "Stripe error while creating customer: #{e.message}"
     errors.add :base, "There was a problem with your credit card."
     false
-  end
-
-  def update_stripe
-    if company.stripe_card_token.present?
-      company.subscription.save!
-      company.stripe_card_token = nil
-    end
   end
 end
