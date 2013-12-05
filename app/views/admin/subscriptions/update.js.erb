@@ -1,5 +1,6 @@
 $("#<%= @partial %>").html("<%= j render 'admin/registrations/'+@partial %>");
 
 <% unless @subscription.errors.any? %>
+  $("#billing_details").html("<%= j render 'admin/registrations/billing_details' %>");
   $(".tab-pane.active .success").show().delay(3000).fadeOut();
 <% end %>
