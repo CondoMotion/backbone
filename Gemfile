@@ -27,6 +27,7 @@ group :development, :test do
 end
 
 gem 'bootstrap-sass', '~> 3.0.2.0'
+gem 'font-awesome-sass-rails'
 gem 'jquery-rails'
 gem 'devise'
 gem 'haml'
