@@ -17,8 +17,7 @@
 //= require hamlcoffee
 //= require underscore
 //= require backbone
-//= require ./tabs
-//= require ./app
+//= require_directory .
 //= require_tree ../../templates
 //= require_tree ./models
 //= require_tree ./collections

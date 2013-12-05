@@ -1,5 +1,23 @@
 = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }, remote: true) do |f|
+  = hidden_field_tag :active_tab, "subscription"
   = f.simple_fields_for :company do |cf|
     = cf.simple_fields_for :subscription do |sf|
       = render 'admin/subscriptions/subscription_fields', f: sf
   = f.button :submit, "Update", class: "btn btn-primary"
+
+%h3.mt30{style: "font-weight: 100;"} Billing Details
+#billing_details
+  = render 'billing_details'
+- unless @charges.nil?
+  .row
+    .col-xs-12
+      %h3{style: "margin-top: 0; font-weight: 100;"} Payment History
+      - if @charges.count == 0
+        .well No Payments
+      - else
+        %table#payments.table.table-condensed
+          - @charges.each do |charge|
+            %tr
+              %td= image_tag "cards/#{charge.card.type}.png"
+              %td= Time.at(charge.created).to_datetime.strftime("%b %d, %Y")
+              %td= number_to_currency(charge.amount.to_f/100)

@@ -26,10 +26,15 @@ class Subscription < ActiveRecord::Base
 
   def update_stripe
     customer = self.stripe_customer
+    if company.stripe_card_token.present?
+      customer.card = company.stripe_card_token
+    end
     customer.email = email
     customer.description = name
     customer.update_subscription(plan: plan.name)
     customer.save
+    self.last_4_digits = customer.active_card.last4
+    self.stripe_customer_token = customer.id
   rescue Stripe::StripeError => e
     logger.error "Stripe Error: " + e.message
     errors.add :base, "Unable to update your subscription. #{e.message}."

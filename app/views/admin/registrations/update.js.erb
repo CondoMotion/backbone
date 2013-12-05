@@ -1,15 +1,8 @@
-if($(".tab-pane#profile").hasClass("active")) {
-  $("#profile_form").html("<%= j render 'profile_form' %>");
-}
-if($(".tab-pane#password").hasClass("active")) {
-  $("#password_form").html("<%= j render 'password_form' %>");
-}
-if($(".tab-pane#company").hasClass("active")) {
-  $("#company_form").html("<%= j render 'company_form' %>");
-}
-if($(".tab-pane#subscription").hasClass("active")) {
-  $("#subscription_form").html("<%= j render 'subscription_form' %>");
-}
+$("#<%= @partial %>").html("<%= j render @partial %>");
+
+<% if params[:active_tab] == "card" && !@user.errors.any? %>
+  $("#billing_details").html("<%= j render 'billing_details' %>");
+<% end %>
 
 <% unless @user.errors.any? %>
   $(".tab-pane.active .success").show().delay(3000).fadeOut();

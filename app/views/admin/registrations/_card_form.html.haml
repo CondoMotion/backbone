@@ -1,0 +1,25 @@
+= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "card-form" }, remote: true) do |f|
+  = hidden_field_tag :active_tab, "card"
+  = f.simple_fields_for :company do |cf|
+    = cf.input :stripe_card_token, as: :hidden
+    .well 
+      #stripe_error
+        %noscript JavaScript is not enabled and is required for this form. First enable it in your web browser settings.
+      - if cf.object.stripe_card_token.present?
+        Credit card has been provided.
+      - else
+        .form-group
+          = label_tag :card_number, "Credit Card Number"
+          = text_field_tag :card_number, nil, name: nil, class: "form-control"
+        .row
+          .col-sm-6
+            .form-group
+              = label_tag :card_code, "Security Code on Card (CVV)"
+              = text_field_tag :card_code, nil, name: nil
+          .col-sm-6
+            .form-group
+              = label_tag :card_month, "Card Expiration"
+              = select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"}
+              = select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"}
+
+  = f.button :submit, "Update", class: "btn btn-primary"
