@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131204123420) do
+ActiveRecord::Schema.define(:version => 20131205154241) do
 
   create_table "addresses", :force => true do |t|
     t.string   "address1"
@@ -47,11 +47,13 @@ ActiveRecord::Schema.define(:version => 20131204123420) do
 
   create_table "properties", :force => true do |t|
     t.string   "name"
-    t.string   "subdomain"
     t.string   "signup_password"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.integer  "company_id"
   end
+
+  add_index "properties", ["company_id"], :name => "index_properties_on_company_id"
 
   create_table "subdomains", :force => true do |t|
     t.string   "name"
