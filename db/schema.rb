@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131203203346) do
+ActiveRecord::Schema.define(:version => 20131204123420) do
 
   create_table "addresses", :force => true do |t|
     t.string   "address1"
@@ -43,6 +43,14 @@ ActiveRecord::Schema.define(:version => 20131203203346) do
     t.string   "interval"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "properties", :force => true do |t|
+    t.string   "name"
+    t.string   "subdomain"
+    t.string   "signup_password"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "subdomains", :force => true do |t|
