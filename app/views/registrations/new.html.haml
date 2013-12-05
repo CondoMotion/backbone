@@ -22,7 +22,7 @@
     = cf.simple_fields_for :address do |af|
       = render "addresses/address_fields", f: af
     = cf.input :stripe_card_token, as: :hidden
-    = hidden_field_tag 'user[owned_company_attributes][plan_id]', params[:plan_id]
+    = hidden_field_tag 'user[owned_company_attributes][plan_id]', cf.object.plan_id.present? ? cf.object.plan_id : params[:plan_id]
 
   %h3 Billing Info
   %p You are signing up for the #{@plan.name} billing plan for #{number_to_currency @plan.amount} / month per property billed once per #{@plan.interval}.  All plans include a 30 day free trial and your card will not be charged until the end of your trial.

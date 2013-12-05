@@ -1,5 +1,5 @@
 class RegistrationsController < ApplicationController
-  before_filter :load_plan, only: :new
+  before_filter :load_plan, only: [:new]
 
   def new
     @user = User.new
@@ -11,6 +11,7 @@ class RegistrationsController < ApplicationController
   def create
     @user = User.new(params[:user])
     @company = @user.build_owned_company(params[:user][:owned_company_attributes])
+    @plan = Plan.find_by_name(@company.plan_id)
     @address = @company.build_address(params[:user][:owned_company_attributes][:address_attributes])
     @subdomain = @company.build_subdomain(params[:user][:owned_company_attributes][:subdomain_attributes])
 
