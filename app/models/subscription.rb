@@ -3,7 +3,7 @@ class Subscription < ActiveRecord::Base
   belongs_to :company
   belongs_to :plan
 
-  attr_accessible :email, :last_4_digits, :name, :stripe_customer_token, :plan_id
+  attr_accessible :email, :last_4_digits, :name, :stripe_customer_token, :plan_id, :stripe_card_token
 
   validates_presence_of :name, :email, :plan_id
 
@@ -11,6 +11,10 @@ class Subscription < ActiveRecord::Base
 
   def stripe_customer
     Stripe::Customer.retrieve(stripe_customer_token) unless stripe_customer_token.nil?
+  rescue Stripe::StripeError => e
+    logger.error "Stripe Error: " + e.message
+    errors.add :base, "Unable to load your subscription. #{e.message}."
+    false
   end
 
   def delete_stripe_customer
@@ -24,29 +28,23 @@ class Subscription < ActiveRecord::Base
     false
   end
 
-  def update_stripe_details(customer)
+  def update_stripe(customer, token = nil)
     customer.email = email
     customer.description = name
     customer.update_subscription(plan: plan.name)
+    if token.present?
+      customer.card = token
+      self.last_4_digits = customer.active_card.last4
+      self.stripe_customer_token = customer.id
+      self.stripe_card_token = nil
+    end
     customer.save
+    self.save!
+  rescue Stripe::StripeError => e
+    logger.error "Stripe Error: " + e.message
+    errors.add :base, "Unable to update your subscription. #{e.message}."
+    self.stripe_card_token = nil
+    false
   end
-
-  # def update_stripe
-  #   customer = self.stripe_customer
-  #   customer.card = stripe_card_token if stripe_card_token.present?
-  #   customer.email = email
-  #   customer.description = name
-  #   customer.update_subscription(plan: plan.name)
-  #   customer.save
-  #   last_4_digits = customer.active_card.last4
-  #   stripe_customer_token = customer.id
-  #   stripe_card_token = nil
-  #   save!
-  # rescue Stripe::StripeError => e
-  #   logger.error "Stripe Error: " + e.message
-  #   errors.add :base, "Unable to update your subscription. #{e.message}."
-  #   stripe_card_token = nil
-  #   false
-  # end
 
 end

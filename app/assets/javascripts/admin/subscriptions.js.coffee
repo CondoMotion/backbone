@@ -23,7 +23,7 @@ subscription =
   
   handleStripeResponse: (status, response) ->
     if status == 200
-      $('#admin_user_company_attributes_stripe_card_token').val(response.id)
+      $('#subscription_stripe_card_token').val(response.id)
       $('.card-form').trigger('submit.rails')
     else
       alert = "<div class='alert alert-danger'>" + response.error.message + "</div>"

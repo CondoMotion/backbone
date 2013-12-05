@@ -9,7 +9,7 @@ module Admin
 
       if @subscription.update_attributes(params[:subscription])
         @stripe = @subscription.stripe_customer
-        @subscription.update_stripe_details(@stripe)
+        @subscription.update_stripe(@stripe, @subscription.stripe_card_token)
         respond_to do |format|
           format.js
         end
