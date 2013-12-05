@@ -1,4 +1,5 @@
 class Subscription < ActiveRecord::Base
+  attr_accessor :stripe_card_token
   belongs_to :company
   belongs_to :plan
 
@@ -7,7 +8,6 @@ class Subscription < ActiveRecord::Base
   validates_presence_of :name, :email, :plan_id
 
   before_destroy :delete_stripe_customer
-  before_update :update_stripe
 
   def stripe_customer
     Stripe::Customer.retrieve(stripe_customer_token) unless stripe_customer_token.nil?
@@ -24,21 +24,29 @@ class Subscription < ActiveRecord::Base
     false
   end
 
-  def update_stripe
-    customer = self.stripe_customer
-    if company.stripe_card_token.present?
-      customer.card = company.stripe_card_token
-    end
+  def update_stripe_details(customer)
     customer.email = email
     customer.description = name
     customer.update_subscription(plan: plan.name)
     customer.save
-    self.last_4_digits = customer.active_card.last4
-    self.stripe_customer_token = customer.id
-  rescue Stripe::StripeError => e
-    logger.error "Stripe Error: " + e.message
-    errors.add :base, "Unable to update your subscription. #{e.message}."
-    false
   end
+
+  # def update_stripe
+  #   customer = self.stripe_customer
+  #   customer.card = stripe_card_token if stripe_card_token.present?
+  #   customer.email = email
+  #   customer.description = name
+  #   customer.update_subscription(plan: plan.name)
+  #   customer.save
+  #   last_4_digits = customer.active_card.last4
+  #   stripe_customer_token = customer.id
+  #   stripe_card_token = nil
+  #   save!
+  # rescue Stripe::StripeError => e
+  #   logger.error "Stripe Error: " + e.message
+  #   errors.add :base, "Unable to update your subscription. #{e.message}."
+  #   stripe_card_token = nil
+  #   false
+  # end
 
 end

@@ -1,9 +1,5 @@
 $("#<%= @partial %>").html("<%= j render @partial %>");
 
-<% if params[:active_tab] == "card" && !@user.errors.any? %>
-  $("#billing_details").html("<%= j render 'billing_details' %>");
-<% end %>
-
 <% unless @user.errors.any? %>
   $(".tab-pane.active .success").show().delay(3000).fadeOut();
   $(".user-name").html("<%= j @user.name %> <b class='caret'></b>");

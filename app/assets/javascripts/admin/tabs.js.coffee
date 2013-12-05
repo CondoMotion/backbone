@@ -9,5 +9,5 @@ $ ->
     document.location.hash = $(this).attr('href')
     window.scrollTo(0,0)
 
-  $("body").on 'submit', '.edit_admin_user', ->
+  $("body").on 'submit', '.edit_admin_user, .edit_subscription', ->
     $(this).children('input[type=submit]').attr('disabled', true).val("Updating...")

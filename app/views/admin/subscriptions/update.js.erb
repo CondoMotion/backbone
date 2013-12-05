@@ -1,0 +1,5 @@
+$("#<%= @partial %>").html("<%= j render 'admin/registrations/'+@partial %>");
+
+<% unless @subscription.errors.any? %>
+  $(".tab-pane.active .success").show().delay(3000).fadeOut();
+<% end %>
