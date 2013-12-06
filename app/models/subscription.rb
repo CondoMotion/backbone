@@ -18,6 +18,27 @@ class Subscription < ActiveRecord::Base
     false
   end
 
+  def update_stripe(customer, token = nil)
+    customer.email = email
+    customer.description = name
+    customer.update_subscription(plan: plan.name)
+    if token.present?
+      customer.card = token
+      self.last_4_digits = customer.active_card.last4
+      self.stripe_customer_token = customer.id
+      self.stripe_card_token = nil
+    end
+    customer.save
+    self.save!
+  rescue Stripe::StripeError => e
+    logger.error "Stripe Error: " + e.message
+    errors.add :base, "Unable to update your subscription. #{e.message}."
+    self.stripe_card_token = nil
+    false
+  end
+
+protected
+
   def create_stripe_customer
     customer = Stripe::Customer.create(description: self.name, email: self.email, plan: self.plan.name, card: self.stripe_card_token)
     self.stripe_customer_token = customer.id
@@ -36,25 +57,6 @@ class Subscription < ActiveRecord::Base
   rescue Stripe::StripeError => e
     logger.error "Stripe Error: " + e.message
     errors.add :base, "Unable to cancel your subscription. #{e.message}."
-    false
-  end
-
-  def update_stripe(customer, token = nil)
-    customer.email = email
-    customer.description = name
-    customer.update_subscription(plan: plan.name)
-    if token.present?
-      customer.card = token
-      self.last_4_digits = customer.active_card.last4
-      self.stripe_customer_token = customer.id
-      self.stripe_card_token = nil
-    end
-    customer.save
-    self.save!
-  rescue Stripe::StripeError => e
-    logger.error "Stripe Error: " + e.message
-    errors.add :base, "Unable to update your subscription. #{e.message}."
-    self.stripe_card_token = nil
     false
   end
 

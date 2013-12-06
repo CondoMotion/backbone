@@ -12,6 +12,7 @@ class RegistrationsController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    @user.company = @user.owned_company
     @user.owned_company.subscription.name = @user.name
     @user.owned_company.subscription.email = @user.email
 

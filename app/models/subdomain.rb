@@ -4,7 +4,7 @@ class Subdomain < ActiveRecord::Base
   validates :name, uniqueness: true, presence: true
   before_validation :format_subdomain
 
-private
+protected
   def format_subdomain
     self.name = self.name.parameterize
   end

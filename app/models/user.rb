@@ -19,12 +19,6 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :owned_company, :company
 
   # Callbacks
-  before_create :set_company
-
-  # Callback functions
-  def set_company
-    self.company = self.owned_company if self.owned_company
-  end
 
   # Virtual attributes
   def first_name
@@ -34,4 +28,7 @@ class User < ActiveRecord::Base
   def last_name
     name.split(" ", 2).last
   end
+
+  # Callback functions
+  
 end

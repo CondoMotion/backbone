@@ -17,7 +17,7 @@ class Property < ActiveRecord::Base
   
   # Callbacks
 
-  # Callback function
-
   # Virtual attributes
+
+  # Callback functions
 end

@@ -14,10 +14,10 @@ class Address < ActiveRecord::Base
   
   # Callbacks
 
-  # Callback functions
-
   # Virtual attributes
   def city_state_zip
     city + ", " + state + " " + zip
   end
+
+  # Callback functions
 end

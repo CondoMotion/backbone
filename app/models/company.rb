@@ -22,8 +22,6 @@ class Company < ActiveRecord::Base
   
   # Callbacks
 
-  # Callback function
-
   # Virtual attributes
   def self.current_id=(id)
     Thread.current[:company_id] = id
@@ -38,4 +36,6 @@ class Company < ActiveRecord::Base
       errors.add(:owner_id, "must be a member of this company")
     end
   end
+
+  # Callback functions
 end
