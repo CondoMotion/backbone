@@ -1,6 +1,9 @@
 $("#<%= @partial %>").html("<%= j render @partial %>");
 
 <% unless @user.errors.any? %>
+  <% if params[:active_tab] == 'profile' %>
+    $('#company_form').html("<%= j render 'company_form' %>");
+  <% end %>
   $(".tab-pane.active .success").show().delay(3000).fadeOut();
   $(".user-name").html("<%= j @user.name %> <b class='caret'></b>");
   $(".company-name").text("<%= @user.company.name %>");

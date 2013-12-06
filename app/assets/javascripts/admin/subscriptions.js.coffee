@@ -4,7 +4,6 @@ $ ->
 
 subscription =
   setupForm: ->
-    $('.card-form').submit ->
     $('body').on 'submit', '.card-form', ->
       $('.card-form input[type=submit]').attr('disabled', true).val('Updating...')
       if $('#card_number').length
