@@ -7,8 +7,6 @@ module Admin
 
     def edit
       @subscription = current_company.subscription
-      @stripe = @subscription.stripe_customer
-      # @charges = @stripe.charges
       super
     end
 

@@ -10,6 +10,10 @@ class Subscription < ActiveRecord::Base
   before_create :create_stripe_customer
   before_destroy :delete_stripe_customer
 
+  def quantity
+    1
+  end
+
   def stripe_customer
     Stripe::Customer.retrieve(stripe_customer_token) unless stripe_customer_token.nil?
   rescue Stripe::StripeError => e
@@ -18,17 +22,18 @@ class Subscription < ActiveRecord::Base
     false
   end
 
-  def update_stripe(customer, token = nil)
+  def update_stripe #(customer, token = nil)
+    customer = self.stripe_customer
     customer.email = email
     customer.description = name
     customer.update_subscription(plan: plan.name)
-    if token.present?
-      customer.card = token
-      self.last_4_digits = customer.active_card.last4
-      self.stripe_customer_token = customer.id
-      self.stripe_card_token = nil
+    if self.stripe_card_token.present?
+      customer.card = self.stripe_card_token
     end
     customer.save
+    self.last_4_digits = customer.active_card.last4
+    self.stripe_customer_token = customer.id
+    self.stripe_card_token = nil
     self.save!
   rescue Stripe::StripeError => e
     logger.error "Stripe Error: " + e.message

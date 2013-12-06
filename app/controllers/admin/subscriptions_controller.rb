@@ -5,11 +5,9 @@ module Admin
     def update
       @subscription = current_company.subscription
       @partial = params[:active_tab] + "_form"
-      # @charges = @stripe.charges if params[:active_tab] == "subscription"
 
       if @subscription.update_attributes(params[:subscription])
-        @stripe = @subscription.stripe_customer
-        @subscription.update_stripe(@stripe, @subscription.stripe_card_token)
+        @subscription.update_stripe
         respond_to do |format|
           format.js
         end
