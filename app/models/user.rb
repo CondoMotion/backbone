@@ -23,9 +23,7 @@ class User < ActiveRecord::Base
 
   # Callback functions
   def set_company
-    if self.owned_company
-      self.company = self.owned_company
-    end
+    self.company = self.owned_company if self.owned_company
   end
 
   # Virtual attributes
@@ -35,20 +33,5 @@ class User < ActiveRecord::Base
 
   def last_name
     name.split(" ", 2).last
-  end
-
-  # Stripe
-  def save_with_payment
-    if valid?
-      customer = Stripe::Customer.create(description: name, email: email, plan: self.owned_company.plan_id, card: self.owned_company.stripe_card_token)
-      plan = Plan.find_by_name(self.owned_company.plan_id)
-      subscription = self.owned_company.build_subscription(name: name, email: email, stripe_customer_token: customer.id, last_4_digits: customer.active_card.last4)
-      subscription.plan = plan
-      self.save!
-    end
-  rescue Stripe::InvalidRequestError => e
-    logger.error "Stripe error while creating customer: #{e.message}"
-    errors.add :base, "There was a problem with your credit card."
-    false
   end
 end

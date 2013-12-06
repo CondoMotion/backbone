@@ -7,6 +7,7 @@ class Subscription < ActiveRecord::Base
 
   validates_presence_of :name, :email, :plan_id
 
+  before_create :create_stripe_customer
   before_destroy :delete_stripe_customer
 
   def stripe_customer
@@ -14,6 +15,16 @@ class Subscription < ActiveRecord::Base
   rescue Stripe::StripeError => e
     logger.error "Stripe Error: " + e.message
     errors.add :base, "Unable to load your subscription. #{e.message}."
+    false
+  end
+
+  def create_stripe_customer
+    customer = Stripe::Customer.create(description: self.name, email: self.email, plan: self.plan.name, card: self.stripe_card_token)
+    self.stripe_customer_token = customer.id
+    self.last_4_digits = customer.active_card.last4
+  rescue Stripe::InvalidRequestError => e
+    logger.error "Stripe error while creating customer: #{e.message}"
+    errors.add :base, "There was a problem with your credit card."
     false
   end
 

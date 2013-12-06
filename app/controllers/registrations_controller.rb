@@ -1,21 +1,21 @@
 class RegistrationsController < ApplicationController
-  before_filter :load_plan, only: [:new]
+  before_filter :load_plan, only: :new
 
   def new
     @user = User.new
     @company = @user.build_owned_company
     @address = @company.build_address
     @subdomain = @company.build_subdomain
+    @subscription = @company.build_subscription
+    @subscription.plan = @plan
   end
 
   def create
     @user = User.new(params[:user])
-    @company = @user.build_owned_company(params[:user][:owned_company_attributes])
-    @plan = Plan.find_by_name(@company.plan_id)
-    @address = @company.build_address(params[:user][:owned_company_attributes][:address_attributes])
-    @subdomain = @company.build_subdomain(params[:user][:owned_company_attributes][:subdomain_attributes])
+    @user.owned_company.subscription.name = @user.name
+    @user.owned_company.subscription.email = @user.email
 
-    if @user.save_with_payment
+    if @user.save
       sign_in @user
       redirect_to admin_root_url(subdomain: @user.company.subdomain.name), notice: "Welcome! You have signed up successfully."
     else
