@@ -7,6 +7,7 @@ module Admin
 
     def edit
       @subscription = current_company.subscription
+      current_admin_user.company.build_address unless current_admin_user.company.address.present?
       super
     end
 

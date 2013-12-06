@@ -2,5 +2,6 @@
 = f.input :name
 = f.input :website
 = f.input :phone
+/ - f.object.build_address unless f.object.address.present?
 = f.simple_fields_for :address do |builder|
   = render 'addresses/address_fields', f: builder
