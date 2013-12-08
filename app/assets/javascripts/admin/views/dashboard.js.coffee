@@ -1,11 +1,19 @@
-class CmoBackbone.Views.Dashboard extends Backbone.View
+class Cmo.Views.Dashboard extends Backbone.View
   
   template: JST['dashboard/index']
 
-  variables = {
-    message: "Data from the backbone dashboard view goes here..."
-  }
-
+  events:
+    'click #sidebar-toggle': 'sidebarToggle'
+    
+  initialize:->
+    @render()
+    propertiesView = new Cmo.Views.PropertiesIndex(el: '#propertyList')
+    propertiesForm = new Cmo.Views.PropertiesForm(el: '#propertyForm')
+    
   render: ->
-    $(@el).html(@template(variables))
+    $(@el).html(@template())
     this
+
+  sidebarToggle: (event) ->
+    event.preventDefault()
+    $("#dashboard-wrap").toggleClass("active")

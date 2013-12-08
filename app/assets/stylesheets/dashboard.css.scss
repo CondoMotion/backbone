@@ -1,0 +1,103 @@
+// Style based on:
+// http://startbootstrap.com/templates/simple-sidebar.html
+#dashboard-wrap {
+  padding-left: 200px;
+  transition: all 0.4s ease 0s;
+}
+#sidebar-wrap {
+  margin-left: -200px;
+  left: 200px;
+  width: 200px;
+  background: #f8f8f8;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: all 0.4s ease 0s;
+  border-right:1px solid #e4e4e4;
+
+  h2{
+    font-size:11px;
+    color:#aaa;
+    padding-left:20px;
+    color: #aaa;
+    text-transform: uppercase;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    font-weight: bold;
+  }
+  .btn{
+    margin:20px;
+  }
+}
+
+#main-content {
+  padding:5px;
+  width: 100%;
+  .inner{
+    padding:20px;
+  }
+}
+
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 200px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    line-height: 40px;
+    text-indent: 20px;
+    a {
+      color: #777;
+      display: block;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #000;
+      background: #eee;
+      text-decoration: none;
+    }
+    a:active, a:focus{
+      text-decoration: none;
+    }
+  }
+  .active{
+    a{
+      background:#eee;
+      color:#000;
+    }
+  }
+}
+
+/* show / hide sidebar-toggle button depending on browser width */
+#sidebar-toggle {
+  display: none;
+}
+
+@media (max-width:767px) {
+
+  #dashboard-wrap {
+    padding-left: 0;
+  }
+
+  #sidebar-wrap {
+    left: 0;
+  }
+
+  #dashboard-wrap.active {
+    position: relative;
+    left: 200px;
+
+    #sidebar-wrap {
+      left: 200px;
+      width: 200px;
+      transition: all 0.4s ease 0s;
+    }
+  }
+
+  #sidebar-toggle {
+    display: inline-block;
+  }
+}

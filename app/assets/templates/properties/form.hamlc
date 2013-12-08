@@ -1,0 +1,24 @@
+.modal.fade#propertyModal
+  .modal-dialog
+    .modal-content
+
+      .modal-header
+        %button.close{:type=>"button", :data-dismiss=>"modal", :aria-hidden=>"true"}
+          &times
+        %h4.modal-title Add a property
+
+      .modal-body
+        %form{:role=>"form"}
+          .form-group
+            %label{:for=>"propertyName"}Propery Name
+            %input.form-control#propertyName{:type=>"email"}
+
+          .form-group
+            %label{:for=>"signupPassword"}Signup Password
+            %input.form-control#signupPassword{:type=>"email"}
+
+      .modal-footer
+        %button.btn.btn-default{:type=>"button", :data-dismiss=>"modal"}
+          Close
+        %button.btn.btn-primary{:type=>"button"}
+          Submit

@@ -1,7 +1,10 @@
-class CmoBackbone.Router extends Backbone.Router
+class Cmo.Router extends Backbone.Router
   routes: 
-    '': 'dashboard'
-
+    ''               :   'dashboard'
+    'properties'     :   'dashboard'
+    'properties/new' :   'newProperty'
+    
   dashboard: ->
-    view = new CmoBackbone.Views.Dashboard
-    $("#dashboard").html(view.render().el)
+
+  newProperty: ->
+    $('#propertyModal').modal('show')

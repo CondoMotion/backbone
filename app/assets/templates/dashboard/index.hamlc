@@ -1,3 +1,14 @@
-.container
-  %h2 Dashboard Backbone Template
-  = @message
+#dashboard-wrap
+  #sidebar-wrap
+    %ul.sidebar-nav
+      %h2 Properties
+      #propertyList
+
+  #main-content
+    %a#sidebar-toggle.btn.btn-default{:href=>"#"} 
+      %i.icon-reorder
+
+    .inner
+      Main content
+
+#propertyForm

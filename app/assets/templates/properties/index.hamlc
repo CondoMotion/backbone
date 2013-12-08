@@ -1,0 +1,10 @@
+%li.active
+  %a{:href=>"#"} Redstone Court
+%li 
+  %a{:href=>"#"} Clarendon Hill
+  
+#addProperty.btn.btn-default{:type=>"button"}
+  %span.glyphicon.glyphicon-plus
+  Add Property
+
+
