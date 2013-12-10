@@ -10,5 +10,5 @@ $ ->
     window.scrollTo(0,0)
 
   $("body").on 'submit', '.edit_admin_user, .edit_subscription', ->
-    $(this).children('.loading').show()
+    $(this).children('.loading').removeClass('hide')
     $(this).children('input[type=submit]').attr('disabled', true).val("Updating...")

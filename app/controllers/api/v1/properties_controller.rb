@@ -1,18 +1,29 @@
 module Api
   module V1
-    class PropertiesController < ApplicationController
+    class PropertiesController < BaseController
       respond_to :json
       
       def index
-        respond_with Property.all
+        render json: Property.all
       end
       
       def show
-        respond_with Property.find(params[:id])
+        @property = Property.find(params[:id])
+        respond_to do |format|
+          format.json { render json: @property, root: false }
+        end
       end
       
       def create
-        respond_with Property.create(params[:property])
+        @property = Property.new(params[:property])
+
+        if @property.save
+          respond_to do |format|
+            format.json { render json: @property }
+          end
+        else
+          respond_with Property.create(params[:property])
+        end
       end
       
       def update
@@ -22,7 +33,6 @@ module Api
       def destroy
         respond_with Property.destroy(params[:id])
       end
-
     end
   end
 end

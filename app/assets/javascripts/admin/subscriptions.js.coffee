@@ -5,6 +5,7 @@ $ ->
 subscription =
   setupForm: ->
     $('body').on 'submit', '.card-form', ->
+      $('.card-form .loading').removeClass('hide')
       $('.card-form input[type=submit]').attr('disabled', true).val('Updating...')
       if $('#card_number').length
         subscription.processCard()
@@ -28,4 +29,5 @@ subscription =
       alert = "<div class='alert alert-danger'>" + response.error.message + "</div>"
       $('#stripe_error').html(alert)
       $(".alert-danger").delay(3000).fadeOut()
+      $('.card-form .loading').addClass('hide')
       $('.card-form input[type=submit]').attr('disabled', false).val('Update')
