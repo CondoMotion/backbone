@@ -8,6 +8,10 @@ class Cmo.Views.PropertiesForm extends Backbone.View
   initialize: ->
     @render()
 
+    # respond to modal closing
+    $('#propertyModal').on 'hidden.bs.modal', (e) ->
+      Backbone.history.navigate('')
+      
   render: ->
     $(@el).html(@template())
     this
