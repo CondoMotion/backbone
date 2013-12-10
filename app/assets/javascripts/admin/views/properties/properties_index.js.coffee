@@ -6,12 +6,13 @@ class Cmo.Views.PropertiesIndex extends Backbone.View
     'click #addProperty':    'addProperty'
 
   initialize: ->
+    @listenTo(@collection, 'reset change', @render)
     @render()
 
 
   render: ->
     console.log('rendering properties index')
-    $(@el).html(@template())
+    $(@el).html(@template(properties: @collection))
     this
 
   addProperty: (event) ->

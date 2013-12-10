@@ -8,6 +8,7 @@
         %h4.modal-title Add a property
 
       .modal-body
+
         %form{:role=>"form"}
           .form-group
             %label{:for=>"propertyName"}Propery Name
@@ -20,5 +21,5 @@
       .modal-footer
         %button.btn.btn-default{:type=>"button", :data-dismiss=>"modal"}
           Close
-        %button.btn.btn-primary{:type=>"button"}
+        %button#propertySubmit.btn.btn-primary{:type=>"button"}
           Submit

@@ -7,9 +7,13 @@ class Cmo.Views.Dashboard extends Backbone.View
     
   initialize:->
     @render()
-    propertiesView = new Cmo.Views.PropertiesIndex(el: '#propertyList')
-    propertiesForm = new Cmo.Views.PropertiesForm(el: '#propertyForm')
+
+    properties = new Cmo.Collections.Properties()
+    properties.fetch({reset:true})
     
+    propertiesView = new Cmo.Views.PropertiesIndex(el: '#propertyList', collection: properties)
+    propertiesForm = new Cmo.Views.PropertiesForm (el: '#propertyForm', collection: properties)
+        
   render: ->
     $(@el).html(@template())
     this
