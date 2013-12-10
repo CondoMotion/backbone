@@ -13,6 +13,7 @@ class Company < ActiveRecord::Base
 
   # Validations
   validates_presence_of :name
+  validates_presence_of :owner_id, on: :update
   validate :owner_must_be_company_manager, on: :update
   
   # Nested attributes

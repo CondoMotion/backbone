@@ -4,7 +4,7 @@ class RegistrationsController < ApplicationController
   def new
     @user = User.new
     @company = @user.build_owned_company
-    @address = @company.build_address
+    # @address = @company.build_address
     @subdomain = @company.build_subdomain
     @subscription = @company.build_subscription
     @subscription.plan = @plan

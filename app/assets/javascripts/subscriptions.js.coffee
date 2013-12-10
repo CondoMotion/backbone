@@ -4,8 +4,8 @@ jQuery ->
 
 subscription =
   setupForm: ->
-    $('.card-form').submit ->
-      $('input[type=submit]').attr('disabled', true)
+    $('body').on 'submit', '.card-form', ->
+      $('.card-form input[type=submit]').attr('disabled', true)
       if $('#card_number').length
         subscription.processCard()
         false
@@ -27,4 +27,5 @@ subscription =
     else
       alert = "<div class='alert alert-danger'>" + response.error.message + "</div>"
       $('#stripe_error').html(alert)
+      $(".alert-danger").delay(3000).fadeOut()
       $('input[type=submit]').attr('disabled', false)
