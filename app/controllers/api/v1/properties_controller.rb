@@ -4,13 +4,13 @@ module Api
       respond_to :json
       
       def index
-        render json: Property.all, root: false
+        render json: Property.all
       end
       
       def show
         @property = Property.find(params[:id])
         respond_to do |format|
-          format.json { render json: @property, root: false }
+          format.json { render json: @property }
         end
       end
       
