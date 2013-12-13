@@ -1,1 +1,0 @@
-class Cmo.Models.Property extends Backbone.Model

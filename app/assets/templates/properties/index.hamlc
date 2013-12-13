@@ -1,9 +1,0 @@
-- for property in @properties.models
-  %li.active
-    %a{:href=>"#"}= property.get('name')
-
-  
-#addProperty.btn.btn-default{:type=>"button"}
-  %span.glyphicon.glyphicon-plus
-  Add Property
-

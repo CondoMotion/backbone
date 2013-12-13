@@ -9,8 +9,8 @@
     = csrf_meta_tags
   %body
     = render "navigation"
+    = render "messages"
     .container
-      = render "messages"
       = yield
     = yield(:scripts)
     = javascript_include_tag "application"\

@@ -17,9 +17,13 @@
 //= require hamlcoffee
 //= require underscore
 //= require backbone
+//= require backbone.marionette
+//= require backbone.syphon
+//= require js-routes
+//= require_tree ./config
 //= require_directory .
-//= require_tree ../../templates
-//= require_tree ./models
-//= require_tree ./collections
+//= require_tree ./controllers
 //= require_tree ./views
-//= require_tree ./routers
+//= require_tree ./entities
+//= require_tree ./components
+//= require_tree ./apps

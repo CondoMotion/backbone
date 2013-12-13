@@ -4,7 +4,7 @@ module Api
       respond_to :json
       
       def index
-        render json: Property.all
+        render json: Property.all, root: false
       end
       
       def show

@@ -9,8 +9,7 @@
     = yield(:scripts)
     = javascript_include_tag "admin/dashboard.js"
     = csrf_meta_tags
-  %body
-    = render "admin/navigation"
-    .container
-      = render "messages"
+  %body{class: "#{params[:controller]} #{params[:action]}"}
+    / = render "admin/navigation"
+    / = render "messages"
     = yield
