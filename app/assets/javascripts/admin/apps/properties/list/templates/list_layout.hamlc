@@ -1,3 +1,6 @@
 %h3 Properties
 
+.well
+  #panel-region
+  #new-region
 #properties-region

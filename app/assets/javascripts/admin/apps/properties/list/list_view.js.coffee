@@ -10,17 +10,22 @@
 
     regions:
       propertiesRegion: "#properties-region"
+      panelRegion: "#panel-region"
+      newRegion: "#new-region"
+
+  class List.Panel extends App.Views.ItemView
+    template: "properties/list/panel"
+
+    triggers:
+      "click #new-property": "new:property:button:clicked"
 
   class List.Property extends App.Views.ItemView
     template: "properties/list/property"
     tagName: "li"
     className: "property"
 
-    events:
-      "click": -> @trigger "properties:property:clicked", @model
-    
     triggers:
-      "click": "properties:property:clicked"
+      "click": "click:property"
 
   class List.Empty extends App.Views.ItemView
     template: "properties/list/empty"

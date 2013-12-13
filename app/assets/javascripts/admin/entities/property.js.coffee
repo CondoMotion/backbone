@@ -11,12 +11,16 @@
   
   API =
     getProperties: ->
-      console.log "Getting properties"
       properties = new Entities.PropertyCollection
       properties.fetch
         reset: true
-      console.log properties
       properties
+
+    newProperty: ->
+      new Entities.Property
   
   App.reqres.setHandler "property:entities", ->
     API.getProperties()
+
+  App.reqres.setHandler "new:property:entity", ->
+    API.newProperty()

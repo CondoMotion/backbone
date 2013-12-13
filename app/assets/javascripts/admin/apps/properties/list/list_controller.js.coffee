@@ -12,17 +12,29 @@
 
         @listenTo @layout, "show", =>
           @propertiesRegion properties
+          @panelRegion()
 
         @show @layout
 
     onClose: ->
       console.info "closing controller!"
 
+    panelRegion: ->
+      panelView = @getPanelView()
+
+      panelView.on "new:property:button:clicked", =>
+        @newRegion()
+
+      @layout.panelRegion.show panelView
+
+    newRegion: ->
+      App.execute "new:property", @layout.newRegion
+
     propertiesRegion: (properties)->
       propertiesView = @getPropertiesView properties
 
-      @listenTo propertiesView, "childview:properties:property:clicked", (child, args) ->
-        alert "Clicked a property"
+      propertiesView.on "childview:click:property", (iv, property) ->
+        console.log "Clicked on property"
 
       @layout.propertiesRegion.show propertiesView
 
@@ -32,3 +44,6 @@
     getPropertiesView: (properties)->
       new List.Properties
         collection: properties
+
+    getPanelView: ->
+      new List.Panel
