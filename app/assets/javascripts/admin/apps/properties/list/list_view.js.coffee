@@ -25,11 +25,12 @@
     className: "property"
 
     triggers:
-      "click": "click:property"
+      "click .delete-property": "delete:property:link:clicked"
 
   class List.Empty extends App.Views.ItemView
     template: "properties/list/empty"
     tagName: "li"
+    className: "empty"
 
   class List.Properties extends App.Views.CompositeView
     template: "properties/list/properties"

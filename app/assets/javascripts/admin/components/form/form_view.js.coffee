@@ -11,7 +11,7 @@
       formContentRegion: "#form-content-region"
 
     ui:
-      buttonContainer: "ul.inline-list"
+      buttonContainer: "#buttons"
 
     triggers:
       "submit": "form:submit"

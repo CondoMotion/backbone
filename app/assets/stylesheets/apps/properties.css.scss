@@ -9,3 +9,15 @@ ul.properties {
     }
   }
 }
+li.empty {
+  list-style: none;
+  padding: 50px 0;
+  cursor: default;
+  text-align: center;
+  font-size: 45px;
+  font-weight: bold;
+  background: #F5F5F5;
+  color: darken(#F5F5F5, 15%);
+  border: 1px solid #E3E3E3;
+  @include border-radius(5px);
+}

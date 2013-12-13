@@ -1,1 +1,3 @@
 = @name
+.pull-right
+  %a{href: "#", class: "delete-property"} Delete

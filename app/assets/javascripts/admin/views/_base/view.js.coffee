@@ -22,7 +22,7 @@
 				
 				wrapper = @$el.toggleWrapper
 					className: "opacity"
-					backgroundColor: "red"
+					backgroundColor: "#069"
 				
 				wrapper.fadeOut 400, ->
 					$(@).remove()

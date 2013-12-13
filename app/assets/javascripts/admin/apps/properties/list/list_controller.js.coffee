@@ -33,8 +33,9 @@
     propertiesRegion: (properties)->
       propertiesView = @getPropertiesView properties
 
-      propertiesView.on "childview:click:property", (iv, property) ->
-        console.log "Clicked on property"
+      @listenTo propertiesView, "childview:delete:property:link:clicked", (child, args) ->
+        model = args.model
+        if confirm "Are you sure you want to delete #{model.get("name")}?" then model.destroy() else false
 
       @layout.propertiesRegion.show propertiesView
 

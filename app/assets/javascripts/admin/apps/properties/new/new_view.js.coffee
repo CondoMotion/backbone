@@ -2,3 +2,7 @@
 
   class New.Property extends App.Views.ItemView
     template: "properties/new/new_property"
+
+    form:
+      buttons:
+        placement: 'pull-right'
