@@ -48,7 +48,7 @@
         if _.isEmpty(errors) then @removeErrors() else @addErrors errors
 
     removeErrors: ->
-      @$('.error').removeClass('error').find("small").remove()
+      @$('.has-error').removeClass('has-error').find(".help-block").remove()
 
     addErrors: (errors = {}) ->
       for name, array of errors
@@ -56,8 +56,8 @@
 
     addError: (name, error) ->
       el=@$("[name='#{name}']")
-      sm = $("<small>").text(error)
-      el.after(sm).closest(".row").addClass("error")
+      sm = $("<span class='help-block'>").text(error)
+      el.after(sm).closest(".form-group").addClass("has-error")
 
     syncStart: (model) ->
       @addOpacityWrapper() if @config.syncing

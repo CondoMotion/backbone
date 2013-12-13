@@ -2,11 +2,11 @@
   .row
     .col-sm-12
       .form-group
-        %label What's the property's name?
-        %input{type: "text", name: "name", placeholder: "Property Name", class: "form-control"}
+        %label.control-label What's the property's name?
+        %input.form-control{type: "text", name: "name", placeholder: "Property Name"}
       .form-group
-        %label What's the property's signup password?
-        %input{type: "text", name: "signup_password", placeholder: "Signup Password", class: "form-control"}
+        %label.control-label What's the property's signup password?
+        %input.form-control{type: "text", name: "signup_password", placeholder: "Signup Password"}
       .form-group
-        %label What's the property's subdomain?
-        %input{type: "text", name: "subdomain_attributes[name]", placeholder: "Subdomain", class: "form-control"}
+        %label.control-label What's the property's subdomain?
+        %input.form-control{type: "text", name: "subdomain_attributes[name]", placeholder: "Subdomain"}
