@@ -1,10 +1,5 @@
 @Cmo.module "PropertiesApp.List", (List, App, Backbone, Marionette, $, _) ->
 
-  # class List.Properties extends App.Views.CompositeView
-  #   template: "properties/list/templates/list_layout"
-  #   collection: properties
-  #   childViewCont
-
   class List.Layout extends App.Views.Layout
     template: "properties/list/list_layout"
 
@@ -24,8 +19,12 @@
     tagName: "li"
     className: "property"
 
+    events:
+      "click": -> @trigger "property:clicked", @model
+    
     triggers:
       "click .delete-property": "delete:property:link:clicked"
+      "click"                 : "property:clicked"
 
   class List.Empty extends App.Views.ItemView
     template: "properties/list/empty"

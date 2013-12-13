@@ -2,6 +2,7 @@
 
   class PropertiesApp.Router extends Marionette.AppRouter
     appRoutes:
+      "properties/:id/edit" : "edit"
       "properties"          : "list"
 
   API =
@@ -12,11 +13,20 @@
       new PropertiesApp.New.Controller
         region: region
 
+    edit: (id, property) ->
+      new PropertiesApp.Edit.Controller
+        id: id
+        property: property
+
   App.vent.on "property:created", (property) ->
     App.navigate "properties"
     API.list()
 
-  App.vent.on "form:cancelled", (property) ->
+  App.vent.on "property:clicked", (property) ->
+    App.navigate "properties/#{property.id}/edit"
+    API.edit property.id, property
+
+  App.vent.on "form:cancelled property:cancelled property:updated", (property) ->
     App.navigate "properties"
     API.list()
 

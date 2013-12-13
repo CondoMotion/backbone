@@ -16,18 +16,26 @@ module Api
       
       def create
         @property = Property.new(params[:property])
-
-        if @property.save
-          respond_to do |format|
+        
+        respond_to do |format|
+          if @property.save
             format.json { render json: @property }
+          else
+            format.json { respond_with Property.create(params[:property]) }
           end
-        else
-          respond_with Property.create(params[:property])
         end
       end
-      
+
       def update
-        respond_with Property.update(params[:id], params[:properties])
+        @property = Property.find(params[:id])
+
+        respond_to do |format|
+          if @property.update_attributes(params[:property])
+            format.json { render json: @property }
+          else
+            format.json { render json: @property.errors, root: "errors", status: :unprocessable_entity }
+          end
+        end
       end
       
       def destroy

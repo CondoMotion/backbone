@@ -13,7 +13,6 @@
         { name: "Documents", url: "#/documents" }
         { name: "Properties", url: "#/properties" }
         { name: "Users", url: "#/users" }
-        { name: "Monkey Dogs", url: "#/users" }
       ]
   
   App.reqres.setHandler "menu:entities", ->

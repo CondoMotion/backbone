@@ -16,11 +16,20 @@
         reset: true
       properties
 
+    getProperty: (id) ->
+      property = new Entities.Property
+        id: id
+      property.fetch()
+      property
+
     newProperty: ->
       new Entities.Property
   
   App.reqres.setHandler "property:entities", ->
     API.getProperties()
+
+  App.reqres.setHandler "property:entity", (id) ->
+    API.getProperty id
 
   App.reqres.setHandler "new:property:entity", ->
     API.newProperty()

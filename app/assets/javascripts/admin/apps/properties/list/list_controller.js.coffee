@@ -33,6 +33,9 @@
     propertiesRegion: (properties)->
       propertiesView = @getPropertiesView properties
 
+      @listenTo propertiesView, "childview:property:clicked", (child, args) ->
+        App.vent.trigger "property:clicked", args.model
+
       @listenTo propertiesView, "childview:delete:property:link:clicked", (child, args) ->
         model = args.model
         if confirm "Are you sure you want to delete #{model.get("name")}?" then model.destroy() else false
