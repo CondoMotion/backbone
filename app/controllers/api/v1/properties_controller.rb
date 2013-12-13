@@ -21,7 +21,7 @@ module Api
           if @property.save
             format.json { render json: @property }
           else
-            format.json { respond_with Property.create(params[:property]) }
+            format.json { render json: { errors: @property.errors }, :status => 422 }
           end
         end
       end
@@ -33,7 +33,7 @@ module Api
           if @property.update_attributes(params[:property])
             format.json { render json: @property }
           else
-            format.json { render json: @property.errors, root: "errors", status: :unprocessable_entity }
+            format.json { render json: { errors: @property.errors }, :status => 422 }
           end
         end
       end
