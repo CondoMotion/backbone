@@ -6,6 +6,8 @@
       properties = App.request "property:entities"
 
       App.execute "when:fetched", properties, =>
+        # properties.comparator = "id"
+        # properties.sort()
         @layout = @getLayoutView()
 
         @listenTo @layout, "close", @close

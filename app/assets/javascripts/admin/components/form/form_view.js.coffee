@@ -51,6 +51,7 @@
       @$('.has-error').removeClass('has-error').find(".help-block").remove()
 
     addErrors: (errors = {}) ->
+      console.log errors
       for name, array of errors
         @addError name, array[0]
 

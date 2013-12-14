@@ -4,7 +4,7 @@ module Api
       respond_to :json
       
       def index
-        render json: Property.all
+        render json: Property.order("name ASC")
       end
       
       def show

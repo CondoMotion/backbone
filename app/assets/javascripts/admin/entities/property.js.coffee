@@ -5,6 +5,8 @@
   
   class Entities.PropertyCollection extends Entities.Collection
     model: Entities.Property
+    # comparator: (model) ->
+    #   model.get("name")
 
     url: ->
       Routes.api_v1_properties_path()
