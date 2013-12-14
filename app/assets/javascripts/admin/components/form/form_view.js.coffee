@@ -20,7 +20,7 @@
     modelEvents:
       "change:_errors": "changeErrors"
       "sync:start"    : "syncStart"
-      "sync:complete"     : "syncStop"
+      "sync:complete" : "syncStop"
 
     initialize: ->
       @setInstancePropertiesFor "config", "buttons"
@@ -56,7 +56,8 @@
         @addError name, array[0]
 
     addError: (name, error) ->
-      el=@$("[name='#{name}']")
+      modName = name.replace(".", "_")
+      el=@$("##{modName}")
       sm = $("<span class='help-block'>").text(error)
       el.after(sm).closest(".form-group").addClass("has-error")
 
