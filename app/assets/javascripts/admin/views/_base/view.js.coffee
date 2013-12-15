@@ -17,8 +17,9 @@
     #Overrides default view remove method
 		remove: (args...) ->
 			console.log "removing", @
+
       # if the view has a model and is destroyed
-			if @model?.isDestroyed?()
+			if @model?.isDestroyed?() && @opacity == "true"
 				
 				wrapper = @$el.toggleWrapper
 					className: "opacity"

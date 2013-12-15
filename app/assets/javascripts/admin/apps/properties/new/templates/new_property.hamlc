@@ -1,4 +1,5 @@
 #new-property
+  %h3 New Property
   .row
     .col-sm-12
       .form-group

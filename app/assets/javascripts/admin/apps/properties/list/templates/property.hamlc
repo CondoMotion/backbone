@@ -1,3 +1,5 @@
 = @name
 .pull-right
-  %a{href: "#", class: "delete-property"} Delete
+  %a{href: "#", class: "delete-property btn btn-default btn-xs"} 
+    %span.glyphicon.glyphicon-remove-sign
+    Delete

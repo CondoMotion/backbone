@@ -4,13 +4,13 @@
 
     initialize: (options={}) ->
       {property, id} = options
-      console.log "Requesting properties"
-      console.log id
-      console.log property
       property or= App.request "property:entity", id
 
       @listenTo property, "updated", ->
         App.vent.trigger "property:updated", property
+
+      @listenTo property, "destroy", ->
+        App.vent.trigger "property:destroyed"
 
       App.execute "when:fetched", property, =>
         @layout = @getLayoutView property

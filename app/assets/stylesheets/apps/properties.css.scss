@@ -4,10 +4,11 @@ ul.properties {
     padding: 30px 20px;
     list-style: none;
     cursor: pointer;
-    border-top: 1px dashed #ccc;
+    border-top: 1px dotted #ccc;
     border-left: 3px solid transparent;
     .delete-property {
       display: none;
+      color: #C00000;
     }
     &:hover {
       background: #E3F4F9;
@@ -29,8 +30,4 @@ li.empty {
   color: darken(#F5F5F5, 15%);
   border: 1px solid #E3E3E3;
   @include border-radius(5px);
-}
-
-#new-property {
-  padding-top: 10px;
 }

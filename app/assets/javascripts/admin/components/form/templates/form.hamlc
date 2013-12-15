@@ -1,0 +1,9 @@
+- console.info "form options", @
+#form-content-region
+- if @footer
+  %footer
+    - if @buttons
+      #buttons
+        - for button in @buttons
+          %button{class: button.className, "data-form-button" => button.type, type: button.buttonType}= button.text
+      .clearfix

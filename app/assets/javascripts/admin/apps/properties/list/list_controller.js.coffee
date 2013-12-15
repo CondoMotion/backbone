@@ -15,11 +15,16 @@
         @listenTo @layout, "show", =>
           @propertiesRegion properties
           @panelRegion()
+          @paneRegion()
 
         @show @layout
 
     onClose: ->
       console.info "closing controller!"
+
+    paneRegion: ->
+      paneView = @getPaneView()
+      App.paneRegion.show paneView
 
     panelRegion: ->
       panelView = @getPanelView()
@@ -30,7 +35,7 @@
       @layout.panelRegion.show panelView
 
     newRegion: ->
-      App.execute "new:property", @layout.newRegion
+      App.execute "new:property"
 
     propertiesRegion: (properties)->
       propertiesView = @getPropertiesView properties
@@ -40,7 +45,10 @@
 
       @listenTo propertiesView, "childview:delete:property:link:clicked", (child, args) ->
         model = args.model
-        if confirm "Are you sure you want to delete #{model.get("name")}?" then model.destroy() else false
+        if confirm "Are you sure you want to delete #{model.get("name")}?"
+          model.destroy()
+        else 
+          false
 
       @layout.propertiesRegion.show propertiesView
 
@@ -53,3 +61,6 @@
 
     getPanelView: ->
       new List.Panel
+
+    getPaneView: ->
+      new List.Pane

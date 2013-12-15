@@ -4,6 +4,7 @@
   App.addRegions
     menuRegion:   "#menu-region"
     mainRegion:   "#main-region"
+    paneRegion:   "#pane-region"
 
   App.addInitializer ->
     App.module("MenuApp").start()
