@@ -12,13 +12,13 @@
       new PropertiesApp.Pane.Controller
         region: App.paneRegion
 
-    new: (showList) ->
-      new PropertiesApp.List.Controller unless showList == "false"
+    new: (noList) ->
+      new PropertiesApp.List.Controller unless noList
       new PropertiesApp.New.Controller
         region: App.paneRegion
 
-    edit: (id, property, showList) ->
-      new PropertiesApp.List.Controller unless showList == "false"
+    edit: (id, property, noList) ->
+      new PropertiesApp.List.Controller unless noList
       new PropertiesApp.Edit.Controller
         region: App.paneRegion
         id: id
@@ -26,11 +26,11 @@
 
   App.vent.on "new:property:button:clicked", ->
     App.navigate "properties/new"
-    API.new "false"
+    API.new(true)
 
   App.vent.on "property:clicked", (property) ->
     App.navigate "properties/#{property.id}/edit"
-    API.edit property.id, property, "false"
+    API.edit property.id, property, true
 
   App.vent.on "form:cancelled property:cancelled property:destroyed create:property:cancelled property:updated property:created", (property) ->
     App.navigate "properties"
