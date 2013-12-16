@@ -30,7 +30,7 @@
       editView = @getEditView property
 
       @listenTo editView, "form:cancel", ->
-        App.vent.trigger "property:cancelled", property
+        App.vent.trigger "edit:property:cancelled", property
 
       formView = App.request "form:wrapper", editView,
         footer: true

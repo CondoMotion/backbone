@@ -25,7 +25,7 @@
       panelView = @getPanelView()
 
       panelView.on "new:property:button:clicked", =>
-        App.vent.trigger "new:property:button:clicked"
+        App.vent.trigger "new:property:button:clicked", true
 
       @layout.panelRegion.show panelView
 
@@ -33,7 +33,7 @@
       propertiesView = @getPropertiesView properties
 
       @listenTo propertiesView, "childview:property:clicked", (child, args) ->
-        App.vent.trigger "property:clicked", args.model
+        App.vent.trigger "property:clicked", args.model, true
 
       @listenTo propertiesView, "childview:delete:property:link:clicked", (child, args) ->
         model = args.model
