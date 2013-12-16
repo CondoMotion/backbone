@@ -29,6 +29,7 @@
 
     onClose: ->
       console.log "onClose", @
+      @formLayout.addOpacityWrapper(false)
 
     formContentRegion: ->
       @region = @formLayout.formContentRegion

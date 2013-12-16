@@ -37,7 +37,6 @@
 
       @layout.formRegion.show formView
 
-
     getLayoutView: (property) ->
       new Edit.Layout
         model: property
