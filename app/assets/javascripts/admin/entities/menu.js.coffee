@@ -8,11 +8,11 @@
   API =
     getMenus: ->
       new Entities.MenuCollection [
-        { name: "Issues", url: "#/issues" }
-        { name: "News", url: "#/news" }
-        { name: "Documents", url: "#/documents" }
-        { name: "Properties", url: "#/properties" }
-        { name: "Users", url: "#/users" }
+        { name: "Issues", url: "/issues" }
+        { name: "News", url: "/news" }
+        { name: "Documents", url: "/documents" }
+        { name: "Properties", url: "/properties" }
+        { name: "Users", url: "/users" }
       ]
   
   App.reqres.setHandler "menu:entities", ->

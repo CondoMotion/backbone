@@ -34,6 +34,12 @@
 				_remove.apply @, args
 	
 		templateHelpers: ->
+
+			currentUser:
+				App.request("get:current:user").toJSON()
+
+			currentCompany:
+				App.request("get:current:company").toJSON()
 			
 			linkTo: (name, url, options = {}) ->
 				_.defaults options,
@@ -41,4 +47,4 @@
 				
 				url = "#" + url unless options.external
 				
-				"<a href='#{url}'>#{@escape(name)}</a>"
+				"<a href='#{url}'>#{name}</a>"

@@ -5,14 +5,14 @@
       %span.icon-bar
       %span.icon-bar
       %span.icon-bar
-    %a.navbar-brand{href: "#"} COMPANY NAME
+    %a.navbar-brand{href: "#"}= @currentCompany.name
   .collapse.navbar-collapse.navbar-ex1-collapse
     %ul.nav.navbar-nav.side-nav#links
     %ul.nav.navbar-nav.navbar-right.navbar-user
       %li.dropdown.user-dropdown
         %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
           %i.fa.fa-user
-          USER NAME
+          = @currentUser.name
           %b.caret
         %ul.dropdown-menu
           %li
