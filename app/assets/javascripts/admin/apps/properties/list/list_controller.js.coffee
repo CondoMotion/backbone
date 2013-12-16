@@ -15,16 +15,11 @@
         @listenTo @layout, "show", =>
           @propertiesRegion properties
           @panelRegion()
-          @paneRegion()
 
         @show @layout
 
     onClose: ->
       console.info "closing controller!"
-
-    paneRegion: ->
-      paneView = @getPaneView()
-      App.paneRegion.show paneView
 
     panelRegion: ->
       panelView = @getPanelView()
@@ -61,6 +56,3 @@
 
     getPanelView: ->
       new List.Panel
-
-    getPaneView: ->
-      new List.Pane

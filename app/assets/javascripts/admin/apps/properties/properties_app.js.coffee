@@ -9,20 +9,20 @@
   API =
     list: ->
       new PropertiesApp.List.Controller
+      new PropertiesApp.Pane.Controller
+        region: App.paneRegion
 
     new: ->
+      new PropertiesApp.List.Controller
       new PropertiesApp.New.Controller
         region: App.paneRegion
 
     edit: (id, property) ->
+      new PropertiesApp.List.Controller
       new PropertiesApp.Edit.Controller
         region: App.paneRegion
         id: id
         property: property
-
-  # App.vent.on "property:created", (property) ->
-  #   App.navigate "properties"
-  #   API.list()
 
   App.vent.on "property:clicked", (property) ->
     App.navigate "properties/#{property.id}/edit"

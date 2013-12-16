@@ -8,9 +8,6 @@
       panelRegion: "#panel-region"
       newRegion: "#new-region"
 
-  class List.Pane extends App.Views.ItemView
-    template: "properties/list/pane"
-
   class List.Panel extends App.Views.ItemView
     template: "properties/list/panel"
 
