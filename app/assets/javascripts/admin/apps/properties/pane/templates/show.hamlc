@@ -1,2 +1,2 @@
 .well.center
-  %a.btn.btn-primary{href: "#/properties/new"} New Property
+  %a.btn.btn-primary.new-property{href: "#"} New Property

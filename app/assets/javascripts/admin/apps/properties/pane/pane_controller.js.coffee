@@ -3,6 +3,10 @@
   class Pane.Controller extends App.Controllers.Base
     initialize: (options)->
       paneView = @getPaneView()
+
+      paneView.on "new:property:button:clicked", =>
+        App.vent.trigger "new:property:button:clicked"
+        
       @show paneView
 
     getPaneView: ->

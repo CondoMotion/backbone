@@ -13,6 +13,7 @@
   
   API =
     getProperties: ->
+      console.log "Getting Properties"
       properties = new Entities.PropertyCollection
       properties.fetch
         reset: true

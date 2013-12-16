@@ -25,12 +25,9 @@
       panelView = @getPanelView()
 
       panelView.on "new:property:button:clicked", =>
-        @newRegion()
+        App.vent.trigger "new:property:button:clicked"
 
       @layout.panelRegion.show panelView
-
-    newRegion: ->
-      App.execute "new:property"
 
     propertiesRegion: (properties)->
       propertiesView = @getPropertiesView properties
