@@ -5,7 +5,7 @@
       paneView = @getPaneView()
 
       paneView.on "new:property:button:clicked", =>
-        App.vent.trigger "new:property:button:clicked", true
+        App.vent.trigger "new:property:button:clicked"
         
       @show paneView
 

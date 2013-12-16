@@ -2,39 +2,52 @@
 
   class PropertiesApp.Router extends Marionette.AppRouter
     appRoutes:
-      "properties/:id/edit" : "edit"
-      "properties"          : "list"
-      "properties/new"      : "new"
+      "properties"          : "paneList"
+      "properties/new"      : "newList"
+      "properties/:id/edit" : "editList"
 
   API =
     list: ->
       new PropertiesApp.List.Controller
-      new PropertiesApp.Pane.Controller
-        region: App.paneRegion
 
     pane: ->
       new PropertiesApp.Pane.Controller
         region: App.paneRegion
 
-    new: (noList) ->
-      new PropertiesApp.List.Controller unless noList
+    new: ->
       new PropertiesApp.New.Controller
         region: App.paneRegion
 
-    edit: (id, property, noList) ->
-      new PropertiesApp.List.Controller unless noList
+    edit: (id, property) ->
       new PropertiesApp.Edit.Controller
         region: App.paneRegion
         id: id
         property: property
 
-  App.vent.on "new:property:button:clicked", (noList) ->
-    App.navigate "properties/new"
-    API.new(noList)
+    paneList: ->
+      new PropertiesApp.List.Controller
+      new PropertiesApp.Pane.Controller
+        region: App.paneRegion
 
-  App.vent.on "property:clicked", (property, noList) ->
+    newList: ->
+      new PropertiesApp.List.Controller
+      new PropertiesApp.New.Controller
+        region: App.paneRegion
+
+    editList: (id, property) ->
+      new PropertiesApp.List.Controller
+      new PropertiesApp.Edit.Controller
+        region: App.paneRegion
+        id: id
+        property: property
+
+  App.vent.on "new:property:button:clicked", ->
+    App.navigate "properties/new"
+    API.new()
+
+  App.vent.on "property:clicked", (property) ->
     App.navigate "properties/#{property.id}/edit"
-    API.edit property.id, property, noList
+    API.edit property.id, property
 
   App.vent.on "edit:property:cancelled create:property:cancelled property:destroyed ", ->
     App.navigate "properties"
@@ -42,7 +55,7 @@
 
   App.vent.on "property:updated property:created", (property) ->
     App.navigate "properties"
-    API.list()
+    API.paneList()
 
   App.addInitializer ->
     new PropertiesApp.Router
