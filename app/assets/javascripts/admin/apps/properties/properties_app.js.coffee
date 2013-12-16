@@ -36,11 +36,11 @@
     App.navigate "properties/#{property.id}/edit"
     API.edit property.id, property, noList
 
-  App.vent.on "edit:property:cancelled create:property:cancelled", ->
+  App.vent.on "edit:property:cancelled create:property:cancelled property:destroyed ", ->
     App.navigate "properties"
     API.pane()
 
-  App.vent.on "property:destroyed property:updated property:created", (property) ->
+  App.vent.on "property:updated property:created", (property) ->
     App.navigate "properties"
     API.list()
 
