@@ -12,16 +12,6 @@
 
       @show listView
 
-    getLinksCollection: ->
-
-      new Backbone.Collection [
-        { name: "Issues" }
-        { name: "Documents" }
-        { name: "News" }
-        { name: "Properties" }
-        { name: "Users" }
-      ]
-
     getListView: (links) ->
       new List.Menus
         collection: links

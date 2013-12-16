@@ -47,4 +47,4 @@
 				
 				url = "#" + url unless options.external
 				
-				"<a href='#{url}'>#{name}</a>"
+				"<a href='" + url + "'>" + escape(name) + "</a>"
