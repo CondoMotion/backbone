@@ -27,7 +27,6 @@ module Api
       end
 
       def update
-        sleep 3
         @property = Property.find(params[:id])
 
         respond_to do |format|
