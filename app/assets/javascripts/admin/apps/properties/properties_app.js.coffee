@@ -53,7 +53,7 @@
     App.navigate "properties"
     API.pane()
 
-  App.vent.on "property:updated property:created", (property) ->
+  App.vent.on "property:created property:updated", (property) ->
     App.navigate "properties"
     API.paneList()
 
