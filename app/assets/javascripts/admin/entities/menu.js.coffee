@@ -11,8 +11,8 @@
         { name: "Issues", url: "/issues" }
         { name: "News", url: "/news" }
         { name: "Documents", url: "/documents" }
-        { name: "Properties", url: "/properties" }
         { name: "Users", url: "/users" }
+        { name: "Properties", url: "/properties" }
       ]
   
   App.reqres.setHandler "menu:entities", ->

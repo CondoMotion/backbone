@@ -1,3 +1,4 @@
 %h3.pull-left.margin-0{style: "margin-top: 3px;"} Properties
 %a.btn.btn-success.pull-right.new-property{href: "#"} New Property
 .clearfix
+%input.form-control{type: "search", style: "border-radius: 30px; margin-top: 15px;"}
