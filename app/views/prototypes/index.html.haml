@@ -1,4 +1,4 @@
-%nav.navbar.navbar-static-top.navbar-inverse{role: "navigation"}
+%nav.navbar.navbar-fixed-top.navbar-inverse{role: "navigation"}
   / Brand and toggle get grouped for better mobile display
   .navbar-header
     %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
@@ -9,18 +9,22 @@
     %a.navbar-brand{href: "#"} The Hofeller Company
   / Collect the nav links, forms, and other content for toggling
   #bs-example-navbar-collapse-1.collapse.navbar-collapse
-    %ul.nav.navbar-nav
+    %ul.nav.navbar-nav#main-nav
+      %li
+        %a{href: "#"} Activity
       %li.active
-        %a{href: "#"} Issues
+        %a{href: "#", data: { "button-text" => "Issue"} } 
+          Issues
+          %span.badge.badge-danger= @issues
       %li
-        %a{href: "#"} News
+        %a{href: "#", data: { "button-text" => "News Post"} } News
       %li
-        %a{href: "#"} Documents
+        %a{href: "#", data: { "button-text" => "Document"} } Documents
       %li
-        %a{href: "#"} Users
+        %a{href: "#", data: { "button-text" => "User"} } Users
     %ul.nav.navbar-nav.navbar-right
       %li.dropdown
-        %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+        %a.dropdown-toggle#user-name{"data-toggle" => "dropdown", href: "#"}
           Ed Hofeller
           %b.caret
         %ul.dropdown-menu
@@ -31,20 +35,74 @@
             %a{href: "#"} Sign Out
   / /.navbar-collapse
 
-#properties
-  #search
-    %form.form-inline{role: "form"}
+%section#console
+  %nav#nav
+    %form.nav-search-form.form-inline
       .form-group
-        %label.sr-only{for: "search-properties"} Filter Properties
-        %input#search_properties.form-control{placeholder: "Filter Properties", type: "text"}/
-      %a.btn.btn-default.pull-right#new-property{href: "#"} +
-  %ul
-    %li.active= link_to "All Properties", "#"
-    %hr
-    - (1..5).each do |n|
-      %li= link_to "Property #{n}", "#"
-#main
-  #list
-    list stuff here
-  #show
-    show/edit/create stuff here
+        = text_field_tag :search, "", class: "form-control search-field", placeholder: "Filter Properties"
+      = link_to raw("<i class='glyphicon glyphicon-plus'></i>"), "#", class: "btn btn-default circle", id: "new-property"
+      %ul
+        %li.active= link_to "All Properties", "#"
+    .nav-search-results
+      .scrollable
+        %ul
+          - (1..40).each do |n|
+            %li= link_to raw("Property #{n} <button class='btn btn-default btn-xs pull-right circle'><i class='glyphicon glyphicon-cog'></i></button>"), "#"
+  .issues.content-pane.content-wrapper
+    .console-search
+      %form.console-search-form
+        .form-group
+          = text_field_tag :search, "", class: "form-control search-field", placeholder: "Search"
+        = link_to raw("<i class='glyphicon glyphicon-filter'></i>"), "#", class: "btn btn-default", style: "position: absolute; right: 50px; top: 15px; border: none;"
+        = link_to raw("<i class='glyphicon glyphicon-plus'></i>"), "#", class: "btn btn-default", style: "position: absolute; right: 10px; top: 15px; border: none;"
+      %section.console-search-results
+        .scrollable
+          - @issues.times do
+            .issue.console-search-result-item
+              .subject.preview.line-1
+                Issue Subject
+              .date.muted.lighter
+                Date
+              .preview.line-1
+                Preview of message content. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              .property.label.label-info 
+                Property
+
+          - 4.times do
+            .user.console-search-result-item
+              .pull-left
+                = image_tag "http://placehold.it/60x60", class: "img-circle"
+              %strong.name.preview.line-1
+                User Name
+              .preview.line-1
+                email@example.com
+              .phone
+                555-555-5555
+              .role.label.label-success
+                Manager
+          - 8.times do
+            .user.console-search-result-item
+              .pull-left
+                = image_tag "http://placehold.it/60x60", class: "img-circle"
+              %strong.name.preview.line-1
+                User Name
+              .preview.line-1
+                email@example.com
+              .phone
+                555-555-5555
+              .role.label.label-info
+                Resident
+
+          - 6.times do
+            .news-post.console-search-result-item
+              .subject.preview.line-1
+                News Title
+              .date.muted.lighter
+                Date
+              .preview.line-2
+                Preview of news post content. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    .console-viewport
+      .console-viewport-container
+        .action-pane-container
+          .action-pane
+            %p= link_to "New Issue", "#", class: "btn btn-primary"
