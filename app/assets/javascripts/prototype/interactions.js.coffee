@@ -13,9 +13,11 @@ $ ->
     filter = el.data("listfilter")
     $(".content-pane").first().attr("data-listfilter", filter)
     $(".console-search-result-item").each ->
-      $(this).removeClass("active") 
-    $(".console-viewport").html(empty)
-    $(".action-pane .btn").text("New " + $("#main-nav li.active a").data("button-text"))
+      unless $(this).is(":visible")
+        $(this).removeClass("active")
+    if $(".console-search-result-item.active").length == 0
+      $(".console-viewport").html(empty)
+      $(".action-pane .btn").text("New " + $("#main-nav li.active a").data("button-text"))
 
   $("body").on "click", "#main-nav li a", ->
     resource = $(this).text().toLowerCase()
