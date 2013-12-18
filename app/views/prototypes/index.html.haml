@@ -10,8 +10,8 @@
   / Collect the nav links, forms, and other content for toggling
   #bs-example-navbar-collapse-1.collapse.navbar-collapse
     %ul.nav.navbar-nav#main-nav
-      %li
-        %a{href: "#"} Activity
+      / %li
+      /   %a{href: "#"} Activity
       %li.active
         %a{href: "#", data: { "button-text" => "Issue", "panel-div" => "-issue" } } 
           Issues
@@ -112,42 +112,50 @@
       .scrollable
         .pad-20
           %h3.mt-0 New Issue
+          = link_to "Create", "#", class: "btn btn-primary cancel"
           = link_to "Cancel", "#", class: "btn btn-default cancel"
     #new-news-post{style: "display: none;"}
       .scrollable
         .pad-20
           %h3.mt-0 New News Post
+          = link_to "Create", "#", class: "btn btn-primary cancel"
           = link_to "Cancel", "#", class: "btn btn-default cancel"
     #new-document{style: "display: none;"}
       .scrollable
         .pad-20
           %h3.mt-0 New Document
+          = link_to "Create", "#", class: "btn btn-primary cancel"
           = link_to "Cancel", "#", class: "btn btn-default cancel"
     #new-user{style: "display: none;"}
       .scrollable
         .pad-20
           %h3.mt-0 New User
+          = link_to "Create", "#", class: "btn btn-primary cancel"
           = link_to "Cancel", "#", class: "btn btn-default cancel"
 
     #edit-issue{style: "display: none;"}
       .scrollable
         .pad-20
           %h3.mt-0 Edit Issue
+          = link_to "Update", "#", class: "btn btn-primary cancel"
           = link_to "Cancel", "#", class: "btn btn-default cancel"
     #edit-news-post{style: "display: none;"}
       .scrollable
         .pad-20
           %h3.mt-0 Edit News Post
+          = link_to "Update", "#", class: "btn btn-primary cancel"
           = link_to "Cancel", "#", class: "btn btn-default cancel"
     #edit-document{style: "display: none;"}
       .scrollable
         .pad-20
           %h3.mt-0 Edit Document
+          = link_to "Update", "#", class: "btn btn-primary cancel"
           = link_to "Cancel", "#", class: "btn btn-default cancel"
     #edit-user{style: "display: none;"}
       .scrollable
         .pad-20
           %h3.mt-0 Edit User
+          = link_to "Update", "#", class: "btn btn-primary cancel"
           = link_to "Cancel", "#", class: "btn btn-default cancel"
 
     #empty-issue{style: "display: none;"}
