@@ -20,6 +20,7 @@ end
 group :development do
   gem 'powder'
   gem 'letter_opener'
+  gem 'js-routes'
 end
 
 group :development, :test do 
@@ -40,5 +41,4 @@ gem 'newrelic_rpm'
 gem 'stripe'
 gem 'rack-mini-profiler'
 gem 'active_model_serializers'
-gem 'js-routes'
 gem 'gon'
