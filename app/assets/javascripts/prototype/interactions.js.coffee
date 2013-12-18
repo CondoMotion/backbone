@@ -11,15 +11,21 @@ $ ->
     $(".content-pane").first().attr("data-listfilter", filter)
 
   $("body").on "click", "#main-nav li a", ->
-    $("#main-nav li").removeClass("active")
-    $(this).parents("li").addClass("active")
     resource = $(this).text().toLowerCase()
     $(".content-pane").removeClass("issues").removeClass("news").removeClass("documents").removeClass("users").addClass(resource)
     $(".action-pane .btn").text("New " + $(this).data("button-text"))
+    unless $(this).parents("li").hasClass("active")
+      $(".console-search-result-item").removeClass("active")
+      $("#filter-items").removeClass("btn-danger").addClass("btn-default")
+    $("#main-nav li").removeClass("active")
+    $(this).parents("li").addClass("active")
+
+  $("body").on "click", ".action-pane .btn, #add-item", ->
     $(".console-search-result-item").removeClass("active")
 
-  $("#nav button").click ->
-    alert "Settings for " + $(this).parents("a").text()
+  $("body").on "click", "#filter-items", ->
+    $(this).toggleClass("btn-default").toggleClass("btn-danger")
 
-  $(".action-pane .btn").click ->
-    $('body').prepend($(this).data('test'))
+  $("#nav .property-settings").click ->
+    alert "Settings for " + $(this).parents("a").text()
+    return false

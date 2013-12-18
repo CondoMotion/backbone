@@ -28,7 +28,7 @@ Backbone::Application.routes.draw do
     end
   end
 
-  constraints lambda { |r| !r.subdomain.present? || r.subdomain == 'www' } do
+  constraints lambda { |r| !r.subdomain.present? || r.subdomain == 'www' || r.subdomain = "cmo-backbone" } do
     devise_for :users, controllers: { registrations: :registrations }
     devise_scope :user do
       get 'sign_up/:plan_id', to: 'registrations#new'

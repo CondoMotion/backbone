@@ -47,14 +47,14 @@
       .scrollable
         %ul
           - (1..40).each do |n|
-            %li= link_to raw("Property #{n} <button class='btn btn-default btn-xs pull-right circle'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
+            %li= link_to raw("Property #{n} <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
   .issues.content-pane.content-wrapper{ data: { listfilter: "all" } }
     .console-search
       %form.console-search-form
         .form-group
           = text_field_tag :search, "", class: "form-control search-field", placeholder: "Search"
-        = link_to raw("<i class='glyphicon glyphicon-filter'></i>"), "#", class: "btn btn-default", style: "position: absolute; right: 50px; top: 15px; border: none;"
-        = link_to raw("<i class='glyphicon glyphicon-plus'></i>"), "#", class: "btn btn-default", style: "position: absolute; right: 10px; top: 15px; border: none;"
+        = link_to raw("<i class='glyphicon glyphicon-filter'></i>"), "#", class: "btn btn-default", id: "filter-items"
+        = link_to raw("<i class='glyphicon glyphicon-plus'></i>"), "#", class: "btn btn-default", id: "add-item"
       %section.console-search-results
         .scrollable
           - (1..@issues).each do |n|

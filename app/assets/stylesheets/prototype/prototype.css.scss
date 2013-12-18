@@ -164,6 +164,12 @@ $action-pane-bg: #F9FAFB;
         left: 0;
         right: 90px;
       }
+      #filter-items {
+        position: absolute; right: 50px; top: 15px; border: none;
+      }
+      #add-item {
+        position: absolute; right: 10px; top: 15px; border: none;
+      }
       ul {
         padding: 0;
         li {
