@@ -1,5 +1,16 @@
 Backbone::Application.routes.draw do
 
+  constraints lambda { |r| !r.subdomain.present? || r.subdomain == 'www' || r.subdomain == "cmo-backbone" } do
+    devise_for :users, controllers: { registrations: :registrations }
+    devise_scope :user do
+      get 'sign_up/:plan_id', to: 'registrations#new'
+    end
+    %w[about contact pricing].each do |page|
+      get page, to: "home##{page}", as: page.to_sym
+    end
+    root to: 'home#index'
+  end
+
   constraints lambda { |r| r.subdomain.present? && r.subdomain != 'www' } do
     namespace :admin do
       resources :subscriptions, only: :update
@@ -28,17 +39,6 @@ Backbone::Application.routes.draw do
     end
   end
 
-  constraints lambda { |r| !r.subdomain.present? || r.subdomain == 'www' || r.subdomain == "cmo-backbone" } do
-    devise_for :users, controllers: { registrations: :registrations }
-    devise_scope :user do
-      get 'sign_up/:plan_id', to: 'registrations#new'
-    end
-    %w[about contact pricing].each do |page|
-      get page, to: "home##{page}", as: page.to_sym
-    end
-    root to: 'home#index'
-  end
-
-  resources :prototypes, only: :index
+  get :prototype, to: 'prototypes#index'
   
 end
