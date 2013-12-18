@@ -19,7 +19,6 @@
 //= require backbone
 //= require backbone.marionette
 //= require backbone.syphon
-//= require js-routes
 //= require_tree ./config
 //= require_directory .
 //= require_tree ./controllers
