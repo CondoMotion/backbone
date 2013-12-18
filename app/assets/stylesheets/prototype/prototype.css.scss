@@ -301,5 +301,10 @@ $action-pane-bg: #F9FAFB;
 .line-2 {
   max-height: 40px;
 }
-
+.pad-20 {
+  padding: 20px;
+}
+.mt-0 {
+  margin-top: 0;
+}
 .badge-danger { background: $brand-danger; }
