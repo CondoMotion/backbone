@@ -273,8 +273,18 @@ $action-pane-bg: #F9FAFB;
   display: block;
 }
 
+.content-pane[data-listfilter="property"] {
+  .user.all, .issue.all, .news-post.all, .document.all {
+    display: none;
+  }
+}
+
+
 .lighter {
   font-weight: lighter;
+}
+.light {
+  font-weight: light;
 }
 .preview {
   overflow: hidden;
