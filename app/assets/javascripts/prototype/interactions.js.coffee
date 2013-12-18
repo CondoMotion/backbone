@@ -61,3 +61,6 @@ $ ->
     div = "#new" + panel
     html = $(div).html()
     $(".console-viewport").html(html)
+
+  $("body").on "click", ".navbar-collapse.in li a", ->
+    $(".navbar-collapse").collapse("hide") unless $(this).hasClass("dropdown-toggle")
