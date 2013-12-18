@@ -13,15 +13,15 @@
       %li
         %a{href: "#"} Activity
       %li.active
-        %a{href: "#", data: { "button-text" => "Issue", "new-div" => "#new-issue" } } 
+        %a{href: "#", data: { "button-text" => "Issue", "panel-div" => "-issue" } } 
           Issues
           %span.badge.badge-danger= @issues
       %li
-        %a{href: "#", data: { "button-text" => "News Post", "new-div" => "#new-news-post" } } News
+        %a{href: "#", data: { "button-text" => "News Post", "panel-div" => "-news-post" } } News
       %li
-        %a{href: "#", data: { "button-text" => "Document", "new-div" => "#new-document" } } Documents
+        %a{href: "#", data: { "button-text" => "Document", "panel-div" => "-document" } } Documents
       %li
-        %a{href: "#", data: { "button-text" => "User", "new-div" => "#new-user" } } Users
+        %a{href: "#", data: { "button-text" => "User", "panel-div" => "-user" } } Users
     %ul.nav.navbar-nav.navbar-right
       %li.dropdown
         %a.dropdown-toggle#user-name{"data-toggle" => "dropdown", href: "#" }
@@ -58,7 +58,7 @@
       %section.console-search-results
         .scrollable
           - (1..@issues).each do |n|
-            .issue.console-search-result-item{class: ("all" if n <= @issues - 5), data: { "edit-div" => "#edit-issue" } }
+            .issue.console-search-result-item{class: ("all" if n <= @issues - 5) }
               .subject.preview.line-1
                 Issue Subject
               .date.muted.lighter
@@ -69,7 +69,7 @@
                 Property
 
           - (1..6).each do |n|
-            .news-post.console-search-result-item{class: ("all" if n <= 3), data: { "edit-div" => "#edit-news-post" } }
+            .news-post.console-search-result-item{class: ("all" if n <= 3) }
               .subject.preview.line-1
                 News Title
               .date.muted.lighter
@@ -78,25 +78,25 @@
                 Preview of news post content. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
           - (1..4).each do |n|
-            .user.console-search-result-item{class: ("all" if n <= 2), data: { "edit-div" => "#edit-user" } }
+            .user.console-search-result-item{class: ("all" if n <= 2) }
               .pull-left
                 = image_tag "http://placehold.it/60x60", class: "img-circle"
               %strong.name.preview.line-1
                 User Name
               .preview.line-1
-                email@example.com
+                = link_to "email@example.com", "mailto:email@example.com"
               .phone
                 555-555-5555
               .role.label.label-success
                 Manager
           - (1..8).each do |n|
-            .user.console-search-result-item{class: ("all" if n <= 6), data: { "edit-div" => "#edit-user" } }
+            .user.console-search-result-item{class: ("all" if n <= 6) }
               .pull-left
                 = image_tag "http://placehold.it/60x60", class: "img-circle"
               %strong.name.preview.line-1
                 User Name
               .preview.line-1
-                email@example.com
+                = link_to "email@example.com", "mailto:email@example.com"
               .phone
                 555-555-5555
               .role.label.label-info
@@ -106,38 +106,67 @@
       .console-viewport-container
         .action-pane-container
           .action-pane
-            %p= link_to "New Issue", "#", class: "btn btn-primary add-item", data: { "new-div" => "#new-issue" }
+            %p= link_to "New Issue", "#", class: "btn btn-primary add-item"
 
     #new-issue{style: "display: none;"}
       .scrollable
         .pad-20
           %h3.mt-0 New Issue
+          = link_to "Cancel", "#", class: "btn btn-default cancel"
     #new-news-post{style: "display: none;"}
       .scrollable
         .pad-20
           %h3.mt-0 New News Post
+          = link_to "Cancel", "#", class: "btn btn-default cancel"
     #new-document{style: "display: none;"}
       .scrollable
         .pad-20
           %h3.mt-0 New Document
+          = link_to "Cancel", "#", class: "btn btn-default cancel"
     #new-user{style: "display: none;"}
       .scrollable
         .pad-20
           %h3.mt-0 New User
+          = link_to "Cancel", "#", class: "btn btn-default cancel"
 
     #edit-issue{style: "display: none;"}
       .scrollable
         .pad-20
           %h3.mt-0 Edit Issue
+          = link_to "Cancel", "#", class: "btn btn-default cancel"
     #edit-news-post{style: "display: none;"}
       .scrollable
         .pad-20
           %h3.mt-0 Edit News Post
+          = link_to "Cancel", "#", class: "btn btn-default cancel"
     #edit-document{style: "display: none;"}
       .scrollable
         .pad-20
           %h3.mt-0 Edit Document
+          = link_to "Cancel", "#", class: "btn btn-default cancel"
     #edit-user{style: "display: none;"}
       .scrollable
         .pad-20
           %h3.mt-0 Edit User
+          = link_to "Cancel", "#", class: "btn btn-default cancel"
+
+    #empty-issue{style: "display: none;"}
+      .console-viewport-container
+        .action-pane-container
+          .action-pane
+            %p= link_to "New Issue", "#", class: "btn btn-primary add-item"
+    #empty-news-post{style: "display: none;"}
+      .console-viewport-container
+        .action-pane-container
+          .action-pane
+            %p= link_to "New News Post", "#", class: "btn btn-primary add-item"
+    #empty-document{style: "display: none;"}
+      .console-viewport-container
+        .action-pane-container
+          .action-pane
+            %p= link_to "New Document", "#", class: "btn btn-primary add-item"
+    #empty-user{style: "display: none;"}
+      .console-viewport-container
+        .action-pane-container
+          .action-pane
+            %p= link_to "New User", "#", class: "btn btn-primary add-item"

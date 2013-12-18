@@ -2,8 +2,9 @@ $ ->
   $("body").on "click", ".console-search-result-item", ->
     $(".console-search-result-item").removeClass("active")
     $(this).addClass("active")
-    editDiv = $(this).data("edit-div")
-    html = $(editDiv).html()
+    panel = $("#main-nav li.active a").data("panel-div")
+    div = "#edit" + panel
+    html = $(div).html()
     $(".console-viewport").html(html)
 
   $("body").on "click", "#nav li a", ->
@@ -16,19 +17,32 @@ $ ->
       unless $(this).is(":visible")
         $(this).removeClass("active")
     if $(".console-search-result-item.active").length == 0
-      $(".console-viewport").html(empty)
-      $(".action-pane .btn").text("New " + $("#main-nav li.active a").data("button-text"))
+      panel = $("#main-nav li.active a").data("panel-div")
+      div = "#empty" + panel
+      html = $(div).html()
+      $(".console-viewport").html(html)
 
   $("body").on "click", "#main-nav li a", ->
-    resource = $(this).text().toLowerCase()
-    $(".content-pane").removeClass("issues").removeClass("news").removeClass("documents").removeClass("users").addClass(resource)
-    unless $(this).parents("li").hasClass("active")
+    if $(this).parents("li").hasClass("active")
+      return false
+    else
+      resource = $(this).text().toLowerCase()
+      $(".content-pane").removeClass("issues").removeClass("news").removeClass("documents").removeClass("users").addClass(resource)
       $(".console-search-result-item").removeClass("active")
       $("#filter-items").removeClass("btn-danger").addClass("btn-default")
-      $(".console-viewport").html(empty)
-    $("#main-nav li").removeClass("active")
-    $(this).parents("li").addClass("active")
-    $(".action-pane .btn").text("New " + $(this).data("button-text"))
+      panel = $(this).data("panel-div")
+      div = "#empty" + panel
+      html = $(div).html()
+      $(".console-viewport").html(html)
+      $("#main-nav li").removeClass("active")
+      $(this).parents("li").addClass("active")
+
+  $("body").on "click", ".cancel", ->
+    $(".console-search-result-item").removeClass("active")
+    panel = $("#main-nav li.active a").data("panel-div")
+    div = "#empty" + panel
+    html = $(div).html()
+    $(".console-viewport").html(html)
 
   $("body").on "click", ".action-pane .btn, #add-item", ->
     $(".console-search-result-item").removeClass("active")
@@ -43,6 +57,7 @@ $ ->
   empty = $(".console-viewport").html()
 
   $("body").on "click", ".action-pane .btn, #add-item", ->
-    div = $("#main-nav li.active a").data("new-div")
+    panel = $("#main-nav li.active a").data("panel-div")
+    div = "#new" + panel
     html = $(div).html()
     $(".console-viewport").html(html)
