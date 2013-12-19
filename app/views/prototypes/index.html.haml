@@ -78,6 +78,7 @@
           %li.issue= link_to "My Issues", "#"
           %li.issue= link_to "Unassigned Issues", "#"
           %li.issue= link_to "All Open Issues", "#"
+          %li.user= link_to "All Users", "#"
           %li.user= link_to "Managers", "#"
           %li.user= link_to "Residents", "#"
           %li.news-post= link_to "Sort by Date", "#"
@@ -190,7 +191,7 @@
     #new-user{style: "display: none;"}
       .scrollable
         .pad-20
-          %h3.mt-0 New User
+          = render "new_user_form"
           = link_to "Create", "#", class: "btn btn-primary cancel"
           = link_to "Cancel", "#", class: "btn btn-default cancel"
 
@@ -215,9 +216,15 @@
     #edit-user{style: "display: none;"}
       .scrollable
         .pad-20
-          %h3.mt-0 Edit User
+          = render "edit_user_form"
           = link_to "Update", "#", class: "btn btn-primary cancel"
           = link_to "Cancel", "#", class: "btn btn-default cancel"
+          %h4{style: "margin-top: 30px;"} User Activity
+          .well
+            User Name submitted an issue with the subject
+            %strong= link_to "Issue Subject", "#"
+            2 days ago
+          
 
     #empty-issue{style: "display: none;"}
       .console-viewport-container
@@ -275,7 +282,6 @@
                   Document Title
                 .preview.line-1
                   Document description text
-                
                 .label{class: label_class}
                   Category #{category}
               .pull-right.actions

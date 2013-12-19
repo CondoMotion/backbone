@@ -74,6 +74,15 @@ $ ->
 
   empty = $(".console-viewport").html()
 
+  $("body").on "change", "#user_role", ->
+    if $(this).val() == "Manager"
+      $("#manager_permissions").show()
+      $("#resident_permissions").hide()
+    else
+      $("#resident_permissions").show()
+      $("#manager_permissions").hide()
+
+
   $("body").on "click", ".action-pane .btn, #add-item", ->
     panel = $("#main-nav li.active a").data("panel-div")
     div = "#new" + panel
