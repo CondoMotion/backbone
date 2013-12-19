@@ -13,7 +13,7 @@
 
       %h4 Permissions
       .form-group
-        = select_tag :user_role, options_for_select([ "Manager", "Resident" ], "Manager"), class: "form-control"
+        = select_tag :user_role, options_for_select([ "Manager", "Owner", "Resident" ], "Manager"), class: "form-control"
       #manager_permissions
         .checkbox
           %label
@@ -36,6 +36,6 @@
             = select_tag :property, options_for_select([ "Clarendon Hill", "Jamaica Pond" ], "Clarendon Hill"), class: "form-control"
         .col-xs-4
           .form-group
-            = select_tag :property_role, options_for_select([ "Manager", "Resident", "Owner", "Trustee" ], "Manager"), class: "form-control"
+            = select_tag :property_role, options_for_select(["Manager", "Trustee", "Owner", "Resident"], "Manager"), class: "form-control"
 
       = link_to "Create", "#", class: "btn btn-primary cancel"
