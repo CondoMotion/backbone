@@ -14,15 +14,15 @@ $ ->
       html = $(div).html()
       $(".console-viewport").html(html)
 
-  $("body").on "click", "#doc-filters .categories .label, #doc-filters ul li a", ->
+  $("body").on "click", "#doc-filters .categories .category, #doc-filters ul li a", ->
     $("#list-docs").removeClass("category1").removeClass("category2").removeClass("category3").removeClass("category4")
-    if $(this).hasClass("label")
+    if $(this).hasClass("category")
       unless $(this).hasClass("active")
-        $("#list-docs").addClass($(this).text().toLowerCase().replace(" ", ""))
+        $("#list-docs").addClass($(this).data("filtertext"))
     if $(this).hasClass("active")
       $(this).removeClass("active")
     else
-      $("#doc-filters .categories .label.active, #doc-filters ul li a.active").removeClass("active")
+      $("#doc-filters .categories .category.active, #doc-filters ul li a.active").removeClass("active")
       $(this).addClass("active")
 
   $("body").on "click", "#nav li a", ->
@@ -39,8 +39,8 @@ $ ->
       div = "#empty" + panel
       html = $(div).html()
       $(".console-viewport").html(html)
-    $("#doc-filters .categories .label.active").each ->
-      $("#list-docs").addClass($(this).text().toLowerCase().replace(" ", ""))
+    $("#doc-filters .categories .category.active").each ->
+      $("#list-docs").addClass($(this).data("filtertext"))
 
   $("body").on "click", "#main-nav li a", ->
     if $(this).parents("li").hasClass("active")
@@ -54,7 +54,7 @@ $ ->
       div = "#empty" + panel
       html = $(div).html()
       $(".console-viewport").html(html)
-      $("#main-nav li, #doc-filters .categories .label, #doc-filters ul li a").removeClass("active")
+      $("#main-nav li, #doc-filters .categories .category, #doc-filters ul li a").removeClass("active")
       $("#list-docs").removeClass("category1").removeClass("category2").removeClass("category3").removeClass("category4")
       $(this).parents("li").addClass("active")
 

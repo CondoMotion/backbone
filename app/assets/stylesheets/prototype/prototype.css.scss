@@ -79,20 +79,29 @@ $action-pane-bg: #F9FAFB;
       }
     }
     .categories {
-      .label {
-        display: block;
-        float: none;
-        text-align: left;
-        margin: 5px 10px;
-        font-size: 90%;
-        padding-top: 10px;
-        padding-bottom: 10px;
+      .category {
+        padding: 10px;
         cursor: pointer;
-        @include opacity(0.5);
-        font-weight: 400;
-        &.active {
-          @include opacity(1.0);
+        border-left: 3px solid transparent;
+        border-bottom: 1px solid $nav-border-color;
+        &:hover, &.active {
+          background: #E3F4F9;
         }
+        &.active {
+          border-left: 3px solid #2BA6CB;
+        }
+        .circle {
+          height: 15px;
+          width: 15px;
+          margin-top: 2px;
+          @include border-top-radius(50%);
+          @include border-bottom-radius(50%);
+          margin-right: 10px;
+        }
+        .circle-info { background: $brand-info; }
+        .circle-warning { background: $brand-warning; }
+        .circle-danger { background: $brand-danger; }
+        .circle-success { background: $brand-success; }
       }
     }
   }

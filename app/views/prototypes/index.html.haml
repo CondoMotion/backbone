@@ -112,10 +112,18 @@
                   Image
             .header{style: "border-top: none;"} Filter by Category
             .categories
-              .label.label-info Category 1
-              .label.label-success Category 2
-              .label.label-danger Category 3
-              .label.label-warning Category 4
+              .category{data: { filterText: "category1" } }
+                .circle.pull-left.circle-info 
+                Meeting Minutes
+              .category{data: { filterText: "category2" } }
+                .circle.pull-left.circle-success 
+                Financials
+              .category{data: { filterText: "category3" } }
+                .circle.pull-left.circle-danger
+                Rules & Regulations
+              .category{data: { filterText: "category4" } }
+                .circle.pull-left.circle-warning
+                Misc.
           - (1..@issues).each do |n|
             .issue.console-search-result-item{class: ("all" if n <= @issues - 5) }
               .subject.preview.line-1
@@ -244,15 +252,19 @@
             - if n > 18
               - label_class = 'label-warning'
               - category = 4
+              - category_text = "Misc"
             - elsif n > 12
               - label_class = 'label-danger'
               - category = 3
+              - category_text = "Rules & Regulations"
             - elsif n > 6
               - label_class = 'label-success'
               - category = 2
+              - category_text = "Financials"
             - else
               - label_class = 'label-info'
               - category = 1
+              - category_text = "Meeting Minutes"
             .doc.console-search-result-item{class: ("all" if n >= 6), data: { filtercategory: "category#{category}" } }
               .pull-left{style: "width: 50%;"}
                 .pull-left
@@ -262,7 +274,7 @@
                 .preview.line-1
                   Document description text
                 .label{class: label_class}
-                  Category #{category}
+                  = category_text
               .pull-right.actions
                 = link_to raw("<i class='glyphicon glyphicon-cloud-download'></i>"), "#", class: 'btn btn-default'
                 = link_to raw("<i class='glyphicon glyphicon-trash'></i>"), "#", class: 'btn btn-default'
