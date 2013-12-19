@@ -38,14 +38,6 @@
                 %input{type: "checkbox", checked: true}
                 Can this user assign new tickets to other managers?
           #resident_permissions{style: "display: none;"}
-            .checkbox
-              %label
-                %input{type: "checkbox"}
-                Is this user a unit owner?
-            .checkbox
-              %label
-                %input{type: "checkbox"}
-                Is this user a trustee?
         .tab-pane#memberships
           %h4 Memberships
           .row
@@ -55,7 +47,7 @@
             .col-xs-4
               .form-group
                 = select_tag :property_role, options_for_select([ "Manager", "Resident", "Owner", "Trustee" ], "Manager"), class: "form-control"
-      
+
       %h4{style: "margin-top: 30px;"} User Activity
       .well
         User Name submitted an issue with the subject

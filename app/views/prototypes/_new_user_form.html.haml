@@ -10,10 +10,10 @@
         = text_field_tag :email, "", class: "form-control", placeholder: "Email"
       .form-group
         = text_field_tag :phone, "", class: "form-control", placeholder: "Phone Number"
-      .form-group
-        = select_tag :user_role, options_for_select([ "Manager", "Resident" ], "Manager"), class: "form-control"
 
       %h4 Permissions
+      .form-group
+        = select_tag :user_role, options_for_select([ "Manager", "Resident" ], "Manager"), class: "form-control"
       #manager_permissions
         .checkbox
           %label
@@ -28,14 +28,6 @@
             %input{type: "checkbox"}
             Can this user assign new tickets to other managers?
       #resident_permissions{style: "display: none;"}
-        .checkbox
-          %label
-            %input{type: "checkbox"}
-            Is this user a unit owner?
-        .checkbox
-          %label
-            %input{type: "checkbox"}
-            Is this user a trustee?
 
       %h4 Memberships
       .row
