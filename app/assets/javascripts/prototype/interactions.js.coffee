@@ -39,6 +39,8 @@ $ ->
       div = "#empty" + panel
       html = $(div).html()
       $(".console-viewport").html(html)
+    $("#doc-filters .categories .label.active").each ->
+      $("#list-docs").addClass($(this).text().toLowerCase().replace(" ", ""))
 
   $("body").on "click", "#main-nav li a", ->
     if $(this).parents("li").hasClass("active")
@@ -52,7 +54,8 @@ $ ->
       div = "#empty" + panel
       html = $(div).html()
       $(".console-viewport").html(html)
-      $("#main-nav li").removeClass("active")
+      $("#main-nav li, #doc-filters .categories .label, #doc-filters ul li a").removeClass("active")
+      $("#list-docs").removeClass("category1").removeClass("category2").removeClass("category3").removeClass("category4")
       $(this).parents("li").addClass("active")
 
   $("body").on "click", ".cancel", ->
