@@ -46,14 +46,43 @@
     .nav-search-results
       .scrollable
         %ul
-          - (1..40).each do |n|
-            %li= link_to raw("Property #{n} <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
+          %li= link_to raw("1409 River Street <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
+          %li= link_to raw("197-205 Kent <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
+          %li= link_to raw("Cambridge Co-Housing <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
+          %li= link_to raw("Clarendon Hill <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
+          %li= link_to raw("Cliffmont <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
+          %li= link_to raw("Colonial Arms <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
+          %li= link_to raw("Court Condominium IV <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
+          %li= link_to raw("Covenant Residences <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
+          %li= link_to raw("Davenport Commons <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
+          %li= link_to raw("Jamaica Pond Estate <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
+          %li= link_to raw("Lawrence Manor <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
+          %li= link_to raw("Marshall Place <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
+          %li= link_to raw("Old Medford High <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
+          %li= link_to raw("Parsons Field <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
+          %li= link_to raw("Saint Paul Arms <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
+          %li= link_to raw("Strathwick <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
+          %li= link_to raw("The Montclair <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
+          %li= link_to raw("The Ripley <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
+          %li= link_to raw("Towne Lyne <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
+          %li= link_to raw("Washington Square <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
+          %li= link_to raw("Willow House <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
+
   .issues.content-pane.content-wrapper{ data: { listfilter: "all" } }
     .console-search
       %form.console-search-form
         .form-group
           = text_field_tag :search, "", class: "form-control search-field", placeholder: "Search"
-        = link_to raw("<i class='glyphicon glyphicon-filter'></i>"), "#", class: "btn btn-default", id: "filter-items"
+        = link_to raw("<i class='glyphicon glyphicon-filter'></i>"), "#", class: "btn btn-default", id: "filter-items", data: { toggle: "dropdown" }
+        %ul.dropdown-menu#filter-dropdown{style: "position: absolute; right: 0;"}
+          %li.issue= link_to "My Issues", "#"
+          %li.issue= link_to "Unassigned Issues", "#"
+          %li.issue= link_to "All Open Issues", "#"
+          %li.user= link_to "Managers", "#"
+          %li.user= link_to "Residents", "#"
+          %li.news-post= link_to "Sort by Date", "#"
+          %li.news-post= link_to "Sort by Title", "#"
+          %li.news-post= link_to "Sort by Property", "#"
         = link_to raw("<i class='glyphicon glyphicon-plus'></i>"), "#", class: "btn btn-default", id: "add-item", data: { "new-div" => "#new-issue" }
       %section.console-search-results
         .scrollable
@@ -137,7 +166,7 @@
           .action-pane
             %i.glyphicon.glyphicon-tag{style: "font-size: 100px; opacity: 0.3;"}
             %br
-            %p{style: "font-size: 30px; font-weight: 500; opacity: 0.3;"} No Issues Selected
+            %p{style: "font-size: 30px; font-weight: 500; opacity: 0.3;"} No Issue Selected
             / %p= link_to "New Issue", "#", class: "btn btn-primary add-item"
 
     #new-issue{style: "display: none;"}
@@ -196,14 +225,14 @@
           .action-pane
             %i.glyphicon.glyphicon-tag{style: "font-size: 100px; opacity: 0.3;"}
             %br
-            %p{style: "font-size: 30px; font-weight: 500; opacity: 0.3;"} No Issues Selected
+            %p{style: "font-size: 30px; font-weight: 500; opacity: 0.3;"} No Issue Selected
     #empty-news-post{style: "display: none;"}
       .console-viewport-container
         .action-pane-container
           .action-pane
             %i.glyphicon.glyphicon-bullhorn{style: "font-size: 100px; opacity: 0.3;"}
             %br
-            %p{style: "font-size: 30px; font-weight: 500; opacity: 0.3;"} No Posts Selected
+            %p{style: "font-size: 30px; font-weight: 500; opacity: 0.3;"} No Post Selected
             / %p= link_to "New News Post", "#", class: "btn btn-primary add-item"
     #empty-document{style: "display: none;"}
       .docs-search-form
@@ -259,5 +288,5 @@
           .action-pane
             %i.glyphicon.glyphicon-user{style: "font-size: 100px; opacity: 0.3;"}
             %br
-            %p{style: "font-size: 30px; font-weight: 500; opacity: 0.3;"} No Users Selected
+            %p{style: "font-size: 30px; font-weight: 500; opacity: 0.3;"} No User Selected
             / %p= link_to "New User", "#", class: "btn btn-primary add-item"

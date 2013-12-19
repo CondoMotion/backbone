@@ -68,9 +68,6 @@ $ ->
   $("body").on "click", ".action-pane .btn, #add-item", ->
     $(".console-search-result-item").removeClass("active")
 
-  $("body").on "click", "#filter-items", ->
-    $(this).toggleClass("btn-default").toggleClass("btn-danger")
-
   $("#nav .property-settings").click ->
     alert "Settings for " + $(this).parents("a").text()
     return false

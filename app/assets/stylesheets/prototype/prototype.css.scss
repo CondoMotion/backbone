@@ -303,28 +303,6 @@ $action-pane-bg: #F9FAFB;
       #add-item {
         position: absolute; right: 10px; top: 15px; border: none;
       }
-      ul {
-        padding: 0;
-        li {
-          list-style: none;
-          a {
-            display: block;
-            padding: 10px 15px;
-            color: #666;
-            text-decoration: none;
-          }
-          &:hover {
-            a {
-              background: darken($nav-bg, 10%);
-            }            
-          }
-          &.active {
-            a {
-              background: darken($nav-bg, 20%);
-            }            
-          }
-        }
-      }
     }
     .console-search-results {
       position: absolute;
