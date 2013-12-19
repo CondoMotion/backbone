@@ -198,10 +198,53 @@
           .action-pane
             / %p= link_to "New News Post", "#", class: "btn btn-primary add-item"
     #empty-document{style: "display: none;"}
-      .console-viewport-container
-        .action-pane-container
-          .action-pane
-            / %p= link_to "New Document", "#", class: "btn btn-primary add-item"
+      .docs-search-form
+        %form.docs-search-form
+          .form-group#search-field
+            = text_field_tag :search, "", class: "form-control search-field", placeholder: "Search"
+          = link_to raw("<i class='glyphicon glyphicon-sort'></i>"), "#", class: "btn btn-default", id: "sort-docs"
+          = link_to raw("<i class='glyphicon glyphicon-plus'></i>"), "#", class: "btn btn-default", id: "add-doc"
+          #new-doc-panel
+            .pad-20
+              %h4 New Document
+              .form-group
+                = text_field_tag :title, "", class: "form-control", placeholder: "Title"
+              .form-group
+                = text_field_tag :description, "", class: "form-control", placeholder: "Short Description"
+              .form-group
+                = file_field_tag :file
+              = link_to "Upload", "#", class: "btn btn-primary", id: "submit-add-doc"
+              = link_to "Cancel", "#", class: "btn btn-default", id: "cancel-add-doc"
+      #list-docs
+        .scrollable
+          - (1..24).each do |n|
+            - if n > 18
+              - label_class = 'label-warning'
+              - category = 4
+            - elsif n > 12
+              - label_class = 'label-danger'
+              - category = 3
+            - elsif n > 6
+              - label_class = 'label-success'
+              - category = 2
+            - else
+              - label_class = 'label-info'
+              - category = 1
+            .doc.console-search-result-item{class: ("all" if n >= 6), data: { filtercategory: "category#{category}" } }
+              .pull-left
+                .pull-left
+                  = image_tag "http://placehold.it/50x60"
+                %strong.title.preview.line-1.mt-0
+                  Document Title
+                .preview.line-1
+                  Document description text
+                
+                .label{class: label_class}
+                  Category #{category}
+              .pull-right.actions
+                = link_to raw("<i class='glyphicon glyphicon-cloud-download'></i>"), "#", class: 'btn btn-default'
+                = link_to raw("<i class='glyphicon glyphicon-trash'></i>"), "#", class: 'btn btn-default'
+              .clearfix
     #empty-user{style: "display: none;"}
       .console-viewport-container
         .action-pane-container

@@ -1,13 +1,24 @@
 $ ->
+  $("body").on "click", "#add-doc", ->
+    $("#new-doc-panel").slideDown('fast')
+
+  $("body").on "click", "#cancel-add-doc, #submit-add-doc", ->
+    $("#new-doc-panel").slideUp('fast')
+
   $("body").on "click", ".console-search-result-item", ->
     $(".console-search-result-item").removeClass("active")
     $(this).addClass("active")
-    panel = $("#main-nav li.active a").data("panel-div")
-    div = "#edit" + panel
-    html = $(div).html()
-    $(".console-viewport").html(html)
+    unless $(this).hasClass("doc")
+      panel = $("#main-nav li.active a").data("panel-div")
+      div = "#edit" + panel
+      html = $(div).html()
+      $(".console-viewport").html(html)
 
   $("body").on "click", "#doc-filters .categories .label, #doc-filters ul li a", ->
+    $("#list-docs").removeClass("category1").removeClass("category2").removeClass("category3").removeClass("category4")
+    if $(this).hasClass("label")
+      unless $(this).hasClass("active")
+        $("#list-docs").addClass($(this).text().toLowerCase().replace(" ", ""))
     if $(this).hasClass("active")
       $(this).removeClass("active")
     else
