@@ -1,5 +1,5 @@
 .form-header{style: ""}
-  %h4.pull-left Edit User
+  %h4.pull-left User Name
   .pull-right
     = link_to "Cancel", "#", class: "btn btn-link cancel"
     = link_to "Save Changes", "#", class: "btn btn-primary cancel"
@@ -10,6 +10,7 @@
         %li.active= link_to raw("<i class='glyphicon glyphicon-user'></i> Basic Info"), "#basic-info", data: {toggle: "tab"}
         %li= link_to raw("<i class='glyphicon glyphicon-lock'></i> Permissions"), "#permissions", data: {toggle: "tab"}
         %li= link_to raw("<i class='glyphicon glyphicon-th-list'></i> Memberships"), "#memberships", data: {toggle: "tab"}
+        %li= link_to raw("<i class='glyphicon glyphicon-fire'></i> Activity"), "#activity", data: {toggle: "tab"}
       .tab-content
         .tab-pane.active#basic-info
           %h4 Basic Info
@@ -47,9 +48,9 @@
             .col-xs-4
               .form-group
                 = select_tag :property_role, options_for_select(["Manager", "Trustee", "Owner", "Resident"], "Manager"), class: "form-control"
-
-      %h4{style: "margin-top: 30px;"} User Activity
-      .well
-        User Name submitted an issue with the subject
-        %strong= link_to "Issue Subject", "#"
-        2 days ago
+        .tab-pane#activity
+          %h4 User Activity
+          .well
+            User Name submitted an issue with the subject
+            %strong= link_to "Issue Subject", "#"
+            2 days ago
