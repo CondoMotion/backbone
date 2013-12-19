@@ -135,6 +135,9 @@
       .console-viewport-container
         .action-pane-container
           .action-pane
+            %i.glyphicon.glyphicon-tag{style: "font-size: 100px; opacity: 0.3;"}
+            %br
+            %p{style: "font-size: 30px; font-weight: 500; opacity: 0.3;"} No Issues Selected
             / %p= link_to "New Issue", "#", class: "btn btn-primary add-item"
 
     #new-issue{style: "display: none;"}
@@ -191,11 +194,16 @@
       .console-viewport-container
         .action-pane-container
           .action-pane
-            / %p= link_to "New Issue", "#", class: "btn btn-primary add-item"
+            %i.glyphicon.glyphicon-tag{style: "font-size: 100px; opacity: 0.3;"}
+            %br
+            %p{style: "font-size: 30px; font-weight: 500; opacity: 0.3;"} No Issues Selected
     #empty-news-post{style: "display: none;"}
       .console-viewport-container
         .action-pane-container
           .action-pane
+            %i.glyphicon.glyphicon-bullhorn{style: "font-size: 100px; opacity: 0.3;"}
+            %br
+            %p{style: "font-size: 30px; font-weight: 500; opacity: 0.3;"} No Posts Selected
             / %p= link_to "New News Post", "#", class: "btn btn-primary add-item"
     #empty-document{style: "display: none;"}
       .docs-search-form
@@ -249,4 +257,7 @@
       .console-viewport-container
         .action-pane-container
           .action-pane
+            %i.glyphicon.glyphicon-user{style: "font-size: 100px; opacity: 0.3;"}
+            %br
+            %p{style: "font-size: 30px; font-weight: 500; opacity: 0.3;"} No Users Selected
             / %p= link_to "New User", "#", class: "btn btn-primary add-item"
