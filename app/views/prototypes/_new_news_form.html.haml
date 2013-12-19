@@ -1,0 +1,10 @@
+.form-header{style: ""}
+  %h4.pull-left New News Post
+  .pull-right
+    = link_to "Cancel", "#", class: "btn btn-link cancel"
+    = link_to "Create Post", "#", class: "btn btn-primary cancel"
+.form-container
+  .scrollable
+    .pad-20.grey
+      .form-group{style: "margin: 0;"}
+        = text_field_tag :title, "", placeholder: "Title", autofocus: true, class: "form-control", style: "font-weight: 400; font-size: 20px; padding: 22px 12px;"
