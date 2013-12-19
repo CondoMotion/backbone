@@ -1,0 +1,38 @@
+.form-header
+  .pull-left
+    = link_to "In Progress", "#", class: "btn btn-info no-radius", style: "margin-right: 10px;"
+    Assigned to 
+    %strong Ed Hofeller 
+    %span.caret
+  .pull-right
+    = link_to "Cancel", "#", class: "btn btn-link cancel"
+.form-container
+  .scrollable
+    .pad-20.grey  
+      %h3{style: "font-weight: 400; font-size: 20px; margin: 0 0 10px 0;"} Issue Subject
+      %p{style: "margin: 0;"}
+        %span.muted{style: "color: #888; font-weight: 200;"} Created By:
+        User Name
+      %p{style: "margin: 0;"}
+        %span.muted{style: "color: #888; font-weight: 200;"} Resident Email:
+        email@example.com
+      %p{style: "margin: 0;"}
+        %span.muted{style: "color: #888; font-weight: 200;"} Property:
+        Clarendon Hill
+      %p{style: "margin: 0;"}
+        %span.muted{style: "color: #888; font-weight: 200;"} Created:
+        Date
+    .pad-20
+      .well.no-margin
+        .form-group
+          = text_area_tag :notes, "", placeholder: "Send an update to this issue", rows: 5, class: "form-control"
+        .form-group
+          %label Attach a File
+          %input{type: "file"}
+        = link_to "Send", "#", class: "btn btn-primary cancel"
+    .issue-message
+      %p
+        %small Date
+        %br
+        %small Name
+      %p Message content. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

@@ -179,11 +179,7 @@
             / %p= link_to "New Issue", "#", class: "btn btn-primary add-item"
 
     #new-issue{style: "display: none;"}
-      .scrollable
-        .pad-20
-          %h3.mt-0 New Issue
-          = link_to "Create", "#", class: "btn btn-primary cancel"
-          = link_to "Cancel", "#", class: "btn btn-default cancel"
+      = render "new_issue_form"
     #new-news-post{style: "display: none;"}
       = render "new_news_form"
     #new-document{style: "display: none;"}
@@ -194,13 +190,8 @@
           = link_to "Cancel", "#", class: "btn btn-default cancel"
     #new-user{style: "display: none;"}
       = render "new_user_form"
-
     #edit-issue{style: "display: none;"}
-      .scrollable
-        .pad-20
-          %h3.mt-0 Edit Issue
-          = link_to "Update", "#", class: "btn btn-primary cancel"
-          = link_to "Cancel", "#", class: "btn btn-default cancel"
+      = render "edit_issue_form"
     #edit-news-post{style: "display: none;"}
       = render "edit_news_form"
     #edit-document{style: "display: none;"}
