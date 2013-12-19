@@ -227,7 +227,9 @@ $action-pane-bg: #F9FAFB;
           }
           &.active {
             a {
-              background: darken($nav-bg, 20%);
+              @include gradient-vertical(#5DB8ED, #2285D7);
+              color: #fff;
+              text-shadow: 1px 1px 2px #333;
             }            
           }
         }
@@ -258,11 +260,19 @@ $action-pane-bg: #F9FAFB;
               }
             }
           }
-          &:hover, &.active {
+          &:hover {
             a {
               background: darken($nav-bg, 10%);
               button { display: inline-block; }
             }            
+          }
+          &.active {
+            a {
+              button { display: inline-block; }
+              @include gradient-vertical(#5DB8ED, #2285D7);
+              color: #fff;
+              text-shadow: 1px 1px 2px #333;
+            }
           }
         }
       }
