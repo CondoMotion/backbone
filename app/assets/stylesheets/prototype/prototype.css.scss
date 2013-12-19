@@ -48,6 +48,72 @@ $action-pane-bg: #F9FAFB;
   bottom: 0px;
   background: #FFFFFF;
   min-width: 1000px;
+  #doc-filters { 
+    display: none; 
+    .header {
+      padding: 5px 10px;
+      background: $nav-bg;
+      border-bottom: 1px solid $nav-border-color;
+      border-top: 1px solid $nav-border-color;
+      font-weight: bold;
+    }
+    ul {
+      padding: 0;
+      margin: 0;
+      li {
+        list-style: none;
+        a {
+          display: block;
+          color: #666;
+          text-decoration: none;
+          padding: 10px;
+          border-bottom: 1px solid $nav-border-color;
+          border-left: 3px solid transparent;
+          &:hover, &.active {
+            background: #E3F4F9;
+          }
+          &.active {
+            border-left: 3px solid #2BA6CB;
+          }
+        }
+      }
+    }
+    .categories {
+      .label {
+        display: block;
+        float: none;
+        text-align: left;
+        margin: 5px 10px;
+        font-size: 90%;
+        padding-top: 5px;
+        padding-top: 5px;
+        cursor: pointer;
+        @include opacity(0.5);
+        font-weight: 400;
+        &.active {
+          @include opacity(1.0);
+        }
+      }
+    }
+  }
+  .documents {
+    .console-search-form {
+      display: none;
+    }
+    .console-search-results {
+      top: 0;
+      width: 25%;
+    }
+    #doc-filters {
+      display: block
+    }
+    .console-search {
+      width: 25%;
+    }
+    .console-viewport {
+      left: 25%;
+    }
+  }
   #nav {
     background: $nav-bg;
     width: $nav-width;

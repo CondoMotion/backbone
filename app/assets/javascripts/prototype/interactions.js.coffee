@@ -7,6 +7,13 @@ $ ->
     html = $(div).html()
     $(".console-viewport").html(html)
 
+  $("body").on "click", "#doc-filters .categories .label, #doc-filters ul li a", ->
+    if $(this).hasClass("active")
+      $(this).removeClass("active")
+    else
+      $("#doc-filters .categories .label.active, #doc-filters ul li a.active").removeClass("active")
+      $(this).addClass("active")
+
   $("body").on "click", "#nav li a", ->
     el = $(this)
     $("#nav li").removeClass("active")

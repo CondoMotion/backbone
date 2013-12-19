@@ -57,6 +57,35 @@
         = link_to raw("<i class='glyphicon glyphicon-plus'></i>"), "#", class: "btn btn-default", id: "add-item", data: { "new-div" => "#new-issue" }
       %section.console-search-results
         .scrollable
+          #doc-filters
+            .header Filter by Type
+            %ul
+              %li
+                %a{href: "#"}
+                  %i.glyphicon.glyphicon-list-alt{style: "color: #009628; margin-right: 5px;"}
+                  Spreadsheet
+              %li
+                %a{href: "#"}
+                  %i.glyphicon.glyphicon-file{style: "color: #0095DE; margin-right: 5px;"}
+                  Document
+              %li
+                %a{href: "#"}
+                  %i.glyphicon.glyphicon-file{style: "color: #C60000; margin-right: 5px;"}
+                  PDF
+              %li
+                %a{href: "#"}
+                  %i.glyphicon.glyphicon-file{style: "color: #D04424; margin-right: 5px;"}
+                  Presentation
+              %li
+                %a{href: "#"}
+                  %i.glyphicon.glyphicon-picture{style: "color: grey; margin-right: 5px;"}
+                  Image
+            .header{style: "border-top: none;"} Filter by Category
+            .categories
+              .label.label-info Category 1
+              .label.label-success Category 2
+              .label.label-danger Category 3
+              .label.label-warning Category 4
           - (1..@issues).each do |n|
             .issue.console-search-result-item{class: ("all" if n <= @issues - 5) }
               .subject.preview.line-1
@@ -106,7 +135,7 @@
       .console-viewport-container
         .action-pane-container
           .action-pane
-            %p= link_to "New Issue", "#", class: "btn btn-primary add-item"
+            / %p= link_to "New Issue", "#", class: "btn btn-primary add-item"
 
     #new-issue{style: "display: none;"}
       .scrollable
@@ -162,19 +191,19 @@
       .console-viewport-container
         .action-pane-container
           .action-pane
-            %p= link_to "New Issue", "#", class: "btn btn-primary add-item"
+            / %p= link_to "New Issue", "#", class: "btn btn-primary add-item"
     #empty-news-post{style: "display: none;"}
       .console-viewport-container
         .action-pane-container
           .action-pane
-            %p= link_to "New News Post", "#", class: "btn btn-primary add-item"
+            / %p= link_to "New News Post", "#", class: "btn btn-primary add-item"
     #empty-document{style: "display: none;"}
       .console-viewport-container
         .action-pane-container
           .action-pane
-            %p= link_to "New Document", "#", class: "btn btn-primary add-item"
+            / %p= link_to "New Document", "#", class: "btn btn-primary add-item"
     #empty-user{style: "display: none;"}
       .console-viewport-container
         .action-pane-container
           .action-pane
-            %p= link_to "New User", "#", class: "btn btn-primary add-item"
+            / %p= link_to "New User", "#", class: "btn btn-primary add-item"
