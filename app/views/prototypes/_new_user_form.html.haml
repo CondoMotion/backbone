@@ -1,41 +1,49 @@
-.form-group  
-  = text_field_tag :name, "", autofocus: true, class: "form-control", style: "font-weight: 400; font-size: 20px; padding: 22px 12px;", placeholder: "Full Name"
-.form-group
-  = text_field_tag :email, "", class: "form-control", placeholder: "Email"
-.form-group
-  = text_field_tag :phone, "", class: "form-control", placeholder: "Phone Number"
-.form-group
-  = select_tag :user_role, options_for_select([ "Manager", "Resident" ], "Manager"), class: "form-control"
+.form-header{style: ""}
+  %h4.pull-left New User
+  = link_to "Cancel", "#", class: "btn btn-link pull-right cancel"
+.form-container
+  .scrollable
+    .pad-20
+      .form-group  
+        = text_field_tag :name, "", autofocus: true, class: "form-control", style: "font-weight: 400; font-size: 20px; padding: 22px 12px;", placeholder: "Full Name"
+      .form-group
+        = text_field_tag :email, "", class: "form-control", placeholder: "Email"
+      .form-group
+        = text_field_tag :phone, "", class: "form-control", placeholder: "Phone Number"
+      .form-group
+        = select_tag :user_role, options_for_select([ "Manager", "Resident" ], "Manager"), class: "form-control"
 
-%h4 Permissions
-#manager_permissions
-  .checkbox
-    %label
-      %input{type: "checkbox"}
-      Can this user manage company info?
-  .checkbox
-    %label
-      %input{type: "checkbox"}
-      Can this user manage billing info?
-  .checkbox
-    %label
-      %input{type: "checkbox"}
-      Can this user assign new tickets to other managers?
-#resident_permissions{style: "display: none;"}
-  .checkbox
-    %label
-      %input{type: "checkbox"}
-      Is this user a unit owner?
-  .checkbox
-    %label
-      %input{type: "checkbox"}
-      Is this user a trustee?
+      %h4 Permissions
+      #manager_permissions
+        .checkbox
+          %label
+            %input{type: "checkbox"}
+            Can this user manage company info?
+        .checkbox
+          %label
+            %input{type: "checkbox"}
+            Can this user manage billing info?
+        .checkbox
+          %label
+            %input{type: "checkbox"}
+            Can this user assign new tickets to other managers?
+      #resident_permissions{style: "display: none;"}
+        .checkbox
+          %label
+            %input{type: "checkbox"}
+            Is this user a unit owner?
+        .checkbox
+          %label
+            %input{type: "checkbox"}
+            Is this user a trustee?
 
-%h4 Memberships
-.row
-  .col-xs-8
-    .form-group
-      = select_tag :property, options_for_select([ "Clarendon Hill", "Jamaica Pond" ], "Clarendon Hill"), class: "form-control"
-  .col-xs-4
-    .form-group
-      = select_tag :property_role, options_for_select([ "Manager", "Resident", "Owner", "Trustee" ], "Manager"), class: "form-control"
+      %h4 Memberships
+      .row
+        .col-xs-8
+          .form-group
+            = select_tag :property, options_for_select([ "Clarendon Hill", "Jamaica Pond" ], "Clarendon Hill"), class: "form-control"
+        .col-xs-4
+          .form-group
+            = select_tag :property_role, options_for_select([ "Manager", "Resident", "Owner", "Trustee" ], "Manager"), class: "form-control"
+
+      = link_to "Create", "#", class: "btn btn-primary cancel"

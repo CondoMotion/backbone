@@ -1,49 +1,63 @@
-%ul.nav.nav-tabs
-  %li.active= link_to raw("<i class='glyphicon glyphicon-user'></i> Basic Info"), "#basic-info", data: {toggle: "tab"}
-  %li= link_to raw("<i class='glyphicon glyphicon-lock'></i> Permissions"), "#permissions", data: {toggle: "tab"}
-  %li= link_to raw("<i class='glyphicon glyphicon-th-list'></i> Memberships"), "#memberships", data: {toggle: "tab"}
-.tab-content
-  .tab-pane.active#basic-info
-    %h4 Basic Info
-    .form-group  
-      = text_field_tag :name, "User Name", autofocus: true, class: "form-control", style: "font-weight: 400; font-size: 20px; padding: 22px 12px;"
-    .form-group
-      = text_field_tag :email, "email@example.com", class: "form-control"
-    .form-group
-      = text_field_tag :phone, "555-555-5555", class: "form-control"
+.form-header{style: ""}
+  %h4.pull-left Edit User
+  .pull-right
+    = link_to "Cancel", "#", class: "btn btn-link cancel"
+    = link_to "Save Changes", "#", class: "btn btn-primary cancel"
+.form-container
+  .scrollable
+    .pad-20
+      %ul.nav.nav-tabs
+        %li.active= link_to raw("<i class='glyphicon glyphicon-user'></i> Basic Info"), "#basic-info", data: {toggle: "tab"}
+        %li= link_to raw("<i class='glyphicon glyphicon-lock'></i> Permissions"), "#permissions", data: {toggle: "tab"}
+        %li= link_to raw("<i class='glyphicon glyphicon-th-list'></i> Memberships"), "#memberships", data: {toggle: "tab"}
+      .tab-content
+        .tab-pane.active#basic-info
+          %h4 Basic Info
+          .form-group  
+            = text_field_tag :name, "User Name", autofocus: true, class: "form-control", style: "font-weight: 400; font-size: 20px; padding: 22px 12px;"
+          .form-group
+            = text_field_tag :email, "email@example.com", class: "form-control"
+          .form-group
+            = text_field_tag :phone, "555-555-5555", class: "form-control"
 
-  .tab-pane#permissions
-    %h4 Permissions
-    .form-group
-      = select_tag :user_role, options_for_select([ "Manager", "Resident" ], "Manager"), class: "form-control"
-    #manager_permissions
-      .checkbox
-        %label
-          %input{type: "checkbox", checked: true}
-          Can this user manage company info?
-      .checkbox
-        %label
-          %input{type: "checkbox"}
-          Can this user manage billing info?
-      .checkbox
-        %label
-          %input{type: "checkbox", checked: true}
-          Can this user assign new tickets to other managers?
-    #resident_permissions{style: "display: none;"}
-      .checkbox
-        %label
-          %input{type: "checkbox"}
-          Is this user a unit owner?
-      .checkbox
-        %label
-          %input{type: "checkbox"}
-          Is this user a trustee?
-  .tab-pane#memberships
-    %h4 Memberships
-    .row
-      .col-xs-8
-        .form-group
-          = select_tag :property, options_for_select([ "Clarendon Hill", "Jamaica Pond" ], "Clarendon Hill"), class: "form-control"
-      .col-xs-4
-        .form-group
-          = select_tag :property_role, options_for_select([ "Manager", "Resident", "Owner", "Trustee" ], "Manager"), class: "form-control"
+        .tab-pane#permissions
+          %h4 Permissions
+          .form-group
+            = select_tag :user_role, options_for_select([ "Manager", "Resident" ], "Manager"), class: "form-control"
+          #manager_permissions
+            .checkbox
+              %label
+                %input{type: "checkbox", checked: true}
+                Can this user manage company info?
+            .checkbox
+              %label
+                %input{type: "checkbox"}
+                Can this user manage billing info?
+            .checkbox
+              %label
+                %input{type: "checkbox", checked: true}
+                Can this user assign new tickets to other managers?
+          #resident_permissions{style: "display: none;"}
+            .checkbox
+              %label
+                %input{type: "checkbox"}
+                Is this user a unit owner?
+            .checkbox
+              %label
+                %input{type: "checkbox"}
+                Is this user a trustee?
+        .tab-pane#memberships
+          %h4 Memberships
+          .row
+            .col-xs-8
+              .form-group
+                = select_tag :property, options_for_select([ "Clarendon Hill", "Jamaica Pond" ], "Clarendon Hill"), class: "form-control"
+            .col-xs-4
+              .form-group
+                = select_tag :property_role, options_for_select([ "Manager", "Resident", "Owner", "Trustee" ], "Manager"), class: "form-control"
+      
+      %h4{style: "margin-top: 30px;"} User Activity
+      .well
+        User Name submitted an issue with the subject
+        %strong= link_to "Issue Subject", "#"
+        2 days ago

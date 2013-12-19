@@ -177,11 +177,7 @@
           = link_to "Create", "#", class: "btn btn-primary cancel"
           = link_to "Cancel", "#", class: "btn btn-default cancel"
     #new-news-post{style: "display: none;"}
-      .scrollable
-        .pad-20
-          %h3.mt-0 New News Post
-          = link_to "Create", "#", class: "btn btn-primary cancel"
-          = link_to "Cancel", "#", class: "btn btn-default cancel"
+      = render "new_news_form"
     #new-document{style: "display: none;"}
       .scrollable
         .pad-20
@@ -189,11 +185,7 @@
           = link_to "Create", "#", class: "btn btn-primary cancel"
           = link_to "Cancel", "#", class: "btn btn-default cancel"
     #new-user{style: "display: none;"}
-      .scrollable
-        .pad-20
-          = render "new_user_form"
-          = link_to "Create", "#", class: "btn btn-primary cancel"
-          = link_to "Cancel", "#", class: "btn btn-default cancel"
+      = render "new_user_form"
 
     #edit-issue{style: "display: none;"}
       .scrollable
@@ -202,11 +194,7 @@
           = link_to "Update", "#", class: "btn btn-primary cancel"
           = link_to "Cancel", "#", class: "btn btn-default cancel"
     #edit-news-post{style: "display: none;"}
-      .scrollable
-        .pad-20
-          %h3.mt-0 Edit News Post
-          = link_to "Update", "#", class: "btn btn-primary cancel"
-          = link_to "Cancel", "#", class: "btn btn-default cancel"
+      = render "edit_news_form"
     #edit-document{style: "display: none;"}
       .scrollable
         .pad-20
@@ -214,16 +202,7 @@
           = link_to "Update", "#", class: "btn btn-primary cancel"
           = link_to "Cancel", "#", class: "btn btn-default cancel"
     #edit-user{style: "display: none;"}
-      .scrollable
-        .pad-20
-          = render "edit_user_form"
-          = link_to "Update", "#", class: "btn btn-primary cancel"
-          = link_to "Cancel", "#", class: "btn btn-default cancel"
-          %h4{style: "margin-top: 30px;"} User Activity
-          .well
-            User Name submitted an issue with the subject
-            %strong= link_to "Issue Subject", "#"
-            2 days ago
+      = render "edit_user_form"
           
 
     #empty-issue{style: "display: none;"}

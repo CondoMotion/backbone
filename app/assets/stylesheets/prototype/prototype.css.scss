@@ -419,3 +419,32 @@ $action-pane-bg: #F9FAFB;
   margin-top: 0;
 }
 .badge-danger { background: $brand-danger; }
+
+
+.form-header {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  height: $console-search-height; 
+  background: $nav-bg; 
+  padding: 20px; 
+  border-bottom: 1px solid $nav-border-color;
+  h4 {
+    margin: 0;
+  }
+  .btn {
+    margin-top: -6px;
+  }
+}
+.grey {
+  background: $nav-bg;
+  border-bottom: 1px solid $nav-border-color;
+}
+.form-container {
+  position: absolute; 
+  top: $console-search-height; 
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+}
