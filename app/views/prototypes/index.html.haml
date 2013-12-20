@@ -88,28 +88,28 @@
       %section.console-search-results
         .scrollable
           #doc-filters
-            .header Filter by Type
-            %ul
-              %li
-                %a{href: "#"}
-                  %i.glyphicon.glyphicon-list-alt{style: "color: #009628; margin-right: 5px;"}
-                  Spreadsheet
-              %li
-                %a{href: "#"}
-                  %i.glyphicon.glyphicon-file{style: "color: #0095DE; margin-right: 5px;"}
-                  Document
-              %li
-                %a{href: "#"}
-                  %i.glyphicon.glyphicon-file{style: "color: #C60000; margin-right: 5px;"}
-                  PDF
-              %li
-                %a{href: "#"}
-                  %i.glyphicon.glyphicon-file{style: "color: #D04424; margin-right: 5px;"}
-                  Presentation
-              %li
-                %a{href: "#"}
-                  %i.glyphicon.glyphicon-picture{style: "color: grey; margin-right: 5px;"}
-                  Image
+            / .header Filter by Type
+            / %ul
+            /   %li
+            /     %a{href: "#"}
+            /       %i.glyphicon.glyphicon-list-alt{style: "color: #009628; margin-right: 5px;"}
+            /       Spreadsheet
+            /   %li
+            /     %a{href: "#"}
+            /       %i.glyphicon.glyphicon-file{style: "color: #0095DE; margin-right: 5px;"}
+            /       Document
+            /   %li
+            /     %a{href: "#"}
+            /       %i.glyphicon.glyphicon-file{style: "color: #C60000; margin-right: 5px;"}
+            /       PDF
+            /   %li
+            /     %a{href: "#"}
+            /       %i.glyphicon.glyphicon-file{style: "color: #D04424; margin-right: 5px;"}
+            /       Presentation
+            /   %li
+            /     %a{href: "#"}
+            /       %i.glyphicon.glyphicon-picture{style: "color: grey; margin-right: 5px;"}
+            /       Image
             .header{style: "border-top: none;"} Filter by Category
             .categories
               .category{data: { filterText: "category1" } }
@@ -132,8 +132,20 @@
                 Date
               .preview.line-1
                 Preview of message content. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              .property.label.label-info 
-                Property
+              - if n < 4
+                .label.label-success
+                  New
+              - else
+                .label.label-info
+                  In Progress
+              .label.label-primary
+                Clarendon Hill
+              - if n < 4
+                .label.label-danger
+                  Unassigned
+              - else
+                .label.label-default
+                  Ed Hofeller
 
           - (1..6).each do |n|
             .news-post.console-search-result-item{class: ("all" if n <= 3) }

@@ -387,7 +387,11 @@ $action-pane-bg: #F9FAFB;
   }
 }
 
-.user, .doc {
+.issue {
+  .label { margin-right: 5px; }
+}
+
+.user, .doc, .issue {
   img {
     margin-right: 20px;
   }
