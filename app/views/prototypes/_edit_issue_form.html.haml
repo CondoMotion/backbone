@@ -23,13 +23,27 @@
         %span.muted{style: "color: #888; font-weight: 200;"} Created:
         Date
     .pad-20
-      .well.no-margin
-        .form-group
-          = text_area_tag :notes, "", placeholder: "Send an update to this issue", rows: 5, class: "form-control"
-        .form-group
-          %label Attach a File
-          %input{type: "file"}
-        = link_to "Send", "#", class: "btn btn-primary cancel"
+
+      %ul.nav.nav-tabs
+        %li.active= link_to "Message", "#message", data: {toggle: "tab"}
+        %li= link_to "Note", "#note", data: {toggle: "tab"}
+      .tab-content
+        .tab-pane.active#message
+          .well.no-margin
+            .form-group
+              = text_area_tag :notes, "", placeholder: "Email an update to the resident who created this issue", rows: 5, class: "form-control"
+            .form-group
+              %label Attach a File
+              %input{type: "file"}
+            = link_to "Send Message", "#", class: "btn btn-primary cancel"
+        .tab-pane#note
+          .well.no-margin
+            .form-group
+              = text_area_tag :notes, "", placeholder: "Post an internal note to this issue (the resident will not be notified)", rows: 5, class: "form-control"
+            .form-group
+              %label Attach a File
+              %input{type: "file"}
+            = link_to "Add Note", "#", class: "btn btn-primary cancel"
     .issue-message
       %p
         %small Date
