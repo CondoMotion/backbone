@@ -24,12 +24,12 @@
         Date
     .pad-20
 
-      %ul.nav.nav-tabs
+      %ul.nav.nav-tabs#message-note{style: 'border: none;'}
         %li.active= link_to "Message", "#message", data: {toggle: "tab"}
         %li= link_to "Note", "#note", data: {toggle: "tab"}
       .tab-content
         .tab-pane.active#message
-          .well.no-margin
+          .well.no-margin{style: "border-top: none;"}
             .form-group
               = text_area_tag :notes, "", placeholder: "Email an update to the resident who created this issue", rows: 5, class: "form-control"
             .form-group
@@ -37,7 +37,7 @@
               %input{type: "file"}
             = link_to "Send Message", "#", class: "btn btn-primary cancel"
         .tab-pane#note
-          .well.no-margin
+          .well.no-margin{style: "border-top: none;"}
             .form-group
               = text_area_tag :notes, "", placeholder: "Post an internal note to this issue (the resident will not be notified)", rows: 5, class: "form-control"
             .form-group

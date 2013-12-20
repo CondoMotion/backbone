@@ -391,6 +391,14 @@ $action-pane-bg: #F9FAFB;
   .label { margin-right: 5px; }
 }
 
+#message-note {
+  li.active {
+    a {
+      background: #F5F5F5;
+    }
+  }
+}
+
 .user, .doc, .issue {
   img {
     margin-right: 20px;
