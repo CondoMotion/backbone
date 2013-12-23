@@ -1,4 +1,8 @@
 $ ->
+  $("body").on "click", ".res-issue, .res-news-post, .res-user", ->
+    $(".res-issue, .res-news-post, .res-user").removeClass("active")
+    $(this).toggleClass("active")
+
   $("body").on "click", "#add-doc", ->
     $("#new-doc-panel").slideDown('fast')
 
