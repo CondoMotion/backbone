@@ -562,3 +562,56 @@ $action-pane-bg: #F9FAFB;
     }
   }
 }
+
+
+.res-document {
+  padding-left: 20px;
+}
+
+.file-type-icon {
+  background: url(image_path('file-type-icons.png'));
+  width: 39px;
+  height: 48px;
+  float: left;
+  margin-right: 20px;
+  margin-top: 5px;
+}
+.file-type-icon-pdf {
+  background-position: -39px -612px;
+}
+.file-type-icon-doc {
+  background-position: -78px -564px;
+}
+.file-type-icon-docx {
+  background-position: 0px -612px;
+}
+.file-type-icon-xls {
+  background-position: -39px -996px;
+}
+.file-type-icon-xlsx {
+  background-position: -39px -1044px;
+}
+.file-type-icon-ppt {
+  background-position: -39px -708px;
+}
+.file-type-icon-pptx {
+  background-position: -39px -756px;
+}
+.file-type-icon-gif {
+  background-position: 0px -708px;
+}
+.file-type-icon-jpeg {
+  background-position: -78px -852px;
+}
+.file-type-icon-jpg {
+  background-position: -78px -900px;
+}
+.file-type-icon-png {
+  background-position: -39px -660px;
+}
+.file-type-icon-other {
+  background-position: -78px -660px;
+}
+.file-type-icon-txt {
+  background-position: -39px -900px;
+}

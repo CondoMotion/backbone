@@ -1,41 +1,42 @@
 %nav.navbar.navbar-fixed-top.navbar-inverse{role: "navigation"}
-  / Brand and toggle get grouped for better mobile display
-  .navbar-header
-    %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
-      %span.sr-only Toggle navigation
-      %span.icon-bar
-      %span.icon-bar
-      %span.icon-bar
-    %a.navbar-brand{href: "#"} Clarendon Hill
-  / Collect the nav links, forms, and other content for toggling
-  #bs-example-navbar-collapse-1.collapse.navbar-collapse
-    %ul.nav.navbar-nav
-      %li.active
-        %a{href: "#res-issues", data: { toggle: "tab" } }
-          Issues
-          %span.badge.badge-danger= 3
-      %li
-        = link_to "News", "#res-news", data: { toggle: "tab" }
-        / ", data: { "button-text" => "News Post", "panel-div" => "-news-post" } } News
-      %li
-        = link_to "Documents", "#res-documents", data: { toggle: "tab" }
-        / %a{href: "#", data: { "button-text" => "Document", "panel-div" => "-document" } } Documents
-      %li
-        = link_to "Directory", "#res-directory", data: { toggle: "tab" }
-        / %a{href: "#", data: { "button-text" => "User", "panel-div" => "-user" } } Directory
-    %ul.nav.navbar-nav.navbar-right
-      %li.dropdown
-        %a.dropdown-toggle#user-name{"data-toggle" => "dropdown", href: "#" }
-          Bob Resident
-          %b.caret
-        %ul.dropdown-menu
-          %li
-            %a{href: "#"} Settings
-          %li.divider
-          %li
-            %a{href: "#"} Sign Out
+  .container
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{href: "#"} Clarendon Hill
+    / Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li.active
+          %a{href: "#res-issues", data: { toggle: "tab" } }
+            Issues
+            %span.badge.badge-danger= 3
+        %li
+          = link_to "News", "#res-news", data: { toggle: "tab" }
+          / ", data: { "button-text" => "News Post", "panel-div" => "-news-post" } } News
+        %li
+          = link_to "Documents", "#res-documents", data: { toggle: "tab" }
+          / %a{href: "#", data: { "button-text" => "Document", "panel-div" => "-document" } } Documents
+        %li
+          = link_to "Directory", "#res-directory", data: { toggle: "tab" }
+          / %a{href: "#", data: { "button-text" => "User", "panel-div" => "-user" } } Directory
+      %ul.nav.navbar-nav.navbar-right
+        %li.dropdown
+          %a.dropdown-toggle#user-name{"data-toggle" => "dropdown", href: "#" }
+            Bob Resident
+            %b.caret
+          %ul.dropdown-menu
+            %li
+              %a{href: "#"} Settings
+            %li.divider
+            %li
+              %a{href: "#"} Sign Out
 
-.tab-content{style: "margin-top: 60px;"}
+.tab-content{style: "margin-top: 50px;"}
   .tab-pane.active#res-issues
     .container
       .header{style: "padding: 20px 0;"}
@@ -104,25 +105,25 @@
           #res-documents-list
             - 2.times do 
               .res-document
-                %img.pull-left.img-circle{src: "http://placehold.it/60x60", style: 'margin: 0 20px 0 20px;'}
+                .file-type-icon.file-type-icon-docx
                 %strong Document title
                 .description Description
                 .label.label-info Meeting Minutes
             - 2.times do 
               .res-document
-                %img.pull-left.img-circle{src: "http://placehold.it/60x60", style: 'margin: 0 20px 0 20px;'}
+                .file-type-icon.file-type-icon-xlsx
                 %strong Document title
                 .description Description
                 .label.label-success Financials
             - 2.times do 
               .res-document
-                %img.pull-left.img-circle{src: "http://placehold.it/60x60", style: 'margin: 0 20px 0 20px;'}
+                .file-type-icon.file-type-icon-pdf
                 %strong Document title
                 .description Description
                 .label.label-danger Rules & Regulations
             - 2.times do 
               .res-document
-                %img.pull-left.img-circle{src: "http://placehold.it/60x60", style: 'margin: 0 20px 0 20px;'}
+                .file-type-icon.file-type-icon-pdf
                 %strong Document title
                 .description Description
                 .label.label-warning Misc.
