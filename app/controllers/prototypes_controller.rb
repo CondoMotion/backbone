@@ -3,7 +3,7 @@ class PrototypesController < ApplicationController
   
   def index
     params[:pp] = "disable"
-    @issues = 40
+    @issues = 20
   end
 
   def resident

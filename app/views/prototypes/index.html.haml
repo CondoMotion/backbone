@@ -6,7 +6,7 @@
       %span.icon-bar
       %span.icon-bar
       %span.icon-bar
-    %a.navbar-brand{href: "#"} The Hofeller Company
+    %a.navbar-brand{href: "#"} Wilson Management
   / Collect the nav links, forms, and other content for toggling
   #bs-example-navbar-collapse-1.collapse.navbar-collapse
     %ul.nav.navbar-nav#main-nav
@@ -25,7 +25,7 @@
     %ul.nav.navbar-nav.navbar-right
       %li.dropdown
         %a.dropdown-toggle#user-name{"data-toggle" => "dropdown", href: "#" }
-          Ed Hofeller
+          Jon Smith
           %b.caret
         %ul.dropdown-menu
           %li
@@ -46,14 +46,9 @@
     .nav-search-results
       .scrollable
         %ul
-          %li= link_to raw("1409 River Street <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
-          %li= link_to raw("197-205 Kent <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
-          %li= link_to raw("Cambridge Co-Housing <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
           %li= link_to raw("Clarendon Hill <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
           %li= link_to raw("Cliffmont <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
           %li= link_to raw("Colonial Arms <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
-          %li= link_to raw("Court Condominium IV <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
-          %li= link_to raw("Covenant Residences <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
           %li= link_to raw("Davenport Commons <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
           %li= link_to raw("Jamaica Pond Estate <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
           %li= link_to raw("Lawrence Manor <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
@@ -62,10 +57,6 @@
           %li= link_to raw("Parsons Field <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
           %li= link_to raw("Saint Paul Arms <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
           %li= link_to raw("Strathwick <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
-          %li= link_to raw("The Montclair <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
-          %li= link_to raw("The Ripley <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
-          %li= link_to raw("Towne Lyne <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
-          %li= link_to raw("Washington Square <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
           %li= link_to raw("Willow House <button class='btn btn-default btn-xs pull-right circle property-settings'><i class='glyphicon glyphicon-cog'></i></button>"), "#", data: { listfilter: "property" }
 
   .issues.content-pane.content-wrapper{ data: { listfilter: "all" } }
@@ -88,7 +79,7 @@
       %section.console-search-results
         .scrollable
           #doc-filters
-            .header{style: "border-top: none;"} Filter by Category
+            .header{style: "border-top: none; padding: 22px 10px 17px 20px;"} Filter by Category
             .categories
               .category{data: { filterText: "category1" } }
                 .circle.pull-left.circle-info 
@@ -102,14 +93,28 @@
               .category{data: { filterText: "category4" } }
                 .circle.pull-left.circle-warning
                 Misc.
-          - (1..@issues).each do |n|
+          - issues = ["Paint Stairway", "Fix Rear Windows", "Hallway Lights", "Patio Stones Broken", "Outdoor Lighting", "Lobby Furniture Cleaning", 
+                      "Fireplace Service", "Broken Deck Furniture", "Mulching", "Skylight Cleaning", "Stairway Railing"]
+          - details = ["The stairway drywall needs repainting.", 
+                       "The windows at the back of McGill Hall...",
+                       "The second floor light is out.",
+                       "Several stones on The walkway leading into...",
+                       "We received a quote for new outdoor lighting...",
+                       "The lobby furniture needs its quaterly...",
+                       "Fireplace needs to be serviced",
+                       "Some of the deck furniture needs to be...",
+                       "The mulch in the flower beds could use...",
+                       "The skylight in Faber Hall is rather...",
+                       "The hand-rail in the West stairway is..."]
+          - (0..@issues).each do |n|
             .issue.console-search-result-item{class: ("all" if n <= @issues - 5) }
               .subject.preview.line-1
-                Issue Subject
+                = issues[n % issues.length]
               .date.muted.lighter
-                Date
+                - timestamp = Time.now - 2*n*60*60*24
+                = timestamp.strftime("%m/%d/%Y") 
               .preview.line-1
-                Preview of message content. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                = details[n % details.length]
               - if n < 4
                 .label.label-success
                   New
@@ -123,14 +128,16 @@
                   Unassigned
               - else
                 .label.label-default
-                  Ed Hofeller
+                  Jon Smith
 
+          - newsTitles = ["Lobby Renovations Complete", "New Deck Furniture", "Update on HVAC System", "Annual Review Meeting", 
+                          "Fourth of July Celebration", "Swimming Pool Opens", "Message to All Pet Owners"]
           - (1..6).each do |n|
             .news-post.console-search-result-item{class: ("all" if n <= 3) }
               .subject.preview.line-1
-                News Title
+                = newsTitles[n]
               .date.muted.lighter
-                Date
+                = Time.now.to_formatted_s(:short)
               .preview.line-2
                 Preview of news post content. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
@@ -139,7 +146,7 @@
               .pull-left
                 = image_tag "http://placehold.it/60x60", class: "img-circle"
               %strong.name.preview.line-1
-                User Name
+                =["Jon Smith", "Nick Jones", "Sam Taylor", "Monica Reed"][n-1]
               .preview.line-1
                 = link_to "email@example.com", "mailto:email@example.com"
               .phone
@@ -151,7 +158,7 @@
               .pull-left
                 = image_tag "http://placehold.it/60x60", class: "img-circle"
               %strong.name.preview.line-1
-                User Name
+                =["James Green", "Jane Folders", "Marcus Xavier", "Hugo Lander", "Alan Voyers", "Timothy Allen", "Fred Bore", "Randolph Saunders"][n-1]
               .preview.line-1
                 = link_to "email@example.com", "mailto:email@example.com"
               .phone
@@ -229,16 +236,16 @@
               = link_to "Cancel", "#", class: "btn btn-default", id: "cancel-add-doc"
       #list-docs
         .scrollable
-          - (1..24).each do |n|
-            - if n > 18
+          - (1..14).each do |n|
+            - if n > 10
               - label_class = 'label-warning'
               - category = 4
               - category_text = "Misc"
-            - elsif n > 12
+            - elsif n > 7
               - label_class = 'label-danger'
               - category = 3
               - category_text = "Rules & Regulations"
-            - elsif n > 6
+            - elsif n > 4
               - label_class = 'label-success'
               - category = 2
               - category_text = "Financials"
@@ -250,7 +257,8 @@
               .pull-left{style: "width: 50%;"}
                 .file-type-icon.file-type-icon-pdf
                 %strong.title.preview.line-1.mt-0
-                  Document Title
+                  =["Welcome Letter", "Board Meeting Minutes", "Landscape Proposal", "Letter From NGPE", "Lobby Rennovation Summary",
+                    ""][n-1]
                 .preview.line-1
                   Document description text
                 .label{class: label_class}

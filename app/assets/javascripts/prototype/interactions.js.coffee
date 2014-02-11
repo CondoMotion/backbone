@@ -95,3 +95,4 @@ $ ->
 
   $("body").on "click", ".navbar-collapse.in li a", ->
     $(".navbar-collapse").collapse("hide") unless $(this).hasClass("dropdown-toggle")
+
