@@ -18,7 +18,7 @@ $ ->
       html = $(div).html()
       $(".console-viewport").html(html)
       # HACK to get the title to change on click events
-      subject = $(this).find(".subject").text()
+      subject = $(this).find(".subject").text().trim()
       $(".console-viewport").find(".title").text(subject)
       $(".console-viewport").find(".title").val(subject)
 
