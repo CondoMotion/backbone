@@ -1,5 +1,5 @@
 .form-header
-  %h4.pull-left User Name
+  %h4.pull-left.title User Name
   .pull-right
     = link_to "Close", "#", class: "btn btn-link cancel"
     = link_to "Save Changes", "#", class: "btn btn-primary cancel"
@@ -15,7 +15,7 @@
         .tab-pane.active#basic-info
           %h4 Basic Info
           .form-group  
-            = text_field_tag :name, "User Name", autofocus: true, class: "form-control", style: "font-weight: 400; font-size: 20px; padding: 22px 12px;"
+            = text_field_tag :name, "User Name", autofocus: true, class: "form-control title", style: "font-weight: 400; font-size: 20px; padding: 22px 12px;"
           .form-group
             = text_field_tag :email, "email@example.com", class: "form-control"
           .form-group

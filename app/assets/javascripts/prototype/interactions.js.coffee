@@ -17,6 +17,10 @@ $ ->
       div = "#edit" + panel
       html = $(div).html()
       $(".console-viewport").html(html)
+      # HACK to get the title to change on click events
+      subject = $(this).find(".subject").text()
+      $(".console-viewport").find(".title").text(subject)
+      $(".console-viewport").find(".title").val(subject)
 
   $("body").on "click", "#doc-filters .categories .category, #doc-filters ul li a", ->
     $("#list-docs").removeClass("category1").removeClass("category2").removeClass("category3").removeClass("category4")
