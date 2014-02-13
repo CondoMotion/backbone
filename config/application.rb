@@ -60,7 +60,5 @@ module Backbone
     config.assets.version = '1.0'
 
     config.assets.initialize_on_precompile = false
-
-    config.js_routes.mode = :mount
   end
 end
