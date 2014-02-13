@@ -1,0 +1,47 @@
+.tab-pane#res-documents
+  .container
+    %h3 Documents
+    .row
+      .col-xs-3
+        .console-search-results
+          #doc-filters
+            .header{style: "border-top: none;"} Filter by Category
+            .categories
+              .category{data: { filterText: "category1" } }
+                .circle.pull-left.circle-info 
+                Meeting Minutes
+              .category{data: { filterText: "category2" } }
+                .circle.pull-left.circle-success 
+                Financials
+              .category{data: { filterText: "category3" } }
+                .circle.pull-left.circle-danger
+                Rules & Regulations
+              .category{data: { filterText: "category4" } }
+                .circle.pull-left.circle-warning
+                Misc.
+      .col-xs-9
+        #res-documents-list
+          - 2.times do 
+            .res-document
+              .file-type-icon.file-type-icon-docx
+              %strong Document title
+              .description Description
+              .label.label-info Meeting Minutes
+          - 2.times do 
+            .res-document
+              .file-type-icon.file-type-icon-xlsx
+              %strong Document title
+              .description Description
+              .label.label-success Financials
+          - 2.times do 
+            .res-document
+              .file-type-icon.file-type-icon-pdf
+              %strong Document title
+              .description Description
+              .label.label-danger Rules & Regulations
+          - 2.times do 
+            .res-document
+              .file-type-icon.file-type-icon-pdf
+              %strong Document title
+              .description Description
+              .label.label-warning Misc.

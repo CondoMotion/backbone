@@ -1,0 +1,32 @@
+.tab-pane#res-issues
+  .container
+    .header{style: "padding: 20px 0;"}
+      %h3.pull-left.no-margin Your Reported Issues
+      = link_to raw("<i class='glyphicon glyphicon-plus-sign'></i> Report an Issue"), "#", class: "btn btn-success pull-right", data: { toggle: "collapse", target: "#new-issue" }
+      .clearfix
+    .well.collapse#new-issue
+      %h4 Report an Issue
+      .form-group
+        %label What do you need assistance with?
+        %input.form-control{type: "text"}
+      .form-group
+        %label Please provide any additional details
+        %textarea.form-control{rows: 5}
+      = link_to "Submit Issue", "#", class: "btn btn-primary", data: { toggle: "collapse", target: "#new-issue" }
+      = link_to "Cancel", "#", class: "btn btn-default", data: { toggle: "collapse", target: "#new-issue" }
+    #res-issues-list
+      - 2.times do 
+        .row.res-issue
+          .col-xs-8
+            %strong Issue Title
+            .preview.line-1 Preview of issue description
+            Date
+          .col-xs-4
+            .btn.btn-info.no-radius.pull-right{style: "width: 100px;"} In progress
+      .row.res-issue
+        .col-xs-8
+          %strong Issue Title
+          .preview.line-1 Preview of issue description
+          .muted{style: "color: #999;"} Date
+        .col-xs-4
+          .btn.btn-success.no-radius.pull-right{style: "width: 100px;"} Resolved

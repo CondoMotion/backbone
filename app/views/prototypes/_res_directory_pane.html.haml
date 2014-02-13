@@ -1,0 +1,22 @@
+.tab-pane#res-directory
+  .container
+    .header{style: "padding: 20px 0;"}
+      %h3.no-margin Resident Directory
+    #res-users-list
+      - (1..10).to_a.in_groups_of(2) do |row_users|
+        .row
+          - row_users.each do |user|
+            .col-sm-6
+              .well
+                .row
+                  .col-xs-4.col-sm-3
+                    = image_tag "residents/donor#{[*1..8].sample}.jpg", class: "img-circle", style: "width: 70px; height: 70px;"
+                  .col-xs-8.col-sm-9
+                    .row
+                      .col-md-6
+                        %strong Resident Name
+                        .unit Unit #
+                      .col-md-6
+                        .home-phone Home: 555.555.5555
+                        .cell       Cell: 555.555.5555
+                        .email      email@example.com

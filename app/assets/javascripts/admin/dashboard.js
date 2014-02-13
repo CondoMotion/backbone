@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.hashchange.js.min
+//= require js-routes
 //= require bootstrap
 //= require hamlcoffee
 //= require underscore

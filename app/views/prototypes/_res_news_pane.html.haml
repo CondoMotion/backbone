@@ -1,0 +1,11 @@
+.tab-pane#res-news
+  .container
+    .header{style: "padding: 20px 0;"}
+      %h3.no-margin Clarendon Hill News
+    #res-news-list
+      - 5.times do 
+        .row.res-news-post
+          .col-xs-12
+            %strong Subject
+            .preview.line-1 Preview of news post content
+            .muted{style: "color: #999;"} Date

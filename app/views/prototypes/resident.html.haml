@@ -12,6 +12,8 @@
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav
         %li.active
+          = link_to "Dashboard", "#res-dashboard", data: { toggle: "tab" }
+        %li
           %a{href: "#res-issues", data: { toggle: "tab" } }
             Issues
             %span.badge.badge-danger= 3
@@ -32,113 +34,18 @@
           %ul.dropdown-menu
             %li
               %a{href: "#"} Settings
+            %li= link_to "Manager View", prototype_path
             %li.divider
             %li
               %a{href: "#"} Sign Out
 
 .tab-content{style: "margin-top: 50px;"}
-  .tab-pane.active#res-issues
-    .container
-      .header{style: "padding: 20px 0;"}
-        %h3.pull-left.no-margin Your Reported Issues
-        = link_to raw("<i class='glyphicon glyphicon-plus-sign'></i> Report an Issue"), "#", class: "btn btn-success pull-right", data: { toggle: "collapse", target: "#new-issue" }
-        .clearfix
-      .well.collapse#new-issue
-        %h4 Report an Issue
-        .form-group
-          %label What do you need assistance with?
-          %input.form-control{type: "text"}
-        .form-group
-          %label Please provide any additional details
-          %textarea.form-control{rows: 5}
-        = link_to "Submit Issue", "#", class: "btn btn-primary", data: { toggle: "collapse", target: "#new-issue" }
-        = link_to "Cancel", "#", class: "btn btn-default", data: { toggle: "collapse", target: "#new-issue" }
-      #res-issues-list
-        - 2.times do 
-          .row.res-issue
-            .col-xs-8
-              %strong Issue Title
-              .preview.line-1 Preview of issue description
-              Date
-            .col-xs-4
-              .btn.btn-info.no-radius.pull-right{style: "width: 100px;"} In progress
-        .row.res-issue
-          .col-xs-8
-            %strong Issue Title
-            .preview.line-1 Preview of issue description
-            .muted{style: "color: #999;"} Date
-          .col-xs-4
-            .btn.btn-success.no-radius.pull-right{style: "width: 100px;"} Resolved
-  .tab-pane#res-news
-    .container
-      .header{style: "padding: 20px 0;"}
-        %h3.no-margin Clarendon Hill News
-      #res-news-list
-        - 5.times do 
-          .row.res-news-post
-            .col-xs-12
-              %strong Subject
-              .preview.line-1 Preview of news post content
-              .muted{style: "color: #999;"} Date
-  .tab-pane#res-documents
-    .container
-      %h3 Documents
-      .row
-        .col-xs-3
-          .console-search-results
-            #doc-filters
-              .header{style: "border-top: none;"} Filter by Category
-              .categories
-                .category{data: { filterText: "category1" } }
-                  .circle.pull-left.circle-info 
-                  Meeting Minutes
-                .category{data: { filterText: "category2" } }
-                  .circle.pull-left.circle-success 
-                  Financials
-                .category{data: { filterText: "category3" } }
-                  .circle.pull-left.circle-danger
-                  Rules & Regulations
-                .category{data: { filterText: "category4" } }
-                  .circle.pull-left.circle-warning
-                  Misc.
-        .col-xs-9
-          #res-documents-list
-            - 2.times do 
-              .res-document
-                .file-type-icon.file-type-icon-docx
-                %strong Document title
-                .description Description
-                .label.label-info Meeting Minutes
-            - 2.times do 
-              .res-document
-                .file-type-icon.file-type-icon-xlsx
-                %strong Document title
-                .description Description
-                .label.label-success Financials
-            - 2.times do 
-              .res-document
-                .file-type-icon.file-type-icon-pdf
-                %strong Document title
-                .description Description
-                .label.label-danger Rules & Regulations
-            - 2.times do 
-              .res-document
-                .file-type-icon.file-type-icon-pdf
-                %strong Document title
-                .description Description
-                .label.label-warning Misc.
-  .tab-pane#res-directory
-    .container
-      .header{style: "padding: 20px 0;"}
-        %h3.no-margin Resident Directory
-      #res-users-list
-        - 10.times do 
-          .row.res-user
-            .col-xs-4
-              %img.pull-left.img-circle{src: "http://placehold.it/60x60", style: 'margin: 0 20px 0 0;'}
-              %strong Resident Name
-              .unit Unit #
-            .col-xs-4
-              .home-phone Home:   555.555.5555
-              .cell       Mobile: 555.555.5555
-              .email      Email:  email@example.com
+  = render 'res_issues_pane'
+
+  = render 'res_dashboard_pane'
+
+  = render 'res_news_pane'
+
+  = render 'res_documents_pane'
+
+  = render 'res_directory_pane'
