@@ -1,7 +1,7 @@
 .tab-pane#res-directory
   .container
     .header{style: "padding: 20px 0;"}
-      %h3.no-margin Resident Directory
+      %h3.no-margin Say Hello To Your Neighbors!
     #res-users-list
       - names = ["Jon Smith", "Nick Jones", "Sam Taylor", "Monica Reed", "James Green", "Jane Folders", "Marcus Xavier", "Hugo Lander", "Alan Voyers", "Timothy Allen", "Fred Bore", "Randolph Saunders"]
       - (1..10).to_a.in_groups_of(2) do |row_users|
@@ -16,7 +16,7 @@
                     .row
                       .col-md-6
                         %strong= names[user]
-                        .unit Unit #
+                        .unit Unit ##{[*1..100].sample}
                       .col-md-6
                         .home-phone Home: 555.555.5555
                         .cell       Cell: 555.555.5555
