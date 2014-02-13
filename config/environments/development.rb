@@ -39,6 +39,4 @@ Backbone::Application.configure do
   config.action_mailer.delivery_method = :letter_opener
 
   config.assets.initialize_on_precompile = true
-
-  config.assets.precompile += %w( admin/dashboard.js prototype/prototype.js prototype/prototype.css )
 end
