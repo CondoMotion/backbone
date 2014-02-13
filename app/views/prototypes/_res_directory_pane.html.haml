@@ -3,21 +3,17 @@
     .header{style: "padding: 20px 0;"}
       %h3.no-margin Say Hello To Your Neighbors!
     #res-users-list
-      - names = ["Jon Smith", "Nick Jones", "Sam Taylor", "Monica Reed", "James Green", "Jane Folders", "Marcus Xavier", "Hugo Lander", "Alan Voyers", "Timothy Allen", "Fred Bore", "Randolph Saunders"]
       - (1..10).to_a.in_groups_of(2) do |row_users|
         .row
           - row_users.each do |user|
             .col-sm-6
               .well
-                .row
-                  .col-xs-4.col-sm-3
-                    = image_tag "residents/donor#{user}.jpg", class: "img-circle", style: "width: 70px; height: 70px;"
-                  .col-xs-8.col-sm-9
-                    .row
-                      .col-md-6
-                        %strong= names[user]
-                        .unit Unit ##{[*1..100].sample}
-                      .col-md-6
-                        .home-phone Home: 555.555.5555
-                        .cell       Cell: 555.555.5555
-                        .email      email@example.com
+                = image_tag "residents/donor#{user}.jpg", class: "img-circle pull-left", style: "width: 70px; height: 70px;"
+                .row{style: "margin-left: 80px;"}
+                  .col-md-6
+                    %strong= @names[user]
+                    .unit Unit ##{[*1..100].sample}
+                  .col-md-6
+                    .home-phone Home: 555.555.5555
+                    .cell       Cell: 555.555.5555
+                    .email      email@example.com
