@@ -39,10 +39,16 @@ residents/donor9.jpg: residents/donor9.jpg
 residents/donor9/index.jpg: residents/donor9.jpg
 admin/config/marionette/application.js: admin/config/marionette/application.js
 admin/config/marionette/application/index.js: admin/config/marionette/application.js
+admin/dashboard.js: admin/dashboard.js
+admin/dashboard/index.js: admin/dashboard.js
 application.js: application.js
 application/index.js: application.js
+prototype/prototype.js: prototype/prototype.js
+prototype/prototype/index.js: prototype/prototype.js
 application.css: application.css
 application/index.css: application.css
+prototype/prototype.css: prototype/prototype.css
+prototype/prototype/index.css: prototype/prototype.css
 jquery.hashchange.js.min: jquery.hashchange.js.min
 jquery/index.hashchange.js.min: jquery.hashchange.js.min
 jquery.min.map: jquery.min.map
