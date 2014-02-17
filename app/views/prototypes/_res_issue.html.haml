@@ -1,0 +1,61 @@
+.form-header
+  .pull-left
+    = link_to "In Progress", "#", class: "btn btn-info no-radius", style: "margin-right: 10px;"
+    Assigned to 
+    %strong Jon Smith
+
+  .pull-right
+    = link_to "Close", "#", class: "btn btn-link item-close"
+.form-container
+  .scrollable
+    .pad-20.grey  
+      %h3.title{style: "font-weight: 400; font-size: 20px; margin: 0 0 10px 0;"} Issue Subject
+      %p{style: "margin: 0;"}
+        %span.muted{style: "color: #888; font-weight: 200;"} Created By:
+        Roger Jones
+      %p{style: "margin: 0;"}
+        %span.muted{style: "color: #888; font-weight: 200;"} Resident Email:
+        email@example.com
+      %p{style: "margin: 0;"}
+        %span.muted{style: "color: #888; font-weight: 200;"} Property:
+        Clarendon Hill
+      %p{style: "margin: 0;"}
+        %span.muted{style: "color: #888; font-weight: 200;"} Created:
+        = Time.now.strftime("%m/%d/%Y") 
+
+    .pad-20
+      %b
+        Details
+      %p Message content. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+    .note-inputs
+      .form-group
+        = text_area_tag :notes, "", placeholder: "Add a note for this issue", rows: 5, class: "form-control"
+      .pull-left.form-group
+        %label Attach a File
+        %input{type: "file"}
+      .pull-right
+        = link_to "Add Note", "#", class: "btn btn-primary item-close"
+      .clearfix
+
+    .pad-20
+      %h4 Additional Notes
+      .note
+        %p 
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
+          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+          exercitation ullamco laboris nisi ut aliquip.
+        %smaller.lighter.pull-right
+          Posted by Jack Smith, 
+          = Time.now.strftime("%m/%d/%Y") 
+        .clearfix
+      .note
+        %p 
+          Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+          irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        %smaller.lighter.pull-right
+          Posted by Kelly Garfield, 
+          = Time.now.strftime("%m/%d/%Y") 
+
+        .clearfix

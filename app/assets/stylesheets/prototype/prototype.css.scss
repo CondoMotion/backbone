@@ -495,19 +495,6 @@ $action-pane-bg: #F9FAFB;
 }
 
 
-.res-issue, .res-news-post, .res-user, .res-document {
-  padding: 10px 0; 
-  border-bottom: 1px solid $nav-border-color;
-  border-left: 3px solid transparent;
-  cursor: pointer;
-  &:first-child {
-    border-top: 1px solid $nav-border-color;
-  }
-  &:hover, &.active {
-    background: #E3F4F9;
-    border-left: 3px solid #2BA6CB;
-  }
-}
 
 #doc-filters {
   .header {
@@ -617,4 +604,81 @@ $action-pane-bg: #F9FAFB;
 }
 .file-type-icon-txt {
   background-position: -39px -900px;
+}
+
+
+// Resident specific styles
+.res-issue, .res-news-post, .res-user, .res-document {
+  padding: 10px 0; 
+  border-bottom: 1px solid $nav-border-color;
+  border-left: 3px solid transparent;
+  cursor: pointer;
+  &:hover, &.active {
+    background: #E3F4F9;
+    border-left: 3px solid #2BA6CB;
+  }
+}
+
+
+// Other resident specific styles
+.res-content-pane {
+  position:absolute;
+  top:120px;
+  bottom:0px;
+  left:60px;
+  right:60px;
+  border-top:1px solid $nav-border-color;
+  .search-form{
+    width:435px;
+    padding:14px 10px;
+  }
+  .item-list{
+    position:absolute;
+    top: 59px;
+    bottom: 0px;
+    left: 0px;
+    width:435px;
+    overflow-y:auto;
+    overflow-x:hidden;
+    border-top:1px solid $nav-border-color;
+    &:first-child {
+      border-top: 0px;
+    }
+    .item{
+      width:420px;
+      padding: 10px 10px;
+      .left-side{
+        width:280px;
+        float:left;
+      }
+      .right-side{
+        width:100px;
+        float:right;
+      }
+    }
+  }
+  .item-details-area{
+    position:absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 435px;
+    right: 0px;
+    overflow-y:auto;
+    overflow-x:hidden;
+    border-left:1px solid $nav-border-color;
+    #empty-message{
+      padding:80px 0px;
+      text-align:center;
+    }
+    .note-inputs{
+      border-top:1px solid $nav-border-color;
+      border-bottom:1px solid $nav-border-color;
+      background:#f6f6f6;
+      padding:20px;
+    }
+    .note{
+      padding:10px 0px;
+      border-bottom:1px solid $nav-border-color;
+    }
+  }
 }

@@ -1,8 +1,14 @@
 $ ->
-  $("body").on "click", ".res-issue, .res-news-post, .res-user", ->
-    $(".res-issue, .res-news-post, .res-user").removeClass("active")
-    $(this).toggleClass("active")
-
+#  $("body").on "click", ".res-issue, .res-news-post, .res-user", ->
+#    $(".res-issue, .res-news-post, .res-user").removeClass("active")
+#    $(this).toggleClass("active")
+#    $(".console-viewport").show();
+#    panel = "-issue"
+#    div = "#edit" + panel
+#    html = $(div).html()
+#    $(".console-viewport").html(html)
+  
+    
   $("body").on "click", "#add-doc", ->
     $("#new-doc-panel").slideDown('fast')
 
@@ -96,7 +102,38 @@ $ ->
     div = "#new" + panel
     html = $(div).html()
     $(".console-viewport").html(html)
-
+  
   $("body").on "click", ".navbar-collapse.in li a", ->
     $(".navbar-collapse").collapse("hide") unless $(this).hasClass("dropdown-toggle")
 
+  #
+  # Resident actions
+  #
+  $('#new-issue').on 'show.bs.collapse', ->
+    $('.res-content-pane').animate top:'500px'
+  $('#new-issue').on 'hide.bs.collapse', ->
+    $('.res-content-pane').animate top:'120px'
+  
+  $('.item').click ->
+    $panel = $("#show-issue")
+    $('.item-details').html($panel.html())
+    title = $(this).find('.title').text()
+    $('.title', '.item-details').text(title)
+    $('#empty-message').hide();
+    $('.item').removeClass('active');
+    $(this).addClass('active');
+
+
+  $("body").on "click", ".item-close", ->
+    $('#empty-message').show();
+    $('.item-details').empty();
+    $('.item').removeClass('active');
+
+    #  $("body").on "click", ".res-issue, .res-news-post, .res-user", ->
+#    $(".res-issue, .res-news-post, .res-user").removeClass("active")
+#    $(this).toggleClass("active")
+#    $(".console-viewport").show();
+#    panel = "-issue"
+#    div = "#edit" + panel
+#    html = $(div).html()
+#    $(".console-viewport").html(html)
