@@ -12,14 +12,14 @@
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav
         %li.active
-          = link_to "Dashboard", "#res-dashboard", data: { toggle: "tab" }
+          = link_to "News", "#res-news", data: { toggle: "tab", "panel-div"=>"news" }
+          / ", data: { "button-text" => "News Post", "panel-div" => "-news-post" } } News
+        / %li.active
+        /   = link_to "Dashboard", "#res-dashboard", data: { toggle: "tab" }
         %li
           %a{href: "#res-issues", data: { toggle: "tab", "panel-div"=>"issue" } }
             Issues
             %span.badge.badge-danger= 3
-        %li
-          = link_to "News", "#res-news", data: { toggle: "tab", "panel-div"=>"news" }
-          / ", data: { "button-text" => "News Post", "panel-div" => "-news-post" } } News
         %li
           = link_to "Documents", "#res-documents", data: { toggle: "tab", "panel-div"=>"documents" }
           / %a{href: "#", data: { "button-text" => "Document", "panel-div" => "-document" } } Documents
@@ -42,7 +42,7 @@
 .tab-content{style: "margin-top: 50px;"}
   = render 'res_issues_pane'
 
-  = render 'res_dashboard_pane'
+  / = render 'res_dashboard_pane'
 
   = render 'res_news_pane'
 
