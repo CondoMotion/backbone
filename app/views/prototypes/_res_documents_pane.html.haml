@@ -21,27 +21,39 @@
                 Misc.
       .col-xs-9
         #res-documents-list
-          - 2.times do 
+
+
+          -documents=["Welcome Letter", "Board Meeting Minutes", "Landscape Proposal", 
+                      "Letter From NGPE", "Lobby Rennovation Summary",
+                      "Annual Review", "Trustee Meeting Minutes", "Financial Summary", 
+                      "Delivery Notice", "Speing Rennovation Schedule"]
+
+
+          - (1..10).each do |n|
             .res-document
-              .file-type-icon.file-type-icon-docx
-              %strong Document title
-              .description Description
-              .label.label-info Meeting Minutes
-          - 2.times do 
-            .res-document
-              .file-type-icon.file-type-icon-xlsx
-              %strong Document title
-              .description Description
-              .label.label-success Financials
-          - 2.times do 
-            .res-document
-              .file-type-icon.file-type-icon-pdf
-              %strong Document title
-              .description Description
-              .label.label-danger Rules & Regulations
-          - 2.times do 
-            .res-document
-              .file-type-icon.file-type-icon-pdf
-              %strong Document title
-              .description Description
-              .label.label-warning Misc.
+              .pull-left
+                - if n < 3
+                  .file-type-icon.file-type-icon-docx
+                - elsif n < 6
+                  .file-type-icon.file-type-icon-pdf
+                - elsif n < 8
+                  .file-type-icon.file-type-icon-xlsx
+                - else
+                  .file-type-icon.file-type-icon-pdf
+              .pull-left
+                %strong
+                  =documents[n]
+                .description Description
+                - if n < 3
+                  .label.label-info Meeting Minutes
+                - elsif n < 6
+                  .label.label-success Financials
+                - elsif n < 8
+                  .label.label-warning Misc.
+                - else
+                  .label.label-danger Rules & Regulations
+              .pull-right.actions
+                = link_to raw("<i class='glyphicon glyphicon-cloud-download'></i>"), "#", class: 'btn btn-default'
+                = link_to raw("<i class='glyphicon glyphicon-trash'></i>"), "#", class: 'btn btn-default'
+              .clearfix
+

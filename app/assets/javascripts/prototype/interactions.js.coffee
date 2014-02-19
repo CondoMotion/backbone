@@ -115,11 +115,12 @@ $ ->
     $('.res-content-pane').animate top:'120px'
   
   $('.item').click ->
-    $panel = $("#show-issue")
-    $('.item-details').html($panel.html())
+    itemType = $(".navbar-nav li.active a").data("panel-div")
+    $item = $("#show-"+itemType)
+    $('.item-details').html($item.html())
     title = $(this).find('.title').text()
     $('.title', '.item-details').text(title)
-    $('#empty-message').hide();
+    $('.empty-message').hide();
     $('.item').removeClass('active');
     $(this).addClass('active');
 
@@ -128,6 +129,13 @@ $ ->
     $('#empty-message').show();
     $('.item-details').empty();
     $('.item').removeClass('active');
+
+  $(".navbar-nav li").click ->
+    if $(this).hasClass('active')
+      return
+    $('.item-details').empty();
+    $('.emptyMessage').show();
+
 
     #  $("body").on "click", ".res-issue, .res-news-post, .res-user", ->
 #    $(".res-issue, .res-news-post, .res-user").removeClass("active")

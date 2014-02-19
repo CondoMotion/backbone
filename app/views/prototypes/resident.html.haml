@@ -14,14 +14,14 @@
         %li.active
           = link_to "Dashboard", "#res-dashboard", data: { toggle: "tab" }
         %li
-          %a{href: "#res-issues", data: { toggle: "tab" } }
+          %a{href: "#res-issues", data: { toggle: "tab", "panel-div"=>"issue" } }
             Issues
             %span.badge.badge-danger= 3
         %li
-          = link_to "News", "#res-news", data: { toggle: "tab" }
+          = link_to "News", "#res-news", data: { toggle: "tab", "panel-div"=>"news" }
           / ", data: { "button-text" => "News Post", "panel-div" => "-news-post" } } News
         %li
-          = link_to "Documents", "#res-documents", data: { toggle: "tab" }
+          = link_to "Documents", "#res-documents", data: { toggle: "tab", "panel-div"=>"documents" }
           / %a{href: "#", data: { "button-text" => "Document", "panel-div" => "-document" } } Documents
         %li
           = link_to "Directory", "#res-directory", data: { toggle: "tab" }

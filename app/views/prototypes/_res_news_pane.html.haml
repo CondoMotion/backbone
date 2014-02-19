@@ -2,10 +2,66 @@
   .container
     .header{style: "padding: 20px 0;"}
       %h3.no-margin Clarendon Hill News
-    #res-news-list
-      - 5.times do 
-        .row.res-news-post
-          .col-xs-12
-            %strong Subject
-            .preview.line-1 Preview of news post content
-            .muted{style: "color: #999;"} Date
+
+
+    .res-content-pane
+      .item-area
+        %form.search-form
+          .form-group
+            = text_field_tag :search, "", class: "form-control search-field", 
+              placeholder: "Search"
+        .item-list
+
+          - newsTitles = ["Lobby Renovations Complete", "New Deck Furniture", 
+                          "Update on HVAC System", "Annual Review Meeting",
+                          "Fourth of July Celebration", "Swimming Pool Opens", 
+                          "Message to All Pet Owners", "New Gym Equipment",
+                          "Common Area Cleaning", "Trustee Elections"]
+
+          - fillText = ["Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation...",
+                        "Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint...", 
+                        "Occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor..."]
+
+          - (0..3).each do |n|
+            .item.res-news-post
+              %strong.title
+                = newsTitles[n]
+              .date.muted.lighter
+                - timestamp = Time.now - 2*n*60*60*24
+                = timestamp.strftime("%m/%d/%Y") 
+              .clearfix
+              .preview
+                = fillText[n%3]
+              .clearfix
+          - (4..8).each do |n|
+            .item.res-news-post
+              %strong.title
+                = newsTitles[n]
+              .date.muted.lighter
+                - timestamp = Time.now - 2*n*60*60*24
+                = timestamp.strftime("%m/%d/%Y") 
+              .clearfix
+              .preview
+                = fillText[n%3]
+
+
+        .item-details-area
+          .item-details
+          .empty-message
+            %i.glyphicon.glyphicon-bullhorn{style: "font-size: 100px; opacity: 0.3;"}
+            %br
+            %p{style: "font-size: 30px; font-weight: 500; opacity: 0.3;"} No Post Selected
+
+
+  #show-news{style: "display: none;"}
+    = render "res_news"
+
+
+
+/    #res-news-list
+/      - 5.times do 
+/        .row.res-news-post
+/          .col-xs-12
+/            %strong Subject
+/            .preview.line-1 Preview of news post content
+/            .muted{style: "color: #999;"} Date
