@@ -19,6 +19,14 @@
     className: "property"
     opacity: "true"
 
+    highlight: ->
+      @$el.addClass 'active'
+      @render()
+
+    removeHighlight: ->
+      @$el.removeClass 'active'
+      @render()
+
     events:
       "click": -> @trigger "property:clicked", @model
     

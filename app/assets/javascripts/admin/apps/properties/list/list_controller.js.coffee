@@ -33,6 +33,7 @@
       propertiesView = @getPropertiesView properties
 
       @listenTo propertiesView, "childview:property:clicked", (child, args) ->
+        @manageHighlight(child)
         App.vent.trigger "property:clicked", args.model
 
       @listenTo propertiesView, "childview:delete:property:link:clicked", (child, args) ->
@@ -43,6 +44,11 @@
           false
 
       @layout.propertiesRegion.show propertiesView
+
+    manageHighlight: (child) ->
+      @currentActiveView.removeHighlight() if @currentActiveView
+      @currentActiveView = child
+      @currentActiveView.highlight()
 
     getLayoutView: ->
       new List.Layout
