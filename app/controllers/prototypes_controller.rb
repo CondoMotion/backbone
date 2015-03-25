@@ -1,5 +1,5 @@
 class PrototypesController < ApplicationController
-  layout "prototype"
+  layout :set_layout
   
   def index
     @issues = 20
@@ -14,5 +14,13 @@ class PrototypesController < ApplicationController
 
   def resident
     @names = ["Jon Smith", "Nick Jones", "Sam Taylor", "Monica Reed", "James Green", "Jane Folders", "Marcus Xavier", "Hugo Lander", "Alan Voyers", "Timothy Allen", "Fred Bore", "Randolph Saunders"]
+  end
+
+  def set_layout
+    if params[:page] == "website"
+      "website"
+    else
+      "prototype"
+    end
   end
 end
