@@ -39,7 +39,8 @@ Backbone::Application.routes.draw do
     end
   end
 
-  get :prototype, to: 'prototypes#index', as: :prototype
+  get :prototype, to: 'prototypes#page', as: :prototype, page: "issues"
+  get 'prototype/:page', to: 'prototypes#page', as: :prototype_page
   get 'prototype/resident', to: 'prototypes#resident', as: :resident
   
 end

@@ -1,0 +1,8 @@
+#sidebar
+  = render "property_nav"
+#main
+  #left.pull-left
+    ISSUES
+    %p= prototype_partial_link "Issue 1", "issues::edit", "#right"
+  #right.pull-left
+    = render 'prototypes/issues/no_content'
