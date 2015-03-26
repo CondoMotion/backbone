@@ -1,0 +1,19 @@
+.btn-inverse {
+  background: #333;
+  color: #fff;
+
+  &:hover, &:active, &:focus {
+    color: darken(#fff, 10%);
+  }
+}
+
+.btn-pill {
+  @include border-top-radius(30px);
+  @include border-bottom-radius(30px);
+}
+
+.btn-add-content {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}

@@ -9,12 +9,9 @@
       %a.navbar-brand{:href => "#"} Clarendon Hill
     #navbar.navbar-collapse.collapse
       %ul.nav.navbar-nav.navbar-right
-        %li.active= link_to "Home"
-        %li= link_to "Photos"
-        %li= link_to "Building"
-        %li= link_to "Local Info"
-        %li= link_to "Contact"
+        %li= prototype_partial_link("Home", "website::home", "#main")
+        %li= prototype_partial_link("Photos", "website::photos", "#main")
+        %li= prototype_partial_link("Building", "website::building", "#main")
+        %li= prototype_partial_link("Local Info", "website::local_info", "#main")
+        %li= prototype_partial_link("Contact", "website::contact", "#main")
         %li= prototype_partial_link("<i class='glyphicon glyphicon-pencil'></i>".html_safe, "edit_navigation", "#sidebar")
-.jumbotron
-  %h1 Welcome to Clarendon Hill
-  %p Boston's Only 55+ Community

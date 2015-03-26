@@ -1,8 +1,8 @@
 .text-center.text-uppercase
   %h5= prototype_partial_link("Main Menu", "property_nav", "#sidebar")
   %ul.nav.nav-pills.nav-stacked
-    %li= link_to "Home"
-    %li= link_to "Photos"
+    %li= prototype_partial_link("Home", "website::home", "#main")
+    %li= prototype_partial_link("Photos", "website::photos", "#main")
     %li= link_to "Building"
     %li= link_to "Local Info"
     %li= link_to "Contact"

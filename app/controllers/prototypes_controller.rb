@@ -7,8 +7,8 @@ class PrototypesController < ApplicationController
 
   def page
     respond_to do |format|
-      format.html { render params[:page] }
-      format.js { render partial: "prototypes/#{params[:page].gsub('::', '/')}.html" }
+      format.html { render "prototypes/#{params[:page].gsub('::', '/')}" }
+      format.js { render partial: (website? ? "prototypes/website/iframe.html" : "prototypes/#{params[:page].gsub('::', '/')}.html") }
     end
   end
 
@@ -16,8 +16,12 @@ class PrototypesController < ApplicationController
     @names = ["Jon Smith", "Nick Jones", "Sam Taylor", "Monica Reed", "James Green", "Jane Folders", "Marcus Xavier", "Hugo Lander", "Alan Voyers", "Timothy Allen", "Fred Bore", "Randolph Saunders"]
   end
 
+  def website?
+    params[:page].split("::")[0] == "website"
+  end
+
   def set_layout
-    if params[:page] == "website"
+    if website?
       "website"
     else
       "prototype"
