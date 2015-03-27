@@ -1,6 +1,7 @@
-@import "navs";
 @import "variables";
 @import "bootstrap";
+@import "navs";
+@import "wells";
 
 body, html {
   height: 100%;
@@ -12,6 +13,7 @@ body {
 }
 
 .text-uppercase { text-transform: uppercase; }
+.no-margin { margin: 0; }
 
 #sidebar {
   position: absolute;

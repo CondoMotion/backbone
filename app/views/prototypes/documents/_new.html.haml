@@ -1,0 +1,9 @@
+%div{style: "padding-top: 20px;"}
+  .form-group= text_field_tag :title, "", placeholder: "Title", class: "form-control"
+  .form-group= text_field_tag :description, "", placeholder: "Description", class: "form-control"
+  .pull-left
+    = file_field_tag :attachment
+  .pull-right
+    = link_to "Cancel", prototype_page_path(page: "documents"), class: "btn btn-link"
+    = link_to "Save", prototype_page_path(page: "documents"), class: "btn btn-primary"
+  .clearfix

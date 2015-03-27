@@ -1,7 +1,22 @@
 #sidebar
   = render "property_nav"
 #main
-  #left.pull-left
-    DOCS
-  #right.pull-left
-    Select a Document
+  .well.no-margin
+    .row
+      .col-xs-9
+        = text_field_tag :search, "", class: "form-control search-field", placeholder: "Filter Documents"
+      .col-xs-3
+        .btn-group.pull-right
+          = link_to prototype_page_path(page: "folders::new"), remote: true, data: { target: "#new-document" }, class: "prototype-partial-link btn btn-default" do
+            %i.glyphicon.glyphicon-folder-open
+          = link_to prototype_page_path(page: "documents::new"), remote: true, data: { target: "#new-document" }, class: "prototype-partial-link btn btn-default" do
+            %i.glyphicon.glyphicon-file
+    #new-document
+  #left.pull-left{style: "width: 30%;"}
+    .list-group
+      - 3.times do
+        = render 'prototypes/folders/folder'
+  #right.pull-left{style: "width: 70%;"}
+    .list-group
+      - 8.times do
+        = render 'prototypes/documents/document'

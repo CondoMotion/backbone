@@ -1,8 +1,28 @@
 .text-center.text-uppercase
   %h5= prototype_partial_link("Main Menu", "property_nav", "#sidebar")
   %ul.nav.nav-pills.nav-stacked
+    %h5{style: "margin: 10px 0;"} Main Navigation
     %li= prototype_partial_link("Home", "website::home", "#main")
     %li= prototype_partial_link("Photos", "website::photos", "#main")
-    %li= link_to "Building"
-    %li= link_to "Local Info"
-    %li= link_to "Contact"
+    %li= prototype_partial_link("Building", "website::building", "#main")
+    %li= prototype_partial_link("Local Info", "website::local_info", "#main")
+    %li= prototype_partial_link("Contact", "website::contact", "#main")
+    %li
+      = link_to "#new-link-type", data: { toggle: "collapse" } do
+        %i.glyphicon.glyphicon-plus
+        Add a Page
+    .collapse#new-link-type
+      .row
+        %div{style: "padding: 10px 30px;"}
+          .col-xs-4
+            = link_to "#", style: "display: block; text-decoration: none; color: #333;" do
+              %i.glyphicon.glyphicon-file{style: "font-size: 2rem; color: #66BD58;"}
+              %p Page
+          .col-xs-4
+            = link_to "#", style: "display: block; text-decoration: none; color: #333;" do
+              %i.glyphicon.glyphicon-bold{style: "font-size: 2rem; color: #66BD58;"}
+              %p Blog
+          .col-xs-4
+            = link_to "#", style: "display: block; text-decoration: none; color: #333;" do
+              %i.glyphicon.glyphicon-link{style: "font-size: 2rem; color: #66BD58;"}
+              %p Link

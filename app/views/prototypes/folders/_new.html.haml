@@ -1,0 +1,11 @@
+%div{style: "padding-top: 20px;"}
+  .form-group= text_field_tag :title, "", placeholder: "Title", class: "form-control"
+  .row
+    .col-sm-6
+      .form-group= text_field_tag :properties, "", placeholder: "Properties", class: "form-control"
+    .col-sm-6
+      .form-group= text_field_tag :permissions, "", placeholder: "Roles", class: "form-control"
+  .pull-right
+    = link_to "Cancel", prototype_page_path(page: "documents"), class: "btn btn-link"
+    = link_to "Save", prototype_page_path(page: "documents"), class: "btn btn-primary"
+  .clearfix
