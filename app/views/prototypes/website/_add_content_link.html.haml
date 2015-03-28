@@ -1,1 +1,2 @@
 = prototype_partial_link("Add Content", "blocks::nav", "#sidebar", class: "btn btn-pill btn-inverse btn-add-content")
+= link_to "Full", "#", onclick: "$('#main', window.parent.document).toggleClass('full');", style: "background: #333; color: #fff; position: absolute; top: 0; left: 0; padding: 10px 15px; z-index: 2000;"

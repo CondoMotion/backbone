@@ -1,4 +1,5 @@
 @displayPartial = (target, html) ->
+  # $('#main').removeClass "full"
   $(target).html html
 
 $ ->

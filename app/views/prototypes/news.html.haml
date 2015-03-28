@@ -4,9 +4,9 @@
   #left.pull-left
     .well.no-margin{style: "border-bottom: none;"}
       .row
-        .col-xs-9
+        .col-xs-10
           = text_field_tag :search, "", class: "form-control search-field", placeholder: "Filter News"
-        .col-xs-3
+        .col-xs-2
           = prototype_partial_link("<i class='glyphicon glyphicon-plus'></i>".html_safe, "news::new", "#right", class: "btn btn-default pull-right")
     .list-group
       - 7.times do
