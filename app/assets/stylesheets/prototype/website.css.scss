@@ -1,8 +1,9 @@
+$navbar-height: 65px;
 @import "bootstrap";
 @import "buttons";
 
 .bg-building {
-  background-image: url('http://static1.squarespace.com/static/5411ffcfe4b065f40cc78e37/t/541346ffe4b0d105c293049d/1410549511993/Trade+18_0559.jpg?format=1500w');
+  background-image: image_url('building-bg.jpg');
   background-size: cover;
   height: 350px;
   position: relative;
