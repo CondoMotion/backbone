@@ -1,0 +1,29 @@
+.issue-tab {
+  color: #999;
+  padding: 10px 0;
+  
+  a {
+    text-decoration: none;
+    display: block;
+    color: inherit;
+  }
+
+  .count {
+    font-size: 2.5rem;
+    font-weight: 100;
+  }
+
+  &.selected, &:hover.selected {
+    border-bottom: 3px solid red;
+    color: $text-color;
+
+    .count {
+      font-weight: 500;
+    }
+  }
+
+  &:hover {
+    border-bottom: 3px solid #f1f1f1;
+    color: $text-color;
+  }
+}

@@ -2,12 +2,28 @@
   = render "property_nav"
 #main
   #left.pull-left
-    .well.no-margin
+    .well.no-margin{style: "border-bottom: none;"}
       .row
-        .col-xs-9
+        .col-xs-10
           = text_field_tag :search, "", class: "form-control search-field", placeholder: "Filter Issues"
-        .col-xs-3
+        .col-xs-2
           = prototype_partial_link("<i class='glyphicon glyphicon-plus'></i>".html_safe, "issues::new", "#right", class: "btn btn-default pull-right")
+    .row.text-center
+      .col-md-4
+        .issue-tab.selected
+          = link_to "" do
+            .count 7
+            All
+      .col-md-4
+        .issue-tab
+          = link_to "" do
+            .count 0
+            Unassigned
+      .col-md-4
+        .issue-tab
+          = link_to "" do
+            .count 0
+            Mine
     .list-group
       - 7.times do
         = render 'prototypes/issues/issue'
