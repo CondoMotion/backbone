@@ -1,2 +1,32 @@
 @import "bootstrap";
 @import "buttons";
+
+.bg-building {
+  background-image: url('http://static1.squarespace.com/static/5411ffcfe4b065f40cc78e37/t/541346ffe4b0d105c293049d/1410549511993/Trade+18_0559.jpg?format=1500w');
+  background-size: cover;
+  height: 350px;
+  position: relative;
+
+  .color-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(50,69,68,.8);
+    z-index: 99;
+  }
+  
+  .container {
+    z-index: 100;
+    position: relative;
+
+    h2 {
+      color: #fff;
+      z-index: 100;
+      font-weight: 100;
+      letter-spacing: 4px;
+      margin-top: 150px;
+    }
+  }
+}

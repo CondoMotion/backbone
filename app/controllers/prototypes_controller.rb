@@ -6,9 +6,10 @@ class PrototypesController < ApplicationController
   end
 
   def page
+    expires_now
     respond_to do |format|
       format.html { render "prototypes/#{params[:page].gsub('::', '/')}" }
-      format.js { render partial: (website? ? "prototypes/website/iframe.html" : "prototypes/#{params[:page].gsub('::', '/')}.html") }
+      format.js { render partial: (website? ? "prototypes/website/iframe" : "prototypes/#{params[:page].gsub('::', '/')}"), formats: [:html] }
     end
   end
 

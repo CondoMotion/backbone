@@ -6,4 +6,5 @@ $ ->
     alert data
 
   $("body").on "ajax:error", ".prototype-partial-link", (e, xhr, status, error) ->
+    console.log error
     parent.displayPartial($(this).data("target"), xhr.responseText)
