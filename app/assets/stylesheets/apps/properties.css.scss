@@ -29,5 +29,6 @@ li.empty {
   background: #F5F5F5;
   color: darken(#F5F5F5, 15%);
   border: 1px solid #E3E3E3;
-  @include border-radius(5px);
+  @include border-top-radius(5px);
+  @include border-bottom-radius(5px);
 }
