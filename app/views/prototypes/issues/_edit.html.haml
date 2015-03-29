@@ -1,38 +1,23 @@
-.well.no-margin
-  .row{style: "margin-bottom: 10px;"}
-    .col-xs-6
-      %span.label.label-info In Progress
-      %strong Assigned To
-      %span.dropdown
-        %span{data: { toggle: "dropdown" }, style: "cursor: pointer;" }
-          Ed Hofeller 
-          %span.caret
-        %ul.dropdown-menu
-          %li= link_to "Bob Glavin", "#"
-          %li= link_to "Ed Hofeller", "#"
-          %li= link_to "Mark Sheingold", "#"
-    .col-xs-6
-      .pull-right
-        = link_to "Cancel", prototype_page_path(page: "issues::no_content"), remote: true, class: "prototype-partial-link btn btn-link", data: { target: "#right" }
-        = link_to "Save", prototype_page_path(page: "issues::no_content"), remote: true, class: "prototype-partial-link btn btn-primary", data: { target: "#right" }
-  %h4 Hallway light is out
-  %p.no-margin 
-    %strong Property
-    Clarendon Hill
-  %p.no-margin 
-    %strong Reported by
-    John Doe
-  %p.no-margin 
-    %strong Email
-    jdoe@example.com
-  %p.no-margin 
-    %strong Date
-    March 12, 2015
 .pad
+  %p.text-muted
+    %i.glyphicon.glyphicon-envelope
+    John Doe (jdoe@example.com) at Clarendon Hill
+    %span.label.label-info.pull-right In Progress
+  %h3 Hallway lights are out
+  %div{style: "padding: 10px 0 20px 0;"}
+    %strong Assigned To
+    %span.dropdown
+      %span{data: { toggle: "dropdown" }, style: "cursor: pointer;" }
+        Ed Hofeller 
+        %span.caret
+      %ul.dropdown-menu
+        %li= link_to "Bob Glavin", "#"
+        %li= link_to "Ed Hofeller", "#"
+        %li= link_to "Mark Sheingold", "#"
   .tab-content
     .tab-pane.active#action-tab
       .well.well-white.no-margin
-        %p.no-margin Add a team #{link_to('team note', '#note-tab', data: { toggle: 'tab'})} or #{link_to 'reply to John Doe', '#message-tab', data: { toggle: 'tab'}}
+        %p.no-margin Add an #{link_to('internal note', '#note-tab', data: { toggle: 'tab'})} or #{link_to 'reply to John Doe', '#message-tab', data: { toggle: 'tab'}}
     .tab-pane#message-tab
       = text_area_tag :note, "", class: "form-control", placeholder: "Send a message to the person who reported this issue", rows: 5, style: "margin: 10px 0;"
       .row
