@@ -1,3 +1,28 @@
-%h2 
-  New News Post
-  = link_to "Cancel", prototype_page_path(page: "news::no_content"), remote: true, class: "prototype-partial-link btn btn-link pull-right", data: { target: "#right" }
+.well.no-margin
+  .row{style: "margin-bottom: 10px;"}
+    .col-xs-6
+      %h4 
+        New News Post
+    .col-xs-6
+      .pull-right
+        = link_to "Cancel", prototype_page_path(page: "news::no_content"), remote: true, class: "prototype-partial-link btn btn-link", data: { target: "#right" }
+        = link_to "Save", prototype_page_path(page: "news::no_content"), remote: true, class: "prototype-partial-link btn btn-primary", data: { target: "#right" }
+  .form-group.no-margin
+    = text_field_tag :subject, "", class: 'form-control input-lg', placeholder: "Subject", autofocus: true
+
+.pad
+  .form-group
+    = text_field_tag :permissions, "", class: 'form-control', placeholder: "Permissions"
+  .form-group
+    = text_field_tag :properties, "Clarendon Hill", class: 'form-control', placeholder: "Properties"
+  .row
+    .col-xs-6
+      .checkbox
+        %label
+          = check_box_tag :email
+          Send an email notification to users?
+    .col-xs-6
+      .form-group
+        = file_field_tag :attachment, class: "pull-right"
+  .form-group
+    = text_area_tag :content, "", class: "form-control", rows: 15, placeholder: "Content"
