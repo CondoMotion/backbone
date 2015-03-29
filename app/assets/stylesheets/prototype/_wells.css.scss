@@ -7,3 +7,11 @@
   @include border-top-radius(0);
   @include border-bottom-radius(0);
 }
+
+.well-white {
+  background: #fff;
+}
+
+.pad {
+  padding: 20px;
+}

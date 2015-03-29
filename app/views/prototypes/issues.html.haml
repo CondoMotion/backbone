@@ -9,21 +9,24 @@
         .col-xs-2
           = prototype_partial_link("<i class='glyphicon glyphicon-plus'></i>".html_safe, "issues::new", "#right", class: "btn btn-default pull-right")
     .row.text-center
-      .col-md-4
-        .issue-tab.selected
-          = link_to "" do
-            .count 7
-            All
-      .col-md-4
-        .issue-tab
-          = link_to "" do
-            .count 7
-            Unassigned
-      .col-md-4
-        .issue-tab
-          = link_to "" do
-            .count 0
-            Mine
+      .col-md-12
+        %div{style: "border-left: 1px solid #ddd; border-right: 1px solid #ddd;"}
+          .row
+            .col-md-4
+              .issue-tab.selected
+                = link_to "" do
+                  .count 7
+                  All
+            .col-md-4
+              .issue-tab
+                = link_to "" do
+                  .count 7
+                  Unassigned
+            .col-md-4
+              .issue-tab
+                = link_to "" do
+                  .count 0
+                  Mine
     .list-group
       - 7.times do
         = render 'prototypes/issues/issue'

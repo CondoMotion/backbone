@@ -4,12 +4,8 @@
     .container.text-center
       %h2 Photos
   .container
-    .row
-      .col-md-3.col-sm-6
-        = image_tag "http://placehold.it/300x250", class: "img-responsive"
-      .col-md-3.col-sm-6
-        = image_tag "http://placehold.it/300x250", class: "img-responsive"
-      .col-md-3.col-sm-6
-        = image_tag "http://placehold.it/300x250", class: "img-responsive"
-      .col-md-3.col-sm-6
-        = image_tag "http://placehold.it/300x250", class: "img-responsive"
+    - 2.times do
+      .row
+        - 4.times do
+          .col-md-3.col-sm-6
+            = image_tag "http://placehold.it/300x250", class: "img-responsive", style: "margin-bottom: 20px;"
