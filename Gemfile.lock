@@ -192,7 +192,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
   figaro
-  font-awesome-sass
+  font-awesome-sass (~> 4.3.0)
   gon
   haml
   haml_coffee_assets
