@@ -2,6 +2,17 @@
   = render "property_nav"
 #main
   #left.pull-left
-    PEOPLE
+    .well.no-margin{style: "border-bottom: none;"}
+      .row
+        .col-xs-10
+          = text_field_tag :search, "", class: "form-control search-field", placeholder: "Filter Users"
+        .col-xs-2
+          = prototype_partial_link("<i class='glyphicon glyphicon-plus'></i>".html_safe, "people::new", "#right", class: "btn btn-default pull-right")
+
+    .list-group
+      - 3.times do
+        = render 'prototypes/people/person', role: "Manager"
+      - 5.times do
+        = render 'prototypes/people/person', role: "Resident"
   #right.pull-left
-    Select a Person
+    = render 'prototypes/people/no_content'
