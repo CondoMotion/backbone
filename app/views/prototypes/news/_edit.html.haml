@@ -1,5 +1,5 @@
 .well.no-margin
-  .row{style: "margin-bottom: 10px;"}
+  .row
     .col-xs-6
       %h4 
         Edit News Post
@@ -7,10 +7,10 @@
       .pull-right
         = link_to "Cancel", prototype_page_path(page: "news::no_content"), remote: true, class: "prototype-partial-link btn btn-link", data: { target: "#right" }
         = link_to "Save", prototype_page_path(page: "news::no_content"), remote: true, class: "prototype-partial-link btn btn-primary", data: { target: "#right" }
-  .form-group.no-margin
-    = text_field_tag :subject, "HVAC Update", class: 'form-control input-lg', placeholder: "Subject", autofocus: true
 
 .pad
+  .form-group
+    = text_field_tag :subject, "HVAC Update", class: 'form-control input-lg', placeholder: "Subject", autofocus: true
   .form-group
     = text_field_tag :permissions, "", class: 'form-control', placeholder: "Permissions"
   .form-group
