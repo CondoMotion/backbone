@@ -1,1 +1,40 @@
-New User
+.well.no-margin
+  .row{style: "margin-bottom: 10px;"}
+    .col-xs-6
+      %h4 
+        New User
+    .col-xs-6
+      .pull-right
+        = link_to "Cancel", prototype_page_path(page: "people::no_content"), remote: true, class: "prototype-partial-link btn btn-link", data: { target: "#right" }
+        = link_to "Save", prototype_page_path(page: "people::no_content"), remote: true, class: "prototype-partial-link btn btn-primary", data: { target: "#right" }
+
+.pad
+  .form-group
+    = text_field_tag :subject, "", class: 'form-control input-lg', placeholder: "Full Name", autofocus: true
+  .form-group
+    = text_field_tag :email, "", class: 'form-control', placeholder: "Email"
+  .form-group
+    = text_field_tag :phone, "", class: 'form-control', placeholder: "Phone number"
+
+  %h4 Permissions
+  .checkbox
+    %label
+      = check_box_tag :manage_company
+      Can this user manage company info?
+  .checkbox
+    %label
+      = check_box_tag :manage_billing
+      Can this user manage billing info?
+  .checkbox
+    %label
+      = check_box_tag :assign_issues
+      Can this user assign issues to other managers?
+
+  %h4 Memberships
+  .row
+    .col-xs-6
+      .form-group
+        = select_tag :property, options_for_select(["Clarendon Hill"], "Clarendon Hill"), class: "form-control"
+    .col-xs-6
+      .form-group
+        = select_tag :property, options_for_select(["Manager", "Trustee", "Owner", "Resident"], "Manager"), class: "form-control"
