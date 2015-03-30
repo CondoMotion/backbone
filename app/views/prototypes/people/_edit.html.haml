@@ -49,4 +49,4 @@
             = select_tag :property, options_for_select(["Manager", "Trustee", "Owner", "Resident"], "Manager"), class: "form-control"
     .tab-pane#activity-tab
       .well
-        %p.no-margin Added a note to the issue "Hallway lights are out"
+        %p.no-margin Added a note to the issue #{link_to 'Hallway lights are out', prototype_page_path('issues')} 2 days ago
