@@ -7,22 +7,22 @@
     %li= prototype_partial_link("Building", "website::building", "#main")
     %li= prototype_partial_link("Local Info", "website::local_info", "#main")
     %li= prototype_partial_link("Contact", "website::contact", "#main")
-    %li
+    %li#new-page-form
+      .collapse#new-link-type
+        .row
+          %div{style: "padding: 10px 30px;"}
+            .col-xs-4
+              = link_to prototype_page_path(page: "pages::form"), remote: true, class: "prototype-partial-link", data: { target: "#new-page-form" }, style: "display: block; text-decoration: none; color: #333;" do
+                %i.glyphicon.glyphicon-file{style: "font-size: 2rem; color: #889E9D;"}
+                %p Page
+            .col-xs-4
+              = link_to prototype_page_path(page: "blogs::form"), remote: true, class: "prototype-partial-link", data: { target: "#new-page-form" }, style: "display: block; text-decoration: none; color: #333;" do
+                %i.glyphicon.glyphicon-bold{style: "font-size: 2rem; color: #889E9D;"}
+                %p Blog
+            .col-xs-4
+              = link_to prototype_page_path(page: "links::form"), remote: true, class: "prototype-partial-link", data: { target: "#new-page-form" }, style: "display: block; text-decoration: none; color: #333;" do
+                %i.glyphicon.glyphicon-link{style: "font-size: 2rem; color: #889E9D;"}
+                %p Link
       = link_to "#new-link-type", data: { toggle: "collapse" } do
         %i.glyphicon.glyphicon-plus
         Add a Page
-    .collapse#new-link-type
-      .row
-        %div{style: "padding: 10px 30px;"}
-          .col-xs-4
-            = link_to "#", style: "display: block; text-decoration: none; color: #333;" do
-              %i.glyphicon.glyphicon-file{style: "font-size: 2rem; color: #66BD58;"}
-              %p Page
-          .col-xs-4
-            = link_to "#", style: "display: block; text-decoration: none; color: #333;" do
-              %i.glyphicon.glyphicon-bold{style: "font-size: 2rem; color: #66BD58;"}
-              %p Blog
-          .col-xs-4
-            = link_to "#", style: "display: block; text-decoration: none; color: #333;" do
-              %i.glyphicon.glyphicon-link{style: "font-size: 2rem; color: #66BD58;"}
-              %p Link

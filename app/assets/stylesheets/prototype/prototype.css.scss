@@ -2,63 +2,11 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "layout";
+@import "list_groups";
 @import "navs";
 @import "tabs";
 @import "wells";
 
-body, html {
-  height: 100%;
-  margin: 0;
-}
-
-body {
-  background: #f2f2f2;
-}
-
 .text-uppercase { text-transform: uppercase; }
 .no-margin { margin: 0; }
-
-#sidebar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 270px;
-  bottom: 0;
-  overflow-y: auto;
-  font-size: 0.9em;
-
-  h5 {
-    margin-top: 40px;
-    margin-bottom: 50px;
-    font-size: 1em;
-  }
-}
-
-#main {
-  position: absolute;
-  top: 20px;
-  left: 270px;
-  right: 30px;
-  bottom: 0;
-  overflow-y: auto;
-  background: #fff;
-  -webkit-transition: all .5s ease-in-out,-webkit-transform .5s ease-out 2s;
-  -moz-transition: all .5s ease-in-out,-moz-transform .5s ease-out 2s;
-  -ms-transition: all .5s ease-in-out,-moz-transform .5s ease-out 2s;
-  transition: all .5s ease-in-out,transform .5s ease-out 2s;
-  box-shadow: 0 0 25px rgba(0,0,0,.11), 0 0 0 1px rgba(0,0,0,.03);
-
-  &.full {
-    top: 0;
-    right: 0;
-    left: 0;
-  }
-  
-  #left {
-    width: 40%;
-  }
-
-  #right {
-    width: 60%
-  }
-}
