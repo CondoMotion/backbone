@@ -4,3 +4,4 @@
       = link_to icon("trash"), prototype_page_path("edit_navigation"), class: "prototype-partial-link btn btn-default", remote: true, data: { target: "#sidebar" }
     .col-xs-10
       = text_field_tag :page_title, "", class: "form-control", placeholder: "Blog Title"
+  = prototype_partial_link("Save", "blogs::new", "#new-link", class: "add-link")

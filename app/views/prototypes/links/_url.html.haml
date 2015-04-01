@@ -3,5 +3,5 @@
     .col-xs-2
       = link_to icon("trash"), prototype_page_path("edit_navigation"), class: "prototype-partial-link btn btn-default", remote: true, data: { target: "#sidebar" }
     .col-xs-10
-      = text_field_tag :page_title, "", class: "form-control", placeholder: "Link Text"
-  = prototype_partial_link("Save", "links::url", "#new-link")
+      = text_field_tag :page_title, "", class: "form-control", placeholder: "Link URL"
+  = prototype_partial_link("Save", "links::new", "#new-link", class: "add-link")
