@@ -11,10 +11,15 @@
 .pad
   .form-group
     = text_field_tag :subject, "HVAC Update", class: 'form-control input-lg', placeholder: "Subject", autofocus: true
+  .row
+    .col-md-6
+      .form-group
+        = text_field_tag :permissions, "All Residents", class: 'form-control', placeholder: "Permissions"
+    .col-md-6
+      .form-group
+        = text_field_tag :properties, "Clarendon Hill", class: 'form-control', placeholder: "Properties"
   .form-group
-    = text_field_tag :permissions, "All Residents", class: 'form-control', placeholder: "Permissions"
-  .form-group
-    = text_field_tag :properties, "Clarendon Hill", class: 'form-control', placeholder: "Properties"
+    = text_field_tag :expiration, "", class: 'form-control', placeholder: "Automatic Archive Date"
   .row
     .col-xs-6
       .checkbox

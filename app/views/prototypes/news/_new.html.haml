@@ -11,18 +11,32 @@
 .pad
   .form-group
     = text_field_tag :subject, "", class: 'form-control input-lg', placeholder: "Subject", autofocus: true
-  .form-group
-    = text_field_tag :permissions, "", class: 'form-control', placeholder: "Permissions"
-  .form-group
-    = text_field_tag :properties, "Clarendon Hill", class: 'form-control', placeholder: "Properties"
   .row
-    .col-xs-6
+    .col-md-6
+      .form-group
+        = text_field_tag :permissions, "All Residents", class: 'form-control', placeholder: "Permissions"
+    .col-md-6
+      .form-group
+        = text_field_tag :properties, "Clarendon Hill", class: 'form-control', placeholder: "Properties"
+  .form-group
+    = text_field_tag :expiration, "", class: 'form-control', placeholder: "Automatic Archive Date"
+
+  .row
+    .col-md-6
+      .checkbox
+        %label
+          = check_box_tag :email, "", checked: true
+          Send an email notification to users
+
       .checkbox
         %label
           = check_box_tag :email
-          Send an email notification to users?
-    .col-xs-6
+          Feature on homepage
+    
+    .col-md-6
       .form-group
-        = file_field_tag :attachment, class: "pull-right"
+        %label{:for => ""} Attachment
+        = file_field_tag :attachment
+
   .form-group
     = text_area_tag :content, "", class: "form-control", rows: 15, placeholder: "Content"

@@ -5,10 +5,12 @@
       %h2 Contact Us
   %section
     .container
-      .form-group
-        = text_field_tag :name, "", class: "form-control", placeholder: "Your name"
-      .form-group
-        = text_field_tag :email, "", class: "form-control", placeholder: "Your email"
-      .form-group
-        = text_area_tag :message, "", class: "form-control", placeholder: "Message", rows: 10
-      = submit_tag "Send Message", class: "btn btn-primary pull-right"
+      .row
+        .col-md-6.col-md-offset-3
+          .form-group
+            = text_field_tag :name, "", class: "form-control", placeholder: "Your name"
+          .form-group
+            = text_field_tag :email, "", class: "form-control", placeholder: "Your email"
+          .form-group
+            = text_area_tag :message, "", class: "form-control", placeholder: "Message", rows: 10
+          = submit_tag "Send Message", class: "btn btn-primary pull-right"
