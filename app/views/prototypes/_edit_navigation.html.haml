@@ -1,30 +1,21 @@
-.text-center.text-uppercase
-  %h5= prototype_partial_link("Main Menu", "property_nav", "#sidebar")
+.text-uppercase
+  %h5= prototype_partial_link("Cancel", "property_nav", "#sidebar", class: "hide-menu")
   %ul.nav.nav-pills.nav-stacked
     %h5{style: "margin: 10px 0;"} Main Navigation
-    %li= prototype_partial_link("Home", "website::home", "#main")
-    %li= prototype_partial_link("Photos", "website::photos", "#main")
-    %li= prototype_partial_link("Building", "website::building", "#main")
-    %li= prototype_partial_link("Local Info", "website::local_info", "#main")
-    %li= prototype_partial_link("Contact", "website::contact", "#main")
+    %li.relative
+      = prototype_partial_link("Home", "website::home", "#main")
+      = link_to icon("cog"), prototype_page_path(page: "pages::settings"), remote: true, class: "prototype-partial-link page-settings-link", data: { target: "#sidebar" }
+    %li
+      = prototype_partial_link("Photos", "website::photos", "#main")
+      = link_to icon("cog"), prototype_page_path(page: "pages::settings"), remote: true, class: "prototype-partial-link page-settings-link", data: { target: "#sidebar" }
+    %li
+      = prototype_partial_link("Building", "website::building", "#main")
+      = link_to icon("cog"), prototype_page_path(page: "pages::settings"), remote: true, class: "prototype-partial-link page-settings-link", data: { target: "#sidebar" }
+    %li
+      = prototype_partial_link("Local Info", "website::local_info", "#main")
+      = link_to icon("cog"), prototype_page_path(page: "pages::settings"), remote: true, class: "prototype-partial-link page-settings-link", data: { target: "#sidebar" }
+    %li
+      = prototype_partial_link("Contact", "website::contact", "#main")
+      = link_to icon("cog"), prototype_page_path(page: "pages::settings"), remote: true, class: "prototype-partial-link page-settings-link", data: { target: "#sidebar" }
   #new-link
-    %ul.nav.nav-pills.nav-stacked
-      %li
-        .collapse#new-link-type
-          .row
-            %div{style: "padding: 10px 30px;"}
-              .col-xs-4
-                = link_to prototype_page_path(page: "pages::form"), remote: true, class: "prototype-partial-link", data: { target: "#new-link" }, style: "display: block; text-decoration: none; color: #333;" do
-                  %i.glyphicon.glyphicon-file{style: "font-size: 2rem; color: #889E9D;"}
-                  %p Page
-              .col-xs-4
-                = link_to prototype_page_path(page: "blogs::form"), remote: true, class: "prototype-partial-link", data: { target: "#new-link" }, style: "display: block; text-decoration: none; color: #333;" do
-                  %i.glyphicon.glyphicon-bold{style: "font-size: 2rem; color: #889E9D;"}
-                  %p Blog
-              .col-xs-4
-                = link_to prototype_page_path(page: "links::form"), remote: true, class: "prototype-partial-link", data: { target: "#new-link" }, style: "display: block; text-decoration: none; color: #333;" do
-                  %i.glyphicon.glyphicon-link{style: "font-size: 2rem; color: #889E9D;"}
-                  %p Link
-        = link_to "#new-link-type", data: { toggle: "collapse" } do
-          %i.glyphicon.glyphicon-plus
-          Add a Page
+    = render 'prototypes/website/new_link_menu'

@@ -3,4 +3,19 @@
     color: #333;
     letter-spacing: 1px;
   }
+
+  .page-settings-link {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: inline;
+    font-size: 1.5em;
+    line-height: 1;
+    height: 100%;
+    display: none;
+  }
+  
+  li:hover .page-settings-link {
+    display: inline;
+  }
 }

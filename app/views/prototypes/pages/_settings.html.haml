@@ -1,0 +1,23 @@
+.text-center.text-uppercase
+  %h5 Page Settings
+%div{style: "padding: 0 15px;"}
+  .form-group
+    = text_field_tag :page_title, "Title", class: "form-control"
+  .form-group
+    = text_field_tag :page_slug, "slug", class: "form-control"
+  .form-group
+    = text_area_tag :page_seo_description, "SEO Description", class: "form-control", rows: 8
+  .checkbox
+    %label
+      = check_box_tag :visible
+      Published
+  .checkbox
+    %label
+      = check_box_tag :visible
+      Visible to logged in users only
+  %p
+    = link_to icon("home", "Set as Homepage"), "#", class: "btn btn-default btn-xs"
+    = link_to icon("trash", "Delete Page"), "#", class: "btn btn-danger btn-xs"
+  %p
+    = prototype_partial_link "Save", "edit_navigation", "#sidebar", class: "btn btn-default"
+    = prototype_partial_link "Cancel", "edit_navigation", "#sidebar", class: "btn btn-link"
