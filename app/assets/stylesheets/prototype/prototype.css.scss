@@ -11,3 +11,41 @@
 .text-uppercase { text-transform: uppercase; }
 .no-margin { margin: 0; }
 .relative { position: relative; }
+
+#toggle-menu-link {
+  position: absolute;
+  top: 0;
+  color: #333;
+  z-index: 2000;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 35px 35px 0 0;
+  border-color: #f9f9f9 transparent transparent transparent;
+  outline: none;
+
+  &:hover {
+    border-color: darken(#f9f9f9, 10%) transparent transparent transparent;
+  }
+
+  i {
+    position: absolute;
+    top: -33px;
+    left: 6px;
+  }
+}
+
+#main {
+  #toggle-menu-link {
+    i {
+      @include fa-icon-rotate(315deg, 1);
+    }
+  }
+  &.full {
+    #toggle-menu-link {
+      i {
+        @include fa-icon-rotate(135deg, 1);
+      }
+    }
+  }
+}
