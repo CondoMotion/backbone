@@ -35,6 +35,12 @@
   }
 }
 
+.btn-danger-hover {
+  &:hover, &:focus, &:active {
+    @extend .btn-danger;
+  }
+}
+
 #main {
   #toggle-menu-link {
     i {

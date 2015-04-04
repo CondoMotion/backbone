@@ -1,22 +1,14 @@
 .text-center.text-uppercase
-  %h5 Page Settings
+  %h5 Link Settings
 %div{style: "padding: 0 15px;"}
   .form-group
-    = text_field_tag :page_title, "Title", class: "form-control"
+    = text_field_tag :page_title, "Link Text", class: "form-control"
   .form-group
-    = text_field_tag :page_slug, "slug", class: "form-control"
-  .form-group
-    = text_area_tag :page_seo_description, "SEO Description", class: "form-control", rows: 5
+    = text_field_tag :URL, "Link URL", class: "form-control"
   .checkbox
     %label
-      = check_box_tag :visible
-      Published
-  .checkbox
-    %label
-      = check_box_tag :visible
-      Visible to logged in users only
-  %p
-    = link_to icon("home", "Set as Homepage"), "#", class: "btn btn-default btn-xs"
+      = check_box_tag :new_tab
+      Open in a New Tab
   .btn-group{style: "width: 100%;"}
     = prototype_partial_link "Save", "edit_navigation", "#sidebar", class: "btn btn-default", style: "width: 33.3333%;"
     = prototype_partial_link "Cancel", "edit_navigation", "#sidebar", class: "btn btn-default", style: "width: 33.3333%;"

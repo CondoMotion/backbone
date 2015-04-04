@@ -1,0 +1,10 @@
+%div{style: "padding: 0 15px;"}
+  .input-group
+    %span.input-group-btn
+      = link_to icon("trash"), prototype_page_path("edit_navigation"), class: "prototype-partial-link btn btn-default", remote: true, data: { target: "#sidebar" }
+    = text_field_tag :page_title, "", class: "form-control", placeholder: "Link To"
+    %span.input-group-btn
+      = prototype_partial_link(icon("file"), "links::page", "#new-link", class: "btn btn-default")
+      = prototype_partial_link(icon("bold"), "links::blog", "#new-link", class: "btn btn-default")
+      = prototype_partial_link(icon("folder"), "links::file", "#new-link", class: "btn btn-default")
+      = prototype_partial_link(icon("link"), "links::url", "#new-link", class: "btn btn-default")
