@@ -1,0 +1,35 @@
+= render 'prototypes/settings/back'
+%div{style: "padding: 0 15px;"}
+  %h4 Company Info
+  .form-group
+    = label_tag :name, "Name", class: "control-label"
+    = text_field_tag :name, "The Hofeller Company", class: "form-control"
+  .form-group
+    = label_tag :email, "Email", class: "control-label"
+    = text_field_tag :email, "info@hofeller.com", class: "form-control"
+  .form-group
+    = label_tag :email, "Phone", class: "control-label"
+    = text_field_tag :email, "555-555-5555", class: "form-control"
+  .form-group
+    = label_tag :email, "Fax", class: "control-label"
+    = text_field_tag :email, "555-555-5555", class: "form-control"
+  .form-group
+    = label_tag :email, "Address 1", class: "control-label"
+    = text_field_tag :email, "123 Main St.", class: "form-control"
+  .form-group
+    = label_tag :email, "Address 2", class: "control-label"
+    = text_field_tag :email, "Suite 220", class: "form-control"
+  .row
+    .col-sm-4
+      .form-group
+        = label_tag :city, "City", class: "control-label"
+        = text_field_tag :city, "Boston", class: "form-control"
+    .col-sm-4
+      .form-group
+        = label_tag :state, "State", class: "control-label"
+        = text_field_tag :state, "MA", class: "form-control"
+    .col-sm-4
+      .form-group
+        = label_tag :zip, "Zip", class: "control-label"
+        = text_field_tag :zip, "02146", class: "form-control"
+  = render 'prototypes/settings/buttons'

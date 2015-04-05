@@ -1,0 +1,22 @@
+= render 'prototypes/settings/back'
+%div{style: "padding: 0 15px;"}
+  %h4 Website Settings
+  .form-group
+    = label_tag :subdomain, "Subdomain", class: "control-label"
+    = text_field_tag :subdomain, "clarendonhill", class: "form-control"
+  .form-group
+    = label_tag :custom_domain, "Custom Domain", class: "control-label"
+    = text_field_tag :custom_domain, "www.clarendonhill.com", class: "form-control"
+  .form-group
+    = label_tag :meta_title, "Meta Title", class: "control-label"
+    = text_field_tag :meta_title, "Clarendon Hill Condominium in Boston, MA", class: "form-control"
+  .form-group
+    = label_tag :seo_description, "SEO Description", class: "control-label"
+    = text_area_tag :seo_description, "", class: "form-control", rows: 5
+  .form-group
+    = label_tag :google_analytics_id, "Google Analytics ID", class: "control-label"
+    = text_field_tag :google_analytics_id, "", class: "form-control", placeholder: "e.g. UA-xxxxxx-xx"
+  .form-group
+    = label_tag :favicon, "Favicon", class: "control-label"
+    = file_field_tag :favicon
+  = render 'prototypes/settings/buttons'

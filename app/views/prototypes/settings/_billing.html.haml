@@ -1,0 +1,20 @@
+= render 'prototypes/settings/back'
+%div{style: "padding: 0 15px;"}
+  %h4 Billing Info
+  .form-group
+    = label_tag :plan, "Plan"
+    = select_tag :plan, options_for_select(["Annual", "Monthly"], "Plan"), class: "form-control"
+  %p 
+    Card: **** **** **** 2930
+    = link_to "Update", "#card-info", data: { toggle: "collapse" }, class: "pull-right"
+  #card-info.collapse
+    .form-group
+      = text_field_tag :card_number, "", class: "form-control", placeholder: "Card Number"
+    .row
+      .col-xs-6
+        .form-group
+          = text_field_tag :cvv, "", class: "form-control", placeholder: "CVV"
+      .col-xs-6
+        .form-group
+          = text_field_tag :expiration, "", class: "form-control", placeholder: "MM/YY"
+  = render 'prototypes/settings/buttons'

@@ -1,0 +1,13 @@
+= render 'prototypes/settings/back'
+%div{style: "padding: 0 15px;"}
+  %h4 My Account
+  .form-group
+    = label_tag :email, "Email", class: "control-label"
+    = text_field_tag :email, "email@example.com", class: "form-control"
+  .form-group
+    = label_tag :password, "Password", class: "control-label"
+    = password_field_tag :password, "password", class: "form-control"
+  .form-group
+    = label_tag :password, "Confirm Password", class: "control-label"
+    = password_field_tag :password, "password", class: "form-control"
+  = render 'prototypes/settings/buttons'
