@@ -1,5 +1,5 @@
 .text-uppercase
-  %h5= prototype_partial_link icon('arrow-left', 'Back'), "edit_navigation", "#sidebar"
+  = prototype_partial_link icon('long-arrow-left', 'Back'), "edit_navigation", "#sidebar", class: "nav-link"
 %div{style: "padding: 0 15px;"}
   = link_to icon('files-o'), prototype_page_path(page: "blogs::posts"), remote: true, class: "prototype-partial-link btn btn-sm btn-default pull-right", data: { target: "#sidebar" }
   %h4 Blog Settings

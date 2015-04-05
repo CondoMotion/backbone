@@ -17,6 +17,15 @@ body {
   font-size: 0.9em;
   padding-top: 40px;
 
+  a.nav-link {
+    margin-bottom: 30px;
+    padding: 10px 15px;
+    color: $text-color;
+    text-decoration: none;
+    display: block;
+    font-size: 1em;
+  }
+
   h5 {
     margin-top: 0;
     margin-bottom: 30px;

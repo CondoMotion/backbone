@@ -1,5 +1,5 @@
 .text-center.text-uppercase
-  %h5= prototype_partial_link("Main Menu", "property_nav", "#sidebar")
+  = prototype_partial_link(icon('long-arrow-left', 'Main Menu'), "property_nav", "#sidebar", class: "nav-link")
   %ul.nav.nav-pills.nav-stacked
     %li= link_to "Property Settings"
     %li= link_to "Website Settings"
