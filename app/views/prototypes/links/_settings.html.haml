@@ -1,6 +1,7 @@
-.text-center.text-uppercase
-  %h5 Link Settings
+.text-uppercase
+  %h5= prototype_partial_link icon('arrow-left', 'Back'), "edit_navigation", "#sidebar"
 %div{style: "padding: 0 15px;"}
+  %h4 Link Settings
   .form-group
     = text_field_tag :page_title, "Link Text", class: "form-control"
   .form-group
