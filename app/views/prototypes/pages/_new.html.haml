@@ -1,3 +1,5 @@
 %ul.nav.nav-pills.nav-stacked
-  %li= link_to "Page", "#"
+  %li
+    = link_to "Page", "#"
+    = link_to icon("cog"), prototype_page_path(page: "pages::settings"), remote: true, class: "prototype-partial-link page-settings-link", data: { target: "#sidebar" }
 = render 'prototypes/website/new_link_menu'
