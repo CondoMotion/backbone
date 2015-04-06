@@ -2,7 +2,7 @@
   = prototype_partial_link icon('long-arrow-left', 'Back'), "edit_navigation", "#sidebar", class: "nav-link"
 %div{style: "padding: 0 15px;"}
   = link_to icon('files-o'), prototype_page_path(page: "blogs::posts"), remote: true, class: "prototype-partial-link btn btn-sm btn-default pull-right", data: { target: "#sidebar" }
-  %h4 Blog Settings
+  %h4{style: "line-height: 30px;"} Blog Settings
   .form-group
     = label_tag :page_title, "Title", class: "control-label"
     = text_field_tag :page_title, "Blog", class: "form-control"

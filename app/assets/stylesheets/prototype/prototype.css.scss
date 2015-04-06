@@ -2,6 +2,7 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "forms";
 @import "layout";
 @import "list_groups";
 @import "navs";
@@ -11,6 +12,7 @@
 .text-uppercase { text-transform: uppercase; }
 .no-margin { margin: 0; }
 .relative { position: relative; }
+.full-width { width: 100%; }
 
 #toggle-menu-link {
   position: absolute;

@@ -2,4 +2,39 @@
   = prototype_partial_link icon('long-arrow-left', 'Back'), "edit_navigation", "#sidebar", class: "nav-link"
 %div{style: "padding: 0 15px;"}
   = link_to icon('cog'), prototype_page_path(page: "blogs::settings"), remote: true, class: "prototype-partial-link btn btn-sm btn-default pull-right", data: { target: "#sidebar" }
-  %h4 Posts
+  %h4{style: "line-height: 30px;"} Posts
+  .form-group
+    = text_field_tag :search, "", class: "form-control search-input", placeholder: "Search Posts"
+  %ul.nav.nav-pills.nav-justified{style: "margin-bottom: 15px;"}
+    %li.active= link_to "All", "#all", data: { toggle: "tab" }
+    %li= link_to "Drafts", "#drafts", data: { toggle: "tab" }
+    %li= link_to "Published", "#published", data: { toggle: "tab" }
+  .tab-content
+    .tab-pane.active#all
+      .list-group
+        - 3.times do 
+          = link_to "#", class: "list-group-item" do
+            %h5{style: "margin: 0 0 5px 0; padding: 0;"}
+              Blog Post Title
+              %span.label.label-info.pull-right Draft
+            %p.text-muted.no-margin Last Updated on Mar. 25, 2015
+        - 5.times do 
+          = link_to "#", class: "list-group-item" do
+            %h5{style: "margin: 0 0 5px 0; padding: 0;"}
+              Blog Post Title
+            %p.text-muted.no-margin Published on Mar. 25, 2015
+    .tab-pane#drafts
+      .list-group
+        - 3.times do 
+          = link_to "#", class: "list-group-item" do
+            %h5{style: "margin: 0 0 5px 0; padding: 0;"}
+              Blog Post Title
+              %span.label.label-info.pull-right Draft
+            %p.text-muted.no-margin Last Updated on Mar. 25, 2015
+    .tab-pane#published
+      .list-group
+        - 5.times do 
+          = link_to "#", class: "list-group-item" do
+            %h5{style: "margin: 0 0 5px 0; padding: 0;"}
+              Blog Post Title
+            %p.text-muted.no-margin Last Updated on Mar. 25, 2015

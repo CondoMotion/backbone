@@ -1,0 +1,4 @@
+.search-input {
+  @include border-top-radius(30px);
+  @include border-bottom-radius(30px);
+}
