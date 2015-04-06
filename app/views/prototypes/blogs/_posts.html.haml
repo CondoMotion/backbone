@@ -9,6 +9,8 @@
     %li.active= link_to "All", "#all", data: { toggle: "tab" }
     %li= link_to "Drafts", "#drafts", data: { toggle: "tab" }
     %li= link_to "Published", "#published", data: { toggle: "tab" }
+  %ul.nav.nav-pills.nav-stacked
+    %li= prototype_partial_link icon("plus", "New Post"), 'website::new_blog_post', '#main', class: "text-uppercase", style: "border: 1px dashed #ddd; margin-bottom: 15px;"
   .tab-content
     .tab-pane.active#all
       .list-group
