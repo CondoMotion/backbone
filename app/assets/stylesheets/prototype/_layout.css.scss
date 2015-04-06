@@ -5,6 +5,20 @@ body, html {
 
 body {
   background: #f2f2f2;
+
+  &.sidebar-lg {
+    #sidebar {
+      width: 370px;
+    }
+
+    #main {
+      left: 370px;
+
+      &.full {
+        left: 0;
+      }
+    }
+  }
 }
 
 #sidebar {
