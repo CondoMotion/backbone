@@ -1,3 +1,13 @@
-%iframe{src: "/prototype/#{params[:page] == "site" ? "website::home" : params[:page]}", frameborder: "0", width: "100%", height: "100%", id: "website-iframe"}
+- if params[:page] == "site"
+  - page = "website::home"
+- elsif params[:page] == "new_blog_post"
+  - page = "website::new_blog_post"
+- elsif params[:page] == "blog_post"
+  - page = "website::blog_post"
+- else
+  - page = params[:page]
+
+
+%iframe{src: "/prototype/#{page}", frameborder: "0", width: "100%", height: "100%", id: "website-iframe"}
 
 = render 'prototypes/website/toggle_menu_link'

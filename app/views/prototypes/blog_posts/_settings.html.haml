@@ -1,0 +1,25 @@
+.text-uppercase
+  = prototype_partial_link icon('long-arrow-left', 'Back'), "blogs::posts", "#sidebar", class: "nav-link"
+%div{style: "padding: 0 15px;"}
+  %h4{style: "line-height: 30px;"} Blog Post Settings
+  .form-group
+    = label_tag :page_title, "Title", class: "control-label"
+    = text_field_tag :page_title, "Blog", class: "form-control"
+  .form-group
+    = label_tag :page_slug, "Slug", class: "control-label"
+    = text_field_tag :page_slug, "blog", class: "form-control"
+  .form-group
+    = label_tag :page_seo_description, "SEO Description", class: "control-label"
+    = text_area_tag :page_seo_description, "SEO Description", class: "form-control", rows: 5
+  .checkbox
+    %label
+      = check_box_tag :visible, "", checked: true
+      Published
+  .checkbox
+    %label
+      = check_box_tag :visible
+      Visible to logged in users only
+  .btn-group{style: "width: 100%;"}
+    = prototype_partial_link "Save", "blogs::posts", "#sidebar", class: "btn btn-default", style: "width: 33.3333%;"
+    = prototype_partial_link "Cancel", "blogs::posts", "#sidebar", class: "btn btn-default", style: "width: 33.3333%;"
+    = prototype_partial_link "Delete", "blogs::posts", "#sidebar", class: "btn btn-default btn-danger-hover", style: "width: 33.3333%;"

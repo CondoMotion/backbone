@@ -1,4 +1,4 @@
-= link_to prototype_page_path(page: "website::blog_post"), class: "list-group-item list-group-item-transparent prototype-partial-link", data: { target: "#main" }, remote: true do
+= link_to prototype_page_path("blog_post"), class: "list-group-item list-group-item-transparent" do
   %h5{style: "margin: 0 0 5px 0; padding: 0;"}
     Blog Post Title
     - if draft
