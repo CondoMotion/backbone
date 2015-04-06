@@ -3,4 +3,9 @@
     Blog Post Title
     - if draft
       %span.label.label-info.pull-right Draft
-  %p.text-muted.no-margin Last Updated on Mar. 25, 2015
+  %p.text-muted.no-margin 
+    - if draft
+      Last Updated on
+    - else
+      Published on 
+    Mar. 25, 2015
