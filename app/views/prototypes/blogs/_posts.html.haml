@@ -12,29 +12,15 @@
   .tab-content
     .tab-pane.active#all
       .list-group
-        - 3.times do 
-          = link_to "#", class: "list-group-item" do
-            %h5{style: "margin: 0 0 5px 0; padding: 0;"}
-              Blog Post Title
-              %span.label.label-info.pull-right Draft
-            %p.text-muted.no-margin Last Updated on Mar. 25, 2015
-        - 5.times do 
-          = link_to "#", class: "list-group-item" do
-            %h5{style: "margin: 0 0 5px 0; padding: 0;"}
-              Blog Post Title
-            %p.text-muted.no-margin Published on Mar. 25, 2015
+        - 3.times do
+          = render 'prototypes/blogs/post', draft: true
+        - 5.times do
+          = render 'prototypes/blogs/post', draft: false
     .tab-pane#drafts
       .list-group
-        - 3.times do 
-          = link_to "#", class: "list-group-item" do
-            %h5{style: "margin: 0 0 5px 0; padding: 0;"}
-              Blog Post Title
-              %span.label.label-info.pull-right Draft
-            %p.text-muted.no-margin Last Updated on Mar. 25, 2015
+        - 3.times do
+          = render 'prototypes/blogs/post', draft: true
     .tab-pane#published
       .list-group
-        - 5.times do 
-          = link_to "#", class: "list-group-item" do
-            %h5{style: "margin: 0 0 5px 0; padding: 0;"}
-              Blog Post Title
-            %p.text-muted.no-margin Last Updated on Mar. 25, 2015
+        - 5.times do
+          = render 'prototypes/blogs/post', draft: false
