@@ -1,27 +1,28 @@
-.well.no-margin
-  .row
-    .col-xs-6
-      %h4 
-        New Issue
-        %span.dropdown
-          %small{data: { toggle: "dropdown" }, style: "cursor: pointer;" }
-            Unassigned 
-            %span.caret
-          %ul.dropdown-menu
-            %li= link_to "Bob Glavin", "#"
-            %li= link_to "Ed Hofeller", "#"
-            %li= link_to "Mark Sheingold", "#"
-    .col-xs-6
-      .pull-right
-        = link_to "Cancel", prototype_page_path(page: "issues::no_content"), remote: true, class: "prototype-partial-link btn btn-link", data: { target: "#right" }
-        = link_to "Save", prototype_page_path(page: "issues::no_content"), remote: true, class: "prototype-partial-link btn btn-primary", data: { target: "#right" }
-.pad
-  .form-group
-    = text_field_tag :subject, "", class: 'form-control input-lg', placeholder: "Subject", autofocus: true
-  .form-group
-    = text_field_tag :resident, "", class: 'form-control', placeholder: "Resident reporting the issue"
-  .checkbox
-    %label
-      %input{:type => "checkbox"}/ 
-      Make this issue visible to all residents & owners
-  = text_area_tag :note, "", class: "form-control", placeholder: "Details (this is an internal note and will not be seen by the resident entered above)", rows: 10
+.scroll-panel
+  .scroll-panel-header
+    .row
+      .col-xs-6
+        %h4 
+          New Issue
+          %span.dropdown
+            %small{data: { toggle: "dropdown" }, style: "cursor: pointer;" }
+              Unassigned 
+              %span.caret
+            %ul.dropdown-menu
+              %li= link_to "Bob Glavin", "#"
+              %li= link_to "Ed Hofeller", "#"
+              %li= link_to "Mark Sheingold", "#"
+      .col-xs-6
+        .pull-right
+          = link_to "Cancel", prototype_page_path(page: "issues::no_content"), remote: true, class: "prototype-partial-link btn btn-link", data: { target: "#right" }
+          = link_to "Save", prototype_page_path(page: "issues::no_content"), remote: true, class: "prototype-partial-link btn btn-primary", data: { target: "#right" }
+  .scroll-panel-body
+    .form-group
+      = text_field_tag :subject, "", class: 'form-control input-lg', placeholder: "Subject", autofocus: true
+    .form-group
+      = text_field_tag :resident, "", class: 'form-control', placeholder: "Resident reporting the issue"
+    .checkbox
+      %label
+        %input{:type => "checkbox"}/ 
+        Make this issue visible to all residents & owners
+    = text_area_tag :note, "", class: "form-control", placeholder: "Details (this is an internal note and will not be seen by the resident entered above)", rows: 10

@@ -1,33 +1,34 @@
-.well.no-margin
-  .row
-    .col-xs-6
-      %h4 
-        Edit News Post
-    .col-xs-6
-      .pull-right
-        = link_to "Cancel", prototype_page_path(page: "news::no_content"), remote: true, class: "prototype-partial-link btn btn-link", data: { target: "#right" }
-        = link_to "Save", prototype_page_path(page: "news::no_content"), remote: true, class: "prototype-partial-link btn btn-primary", data: { target: "#right" }
-
-.pad
-  .form-group
-    = text_field_tag :subject, "HVAC Update", class: 'form-control input-lg', placeholder: "Subject", autofocus: true
-  .row
-    .col-md-6
+.scroll-panel
+  .scroll-panel-header
+    .row
+      .col-xs-6
+        %h4 
+          Edit News Post
+      .col-xs-6
+        .pull-right
+          = link_to "Cancel", prototype_page_path(page: "news::no_content"), remote: true, class: "prototype-partial-link btn btn-link", data: { target: "#right" }
+          = link_to "Save", prototype_page_path(page: "news::no_content"), remote: true, class: "prototype-partial-link btn btn-primary", data: { target: "#right" }
+  .scroll-panel-body.no-padding
+    .pad
       .form-group
-        = text_field_tag :permissions, "All Residents", class: 'form-control', placeholder: "Permissions"
-    .col-md-6
+        = text_field_tag :subject, "HVAC Update", class: 'form-control input-lg', placeholder: "Subject", autofocus: true
+      .row
+        .col-md-6
+          .form-group
+            = text_field_tag :permissions, "All Residents", class: 'form-control', placeholder: "Permissions"
+        .col-md-6
+          .form-group
+            = text_field_tag :properties, "Clarendon Hill", class: 'form-control', placeholder: "Properties"
       .form-group
-        = text_field_tag :properties, "Clarendon Hill", class: 'form-control', placeholder: "Properties"
-  .form-group
-    = text_field_tag :expiration, "", class: 'form-control', placeholder: "Automatic Archive Date"
-  .row
-    .col-xs-6
-      .checkbox
-        %label
-          = check_box_tag :email
-          Send an email update to users?
-    .col-xs-6
+        = text_field_tag :expiration, "", class: 'form-control', placeholder: "Automatic Archive Date"
+      .row
+        .col-xs-6
+          .checkbox
+            %label
+              = check_box_tag :email
+              Send an email update to users?
+        .col-xs-6
+          .form-group
+            = file_field_tag :attachment, class: "pull-right"
       .form-group
-        = file_field_tag :attachment, class: "pull-right"
-  .form-group
-    = text_area_tag :content, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", class: "form-control", rows: 15
+        = text_area_tag :content, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", class: "form-control", rows: 15

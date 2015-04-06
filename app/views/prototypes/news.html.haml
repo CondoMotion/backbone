@@ -2,14 +2,16 @@
   = render "property_nav"
 #main
   #left.pull-left
-    .well.no-margin{style: "border-bottom: none;"}
-      .row
-        .col-xs-10
-          = text_field_tag :search, "", class: "form-control search-input", placeholder: "Filter News"
-        .col-xs-2
-          = prototype_partial_link("<i class='glyphicon glyphicon-plus'></i>".html_safe, "news::new", "#right", class: "btn btn-default pull-right")
-    .list-group
-      - 7.times do
-        = render 'prototypes/news/news'
+    .scroll-panel
+      .scroll-panel-header
+        .row
+          .col-xs-10
+            = text_field_tag :search, "", class: "form-control search-input", placeholder: "Filter News"
+          .col-xs-2
+            = prototype_partial_link("<i class='glyphicon glyphicon-plus'></i>".html_safe, "news::new", "#right", class: "btn btn-default pull-right")
+      .scroll-panel-body.no-padding
+        .list-group
+          - 7.times do
+            = render 'prototypes/news/news'
   #right.pull-left
     = render 'prototypes/news/no_content'

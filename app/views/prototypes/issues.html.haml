@@ -2,16 +2,16 @@
   = render "property_nav"
 #main
   #left.pull-left
-    .well.no-margin{style: "border-bottom: none;"}
-      .row
-        .col-xs-10
-          = text_field_tag :search, "", class: "form-control search-input", placeholder: "Filter Issues"
-        .col-xs-2
-          = prototype_partial_link("<i class='glyphicon glyphicon-plus'></i>".html_safe, "issues::new", "#right", class: "btn btn-default pull-right")
-    .row.text-center
-      .col-md-12
-        %div{style: "border-left: 1px solid #ddd; border-right: 1px solid #ddd;"}
-          .row
+    .scroll-panel
+      .scroll-panel-header
+        .row
+          .col-xs-10
+            = text_field_tag :search, "", class: "form-control search-input", placeholder: "Filter Issues"
+          .col-xs-2
+            = prototype_partial_link("<i class='glyphicon glyphicon-plus'></i>".html_safe, "issues::new", "#right", class: "btn btn-default pull-right")
+      .scroll-panel-body.no-padding
+        %div{style: "border-bottom: 1px solid #f1f1f1;"}
+          .row.text-center
             .col-md-4
               .issue-tab.selected
                 = link_to "" do
@@ -27,8 +27,8 @@
                 = link_to "" do
                   .count 0
                   Mine
-    .list-group
-      - 7.times do
-        = render 'prototypes/issues/issue'
+        .list-group
+          - 7.times do
+            = render 'prototypes/issues/issue'
   #right.pull-left
     = render 'prototypes/issues/no_content'

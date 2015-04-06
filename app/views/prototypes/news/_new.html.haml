@@ -1,42 +1,43 @@
-.well.no-margin
-  .row
-    .col-xs-6
-      %h4 
-        New News Post
-    .col-xs-6
-      .pull-right
-        = link_to "Cancel", prototype_page_path(page: "news::no_content"), remote: true, class: "prototype-partial-link btn btn-link", data: { target: "#right" }
-        = link_to "Save", prototype_page_path(page: "news::no_content"), remote: true, class: "prototype-partial-link btn btn-primary", data: { target: "#right" }
-
-.pad
-  .form-group
-    = text_field_tag :subject, "", class: 'form-control input-lg', placeholder: "Subject", autofocus: true
-  .row
-    .col-md-6
+.scroll-panel
+  .scroll-panel-header
+    .row
+      .col-xs-6
+        %h4 
+          New News Post
+      .col-xs-6
+        .pull-right
+          = link_to "Cancel", prototype_page_path(page: "news::no_content"), remote: true, class: "prototype-partial-link btn btn-link", data: { target: "#right" }
+          = link_to "Save", prototype_page_path(page: "news::no_content"), remote: true, class: "prototype-partial-link btn btn-primary", data: { target: "#right" }
+  .scroll-panel-body.no-padding
+    .pad
       .form-group
-        = text_field_tag :permissions, "All Residents", class: 'form-control', placeholder: "Permissions"
-    .col-md-6
+        = text_field_tag :subject, "", class: 'form-control input-lg', placeholder: "Subject", autofocus: true
+      .row
+        .col-md-6
+          .form-group
+            = text_field_tag :permissions, "All Residents", class: 'form-control', placeholder: "Permissions"
+        .col-md-6
+          .form-group
+            = text_field_tag :properties, "Clarendon Hill", class: 'form-control', placeholder: "Properties"
       .form-group
-        = text_field_tag :properties, "Clarendon Hill", class: 'form-control', placeholder: "Properties"
-  .form-group
-    = text_field_tag :expiration, "", class: 'form-control', placeholder: "Automatic Archive Date"
+        = text_field_tag :expiration, "", class: 'form-control', placeholder: "Automatic Archive Date"
 
-  .row
-    .col-md-6
-      .checkbox
-        %label
-          = check_box_tag :email, "", checked: true
-          Send an email notification to users
+      .row
+        .col-md-6
+          .checkbox
+            %label
+              = check_box_tag :email, "", checked: true
+              Send an email notification to users
 
-      .checkbox
-        %label
-          = check_box_tag :email
-          Feature on homepage
-    
-    .col-md-6
+          .checkbox
+            %label
+              = check_box_tag :email
+              Feature on homepage
+        
+        .col-md-6
+          .form-group
+            %label{:for => ""} Attachment
+            = file_field_tag :attachment
+
       .form-group
-        %label{:for => ""} Attachment
-        = file_field_tag :attachment
-
-  .form-group
-    = text_area_tag :content, "", class: "form-control", rows: 15, placeholder: "Content"
+        = text_area_tag :content, "", class: "form-control", rows: 15, placeholder: "Content"

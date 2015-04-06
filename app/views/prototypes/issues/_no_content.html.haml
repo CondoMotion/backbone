@@ -1,9 +1,11 @@
-.text-center
-  .well.well-sm{style: "border-radius: 0;"}
-    You can also create an issue by sending an email to 
-    %p
-      %strong
-        issues@clarendonhill.condomotion.com
-  %h3 Select an Issue
-  %p or
-  = link_to "Create One", prototype_page_path(page: "issues::new"), remote: true, class: "prototype-partial-link btn btn-primary", data: { target: "#right" }
+.scroll-panel
+  .scroll-panel-body
+    .text-center
+      .well.well-sm{style: "border-radius: 0;"}
+        You can also create an issue by sending an email to 
+        %p.no-margin
+          %strong
+            issues@clarendonhill.condomotion.com
+      %h3 Select an Issue
+      %p or
+      = link_to "Create One", prototype_page_path(page: "issues::new"), remote: true, class: "prototype-partial-link btn btn-primary", data: { target: "#right" }

@@ -1,51 +1,53 @@
-.pad
-  %h3.no-margin Hallway lights are out
-  %div{style: "padding: 20px 0;"}
+.scroll-panel
+  .scroll-panel-body.no-padding
+    .pad
+      %h3.no-margin Hallway lights are out
+      %div{style: "padding: 20px 0;"}
 
-    %p.text-muted John Doe (jdoe@example.com) at Clarendon Hill
-    %span.dropdown.pull-right
-      %span.label.label-info{data: { toggle: "dropdown" }, style: "cursor: pointer;" } 
-        In Progress
-      %ul.dropdown-menu
-        %li= link_to "In Progress", "#"
-        %li= link_to "Resolved", "#"
-        %li= link_to "Archived", "#"
+        %p.text-muted John Doe (jdoe@example.com) at Clarendon Hill
+        %span.dropdown.pull-right
+          %span.label.label-info{data: { toggle: "dropdown" }, style: "cursor: pointer;" } 
+            In Progress
+          %ul.dropdown-menu
+            %li= link_to "In Progress", "#"
+            %li= link_to "Resolved", "#"
+            %li= link_to "Archived", "#"
 
-    %strong Assigned To
-    %span.dropdown
-      %span{data: { toggle: "dropdown" }, style: "cursor: pointer;" }
-        Ed Hofeller 
-        %span.caret
-      %ul.dropdown-menu
-        %li= link_to "Bob Glavin", "#"
-        %li= link_to "Ed Hofeller", "#"
-        %li= link_to "Mark Sheingold", "#"
-    
-  .tab-content
-    .tab-pane.active#action-tab
-      .well.well-white.no-margin
-        %p.no-margin Add an #{link_to('internal note', '#note-tab', data: { toggle: 'tab'})} or #{link_to 'reply to John Doe', '#message-tab', data: { toggle: 'tab'}}
-    .tab-pane#message-tab
-      = text_area_tag :note, "", class: "form-control", placeholder: "Send a message to the person who reported this issue", rows: 5, style: "margin: 10px 0;"
-      .row
-        .col-xs-6
-          = file_field_tag :attachment
-        .col-xs-6
-          .pull-right
-            = link_to "Cancel", '#action-tab', class: "btn btn-link", data: { toggle: "tab" }
-            = submit_tag "Send Message", class: "btn btn-primary"
-    .tab-pane#note-tab
-      = text_area_tag :note, "", class: "form-control", placeholder: "Create an internal note for your team that will not be seen by the resident who reported this issue", rows: 5, style: "margin: 10px 0;"
-      .row
-        .col-xs-6
-          = file_field_tag :attachment
-        .col-xs-6
-          .pull-right
-            = link_to "Cancel", '#action-tab', class: "btn btn-link", data: { toggle: "tab" }
-            = submit_tag "Create Note", class: "btn btn-primary"
-.note{style: "border-top: 1px solid #ddd;"}
-  .pad
-    %h5
-      John Doe
-      %small.pull-right March 12, 2015
-    %p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        %strong Assigned To
+        %span.dropdown
+          %span{data: { toggle: "dropdown" }, style: "cursor: pointer;" }
+            Ed Hofeller 
+            %span.caret
+          %ul.dropdown-menu
+            %li= link_to "Bob Glavin", "#"
+            %li= link_to "Ed Hofeller", "#"
+            %li= link_to "Mark Sheingold", "#"
+        
+      .tab-content
+        .tab-pane.active#action-tab
+          .well.well-white.no-margin
+            %p.no-margin Add an #{link_to('internal note', '#note-tab', data: { toggle: 'tab'})} or #{link_to 'reply to John Doe', '#message-tab', data: { toggle: 'tab'}}
+        .tab-pane#message-tab
+          = text_area_tag :note, "", class: "form-control", placeholder: "Send a message to the person who reported this issue", rows: 5, style: "margin: 10px 0;"
+          .row
+            .col-xs-6
+              = file_field_tag :attachment
+            .col-xs-6
+              .pull-right
+                = link_to "Cancel", '#action-tab', class: "btn btn-link", data: { toggle: "tab" }
+                = submit_tag "Send Message", class: "btn btn-primary"
+        .tab-pane#note-tab
+          = text_area_tag :note, "", class: "form-control", placeholder: "Create an internal note for your team that will not be seen by the resident who reported this issue", rows: 5, style: "margin: 10px 0;"
+          .row
+            .col-xs-6
+              = file_field_tag :attachment
+            .col-xs-6
+              .pull-right
+                = link_to "Cancel", '#action-tab', class: "btn btn-link", data: { toggle: "tab" }
+                = submit_tag "Create Note", class: "btn btn-primary"
+    .note{style: "border-top: 1px solid #ddd;"}
+      .pad
+        %h5
+          John Doe
+          %small.pull-right March 12, 2015
+        %p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
