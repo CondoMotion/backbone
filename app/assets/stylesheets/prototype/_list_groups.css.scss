@@ -6,3 +6,10 @@
 .list-group-item:hover .hide {
   display: block!important;
 }
+
+.list-group-item-transparent {
+  background: transparent;
+  border-right: none;
+  border-left: none;
+  border-top: none;
+}

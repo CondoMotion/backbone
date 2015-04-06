@@ -4,6 +4,9 @@ $navbar-height: 65px;
 @import "font-awesome";
 @import "buttons";
 
+.pad {
+  padding: 40px 0;
+}
 .bg-building {
   background-image: image_url('building-bg.jpg');
   background-size: cover;
