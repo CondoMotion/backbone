@@ -1,5 +1,21 @@
 = render layout: 'prototypes/website/page' do
-  %section.bg-building{style: "margin-bottom: 20px;"}
+  %section.bg-building
     .color-overlay
     .container.text-center
       %h2 Welcome to Clarendon Hill
+  %section{style: "padding: 40px 0 20px 0; background: #f1f1f1;"}
+    .container
+      .row
+        .col-md-4
+          .panel.panel-default
+            %h3.text-center{style: "font-weight: 100;"}
+              Residents
+            .panel-body
+              .form-group= text_field_tag :email, "", placeholder: "email", class: "form-control"
+              .form-group= password_field_tag :password, "", placeholder: "password", class: "form-control"
+            .panel-footer
+              = submit_tag "Log In", class: "btn btn-primary"
+              = submit_tag "Request Account", class: "btn btn-link"
+        .col-md-7.col-md-offset-1
+          %h3.text-lighter Welcome to Our Community!
+          %p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
