@@ -43,3 +43,4 @@ gem 'active_model_serializers'
 gem 'gon'
 
 gem 'js-routes'
+gem 'jquery-ui-rails'

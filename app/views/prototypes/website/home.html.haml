@@ -3,19 +3,21 @@
     .color-overlay
     .container.text-center
       %h2 Welcome to Clarendon Hill
-  %section{style: "padding: 40px 0 20px 0; background: #f1f1f1;"}
+  %section{style: "padding: 40px 0 20px 0;"}
     .container
-      .row
-        .col-md-4
-          .panel.panel-default
-            %h3.text-center{style: "font-weight: 100;"}
-              Resident Login
-            .panel-body
-              .form-group= text_field_tag :email, "", placeholder: "email", class: "form-control"
-              .form-group= password_field_tag :password, "", placeholder: "password", class: "form-control"
-            .panel-footer
-              = submit_tag "Log In", class: "btn btn-primary"
-              = submit_tag "Request Account", class: "btn btn-link"
-        .col-md-7.col-md-offset-1
-          %h3.text-lighter Welcome to Our Community!
-          %p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      .grid-stack
+        .grid-stack-item{"data-gs-height" => "3", "data-gs-min-height" => "3", "data-gs-max-height" => "3", "data-gs-width" => "4", "data-gs-x" => "0", "data-gs-y" => "0"}
+          .grid-stack-item-content
+            .panel.panel-default.no-margin
+              %h3.text-center{style: "font-weight: 100;"}
+                Resident Login
+              .panel-body
+                .form-group= text_field_tag :email, "", placeholder: "email", class: "form-control"
+                .form-group= password_field_tag :password, "", placeholder: "password", class: "form-control"
+              .panel-footer
+                = submit_tag "Log In", class: "btn btn-primary"
+                = submit_tag "Request Account", class: "btn btn-link"
+        .grid-stack-item{"data-gs-height" => "3", "data-gs-min-height" => "3", "data-gs-max-height" => "3", "data-gs-width" => "7", "data-gs-x" => "5", "data-gs-y" => "0"}
+          .grid-stack-item-content
+            %h3.text-lighter{style: "margin-top: 0;"} Welcome to Our Community!
+            %p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

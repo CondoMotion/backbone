@@ -2,11 +2,14 @@ $navbar-height: 65px;
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "gridstack";
 @import "buttons";
 
 .pad {
   padding: 40px 0;
 }
+.no-margin { margin: 0; }
+
 .bg-building {
   background-image: image_url('building-bg.jpg');
   background-size: cover;
@@ -35,4 +38,8 @@ $navbar-height: 65px;
       margin-top: 150px;
     }
   }
+}
+
+.grid-stack > .grid-stack-item > .grid-stack-item-content {
+  background: #fff;
 }

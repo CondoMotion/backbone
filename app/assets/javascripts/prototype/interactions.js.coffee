@@ -21,3 +21,7 @@ $ ->
   $("body").on "ajax:error", ".prototype-partial-link", (e, xhr, status, error) ->
     console.log error
     parent.displayPartial($(this), $(this).data("target"), xhr.responseText)
+
+  $(".grid-stack").gridstack
+    cell_height: 80
+    vertical_margin: 10
