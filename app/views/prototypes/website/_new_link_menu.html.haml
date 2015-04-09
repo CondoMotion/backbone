@@ -2,18 +2,18 @@
   %li
     .collapse#new-link-type
       .row
-        %div{style: "padding: 10px 15px;"}
+        .text-center{style: "padding: 10px 15px;"}
           .col-xs-4
-            = link_to prototype_page_path(page: "pages::form"), remote: true, class: "prototype-partial-link", data: { target: "#new-link" }, style: "display: block; text-decoration: none; color: #333;" do
-              %i.glyphicon.glyphicon-file{style: "font-size: 2rem; color: #889E9D;"}
+            = link_to prototype_page_path(page: "pages::form"), remote: true, class: "prototype-partial-link new-link-type", data: { target: "#new-link" } do
+              %i.glyphicon.glyphicon-file
               %p Page
           .col-xs-4
-            = link_to prototype_page_path(page: "blogs::form"), remote: true, class: "prototype-partial-link", data: { target: "#new-link" }, style: "display: block; text-decoration: none; color: #333;" do
-              %i.glyphicon.glyphicon-bold{style: "font-size: 2rem; color: #889E9D;"}
+            = link_to prototype_page_path(page: "blogs::form"), remote: true, class: "prototype-partial-link new-link-type", data: { target: "#new-link" } do
+              %i.glyphicon.glyphicon-bold
               %p Blog
           .col-xs-4
-            = link_to prototype_page_path(page: "links::form"), remote: true, class: "prototype-partial-link", data: { target: "#new-link" }, style: "display: block; text-decoration: none; color: #333;" do
-              %i.glyphicon.glyphicon-link{style: "font-size: 2rem; color: #889E9D;"}
+            = link_to prototype_page_path(page: "links::form"), remote: true, class: "prototype-partial-link new-link-type", data: { target: "#new-link" } do
+              %i.glyphicon.glyphicon-link
               %p Link
     = link_to "#new-link-type", data: { toggle: "collapse" } do
       %i.glyphicon.glyphicon-plus
