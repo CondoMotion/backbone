@@ -18,14 +18,22 @@
   right: 20px;
 }
 
-.add-block {
+.btn-icon-block {
   color: #333;
   text-decoration: none;
   display: block;
   padding: 30px 0 10px;
-  width: 25%;
   float: left;
   @extend .text-center;
+  
+  &.btn-icon-block-sm { 
+    padding: 10px 0 0 0;
+
+    p { margin-bottom: 10px; }
+  }
+  
+  &.btn-icon-block-3 { width: 33.333333%; }
+  &.btn-icon-block-4 { width: 25%; }
 
   &:hover {
     text-decoration: none;

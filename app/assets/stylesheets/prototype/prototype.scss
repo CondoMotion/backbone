@@ -2,6 +2,8 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+@import "buttons";
 @import "forms";
 @import "layout";
 @import "list_groups";
@@ -12,21 +14,6 @@
 
 .input-group-btn > .btn + .btn {
   margin-left: -5px;
-}
-
-.new-link-type {
-  display: block;
-  text-decoration: none;
-  color: #333;
-
-  &:hover {
-    text-decoration: none;
-  }
-
-  i {
-    font-size: 2rem;
-    color: #555;
-  }
 }
 
 .text-uppercase { text-transform: uppercase; }

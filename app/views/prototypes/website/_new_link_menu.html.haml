@@ -1,20 +1,16 @@
 %ul.nav.nav-pills.nav-stacked
   %li
     .collapse#new-link-type
-      .row
-        .text-center{style: "padding: 10px 15px;"}
-          .col-xs-4
-            = link_to prototype_page_path(page: "pages::form"), remote: true, class: "prototype-partial-link new-link-type", data: { target: "#new-link" } do
-              %i.glyphicon.glyphicon-file
-              %p Page
-          .col-xs-4
-            = link_to prototype_page_path(page: "blogs::form"), remote: true, class: "prototype-partial-link new-link-type", data: { target: "#new-link" } do
-              %i.glyphicon.glyphicon-bold
-              %p Blog
-          .col-xs-4
-            = link_to prototype_page_path(page: "links::form"), remote: true, class: "prototype-partial-link new-link-type", data: { target: "#new-link" } do
-              %i.glyphicon.glyphicon-link
-              %p Link
+      = link_to prototype_page_path(page: "pages::form"), remote: true, class: "prototype-partial-link btn-icon-block btn-icon-block-sm btn-icon-block-3", data: { target: "#new-link" } do
+        %i.glyphicon.glyphicon-file
+        %p Page
+      = link_to prototype_page_path(page: "blogs::form"), remote: true, class: "prototype-partial-link btn-icon-block btn-icon-block-sm btn-icon-block-3", data: { target: "#new-link" } do
+        %i.glyphicon.glyphicon-bold
+        %p Blog
+      = link_to prototype_page_path(page: "links::form"), remote: true, class: "prototype-partial-link btn-icon-block btn-icon-block-sm btn-icon-block-3", data: { target: "#new-link" } do
+        %i.glyphicon.glyphicon-link
+        %p Link
+      .clearfix
     = link_to "#new-link-type", data: { toggle: "collapse" } do
       %i.glyphicon.glyphicon-plus
       Add a Page
