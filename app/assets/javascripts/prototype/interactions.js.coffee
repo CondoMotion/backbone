@@ -26,4 +26,5 @@ $ ->
     vertical_margin: 10
 
   $("body").on "click", ".add-block", (e) ->
-    $("#new-block", $("#website-iframe").contents()).html("<img src='http://placehold.it/300x250' class='img-responsive' />")
+    $("#new-block").append("<img src='http://placehold.it/300x250' class='img-responsive' />")
+    $("#blocks-modal").modal("hide")

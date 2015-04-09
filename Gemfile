@@ -11,9 +11,6 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'haml_coffee_assets'
   gem 'marionette-rails'
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
   gem 'uglifier', '>= 1.0.3'
 end
 
@@ -38,9 +35,7 @@ gem 'rails_12factor'
 gem 'backbone-on-rails'
 gem 'newrelic_rpm'
 gem 'stripe'
-gem 'rack-mini-profiler'
 gem 'active_model_serializers'
 gem 'gon'
-
 gem 'js-routes'
 gem 'jquery-ui-rails'
