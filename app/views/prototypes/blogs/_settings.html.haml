@@ -1,8 +1,9 @@
 .text-uppercase
   = prototype_partial_link icon('long-arrow-left', 'Back'), "edit_navigation", ".submenu", class: "nav-link"
 %div{style: "padding: 0 15px;"}
-  = link_to icon('files-o'), prototype_page_path(page: "blogs::posts"), remote: true, class: "prototype-partial-link btn btn-sm btn-default pull-right", data: { target: ".submenu" }
-  %h4.text-uppercase{style: "line-height: 38px; font-size: 1.1em; letter-spacing: 1px; font-weight: bold;"} Blog Settings
+  %h4.nav-heading
+    Blog Settings
+    = link_to icon('files-o'), prototype_page_path(page: "blogs::posts"), remote: true, class: "prototype-partial-link btn btn-sm btn-default pull-right", data: { target: ".submenu" }
   .form-group
     = label_tag :page_title, "Title", class: "control-label"
     = text_field_tag :page_title, "Blog", class: "form-control"

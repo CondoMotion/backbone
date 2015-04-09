@@ -1,8 +1,9 @@
 .text-uppercase
   = prototype_partial_link icon('long-arrow-left', 'Back'), "edit_navigation", ".submenu", class: "nav-link"
 %div{style: "padding: 0 15px;"}
-  = link_to icon('cog'), prototype_page_path(page: "blogs::settings"), remote: true, class: "prototype-partial-link btn btn-sm btn-default pull-right", data: { target: ".submenu" }
-  %h4.text-uppercase{style: "line-height: 38px; font-size: 1.1em; letter-spacing: 1px; font-weight: bold;"} Posts
+  %h4.nav-heading
+    Posts
+    = link_to icon('cog'), prototype_page_path(page: "blogs::settings"), remote: true, class: "prototype-partial-link btn btn-sm btn-default pull-right", data: { target: ".submenu" }
   .form-group
     = text_field_tag :search, "", class: "form-control search-input", placeholder: "Search Posts"
   %ul.nav.nav-pills.nav-justified{style: "margin-bottom: 15px;"}

@@ -1,7 +1,7 @@
 .text-uppercase
   = prototype_partial_link icon('long-arrow-left', 'Back'), "edit_navigation", ".submenu", class: "nav-link"
 %div{style: "padding: 0 15px;"}
-  %h4 Link Settings
+  %h4.nav-heading Link Settings
   .form-group
     = label_tag :link_text, "Link Text", class: "control-label"
     = text_field_tag :link_text, "Contact", class: "form-control"

@@ -1,11 +1,8 @@
 .text-uppercase
   = prototype_partial_link icon('long-arrow-left', 'Back'), "blogs::posts", ".submenu", class: "nav-link"
 
-.text-uppercase
-  %ul.nav.nav-pills.nav-stacked
-    %li 
-      =link_to '#' do 
-        %strong Blog Post Settings
+.nav-heading-wrapper
+  %h4.nav-heading Blog Post Settings
 
 %div{style: "padding: 0 15px;"}
   .form-group
