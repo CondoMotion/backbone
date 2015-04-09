@@ -13,7 +13,7 @@
     font-weight: 100;
   }
 
-  &.selected, &:hover.selected {
+  &.active, &:hover.active {
     border-bottom: 3px solid red;
     color: $text-color;
 

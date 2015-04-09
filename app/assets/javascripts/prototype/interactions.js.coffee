@@ -28,3 +28,7 @@ $ ->
   $("body").on "click", ".add-block", (e) ->
     $("#new-block").append("<img src='http://placehold.it/300x250' class='img-responsive' />")
     $("#blocks-modal").modal("hide")
+
+  $("body").on "click", ".issue-tab", (e) ->
+    $(".issue-tab").removeClass "active"
+    $(@).addClass "active"

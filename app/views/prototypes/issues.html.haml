@@ -13,22 +13,30 @@
         %div{style: "border-bottom: 1px solid #f1f1f1;"}
           .row.text-center
             .col-md-4
-              .issue-tab.selected
-                = link_to "" do
+              .issue-tab.active
+                = link_to "#", data: { toggle: "tab", target: "#all"} do
                   .count 7
                   All
             .col-md-4
               .issue-tab
-                = link_to "" do
-                  .count 7
+                = link_to "#", data: { toggle: "tab", target: "#unassigned"} do
+                  .count 5
                   Unassigned
             .col-md-4
               .issue-tab
-                = link_to "" do
-                  .count 0
+                = link_to "#", data: { toggle: "tab", target: "#mine"} do
+                  .count 2
                   Mine
         .list-group
-          - 7.times do
-            = render 'prototypes/issues/issue'
+          .tab-content
+            .tab-pane.active#all
+              - 7.times do
+                = render 'prototypes/issues/issue'
+            .tab-pane.active#unassigned
+              - 5.times do
+                = render 'prototypes/issues/issue'
+            .tab-pane.active#mine
+              - 2.times do
+                = render 'prototypes/issues/issue'
   #right.pull-left
     = render 'prototypes/issues/no_content'
