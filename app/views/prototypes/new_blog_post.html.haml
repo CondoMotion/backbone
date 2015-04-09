@@ -1,5 +1,6 @@
 #sidebar.has-submenu
-  = render "property_nav"
+  %div{style: 'position: absolute; top: 0; left: 0; bottom: 0; right: 0; background: #ccc; padding-top: 40px;'}
+    = render "property_nav"
   .submenu
     = render "prototypes/blog_posts/settings"
 #main.has-submenu

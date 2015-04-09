@@ -1,5 +1,5 @@
-.text-uppercase
-  = prototype_partial_link(icon('long-arrow-left', 'Clarendon Hill'), "properties_nav", "#sidebar", class: "nav-link")
+.text-uppercase{style: 'position: absolute; top: 0; left: 0; bottom: 0; right: 0; background: #ccc; padding-top: 40px;'}
+  = prototype_partial_link(icon('home', 'Clarendon Hill'), "properties_nav", "#sidebar", class: "nav-link")
   %ul.nav.nav-pills.nav-stacked.icon-margin
     %li= link_to icon("tag", "Issues"), prototype_page_path(page: "issues")
     %li= link_to icon("comment", "News"), prototype_page_path(page: "news")
