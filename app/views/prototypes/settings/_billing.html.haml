@@ -1,6 +1,12 @@
 = render 'prototypes/settings/back'
+
+.text-uppercase
+  %ul.nav.nav-pills.nav-stacked
+    %li 
+      =link_to '#' do 
+        %strong Billing Info
+
 %div{style: "padding: 0 15px;"}
-  %h4 Billing Info
   .form-group
     = label_tag :plan, "Plan"
     = select_tag :plan, options_for_select(["Annual", "Monthly"], "Plan"), class: "form-control"

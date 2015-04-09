@@ -1,7 +1,13 @@
 .text-uppercase
   = prototype_partial_link icon('long-arrow-left', 'Back'), "blogs::posts", ".submenu", class: "nav-link"
+
+.text-uppercase
+  %ul.nav.nav-pills.nav-stacked
+    %li 
+      =link_to '#' do 
+        %strong Blog Post Settings
+
 %div{style: "padding: 0 15px;"}
-  %h4{style: "line-height: 30px;"} Blog Post Settings
   .form-group
     = label_tag :page_title, "Title", class: "control-label"
     = text_field_tag :page_title, "Blog", class: "form-control"

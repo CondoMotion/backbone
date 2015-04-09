@@ -1,5 +1,11 @@
 = render 'prototypes/settings/back'
+
+.text-uppercase
+  %ul.nav.nav-pills.nav-stacked
+    %li 
+      =link_to '#' do 
+        %strong Website Theme
+
 %div{style: "padding: 0 15px;"}
-  %h4 Website Theme
   form here
   = render 'prototypes/settings/buttons'

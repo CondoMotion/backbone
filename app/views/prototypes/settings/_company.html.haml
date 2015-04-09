@@ -1,6 +1,12 @@
 = render 'prototypes/settings/back'
+
+.text-uppercase
+  %ul.nav.nav-pills.nav-stacked
+    %li 
+      =link_to '#' do 
+        %strong Company Info
+
 %div{style: "padding: 0 15px;"}
-  %h4 Company Info
   .form-group
     = label_tag :name, "Name", class: "control-label"
     = text_field_tag :name, "The Hofeller Company", class: "form-control"

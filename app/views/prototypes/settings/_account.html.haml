@@ -1,6 +1,12 @@
 = render 'prototypes/settings/back'
+
+.text-uppercase
+  %ul.nav.nav-pills.nav-stacked
+    %li 
+      =link_to '#' do 
+        %strong My Account
+
 %div{style: "padding: 0 15px;"}
-  %h4 My Account
   .form-group
     = label_tag :email, "Email", class: "control-label"
     = text_field_tag :email, "email@example.com", class: "form-control"
