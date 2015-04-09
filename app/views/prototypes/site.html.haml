@@ -1,4 +1,6 @@
-#sidebar
+#sidebar.has-submenu
   = render "property_nav"
-#main.full
+  .submenu
+    = render "prototypes/website_submenu"
+#main.has-submenu
   = render "prototypes/website/iframe"

@@ -1,7 +1,7 @@
 .text-uppercase
-  = prototype_partial_link icon('long-arrow-left', 'Back'), "edit_navigation", "#sidebar", class: "nav-link"
+  = prototype_partial_link icon('long-arrow-left', 'Back'), "edit_navigation", ".submenu", class: "nav-link"
 %div{style: "padding: 0 15px;"}
-  = link_to icon('cog'), prototype_page_path(page: "blogs::settings"), remote: true, class: "prototype-partial-link btn btn-sm btn-default pull-right", data: { target: "#sidebar" }
+  = link_to icon('cog'), prototype_page_path(page: "blogs::settings"), remote: true, class: "prototype-partial-link btn btn-sm btn-default pull-right", data: { target: ".submenu" }
   %h4{style: "line-height: 30px;"} Posts
   .form-group
     = text_field_tag :search, "", class: "form-control search-input", placeholder: "Search Posts"

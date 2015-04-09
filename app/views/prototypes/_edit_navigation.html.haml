@@ -1,25 +1,27 @@
 .text-uppercase
-  = prototype_partial_link(icon('long-arrow-left', 'Main Menu'), "property_nav", "#sidebar", class: "nav-link")
+  = prototype_partial_link(icon('long-arrow-left', 'Main Menu'), "website_submenu", ".submenu", class: "nav-link")
   %ul.nav.nav-pills.nav-stacked
-    %h5{style: "margin: 10px 0;"} Main Navigation
+    %li 
+      =link_to '#' do 
+        %strong Main Navigation
     %li.relative
       = prototype_partial_link("Home", "website::home", "#main")
-      = link_to icon("cog"), prototype_page_path(page: "pages::settings"), remote: true, class: "prototype-partial-link page-settings-link", data: { target: "#sidebar" }
+      = link_to icon("cog"), prototype_page_path(page: "pages::settings"), remote: true, class: "prototype-partial-link page-settings-link", data: { target: ".submenu" }
     %li
       = prototype_partial_link("Photos", "website::photos", "#main")
-      = link_to icon("cog"), prototype_page_path(page: "pages::settings"), remote: true, class: "prototype-partial-link page-settings-link", data: { target: "#sidebar" }
+      = link_to icon("cog"), prototype_page_path(page: "pages::settings"), remote: true, class: "prototype-partial-link page-settings-link", data: { target: ".submenu" }
     %li
       = prototype_partial_link("Building", "website::building", "#main")
-      = link_to icon("cog"), prototype_page_path(page: "pages::settings"), remote: true, class: "prototype-partial-link page-settings-link", data: { target: "#sidebar" }
+      = link_to icon("cog"), prototype_page_path(page: "pages::settings"), remote: true, class: "prototype-partial-link page-settings-link", data: { target: ".submenu" }
     %li
       = prototype_partial_link("Local Info", "website::local_info", "#main")
-      = link_to icon("cog"), prototype_page_path(page: "pages::settings"), remote: true, class: "prototype-partial-link page-settings-link", data: { target: "#sidebar" }
+      = link_to icon("cog"), prototype_page_path(page: "pages::settings"), remote: true, class: "prototype-partial-link page-settings-link", data: { target: ".submenu" }
     %li
       = prototype_partial_link("Blog", "website::blog", "#main")
-      = link_to icon("files-o"), prototype_page_path(page: "blogs::posts"), remote: true, class: "prototype-partial-link page-settings-link", data: { target: "#sidebar" }, style: "right: 47px;"
-      = link_to icon("cog"), prototype_page_path(page: "blogs::settings"), remote: true, class: "prototype-partial-link page-settings-link", data: { target: "#sidebar" }
+      = link_to icon("files-o"), prototype_page_path(page: "blogs::posts"), remote: true, class: "prototype-partial-link page-settings-link", data: { target: ".submenu" }, style: "right: 47px;"
+      = link_to icon("cog"), prototype_page_path(page: "blogs::settings"), remote: true, class: "prototype-partial-link page-settings-link", data: { target: ".submenu" }
     %li
       = prototype_partial_link("Contact", "website::contact", "#main")
-      = link_to icon("cog"), prototype_page_path(page: "links::settings"), remote: true, class: "prototype-partial-link page-settings-link", data: { target: "#sidebar" }
+      = link_to icon("cog"), prototype_page_path(page: "links::settings"), remote: true, class: "prototype-partial-link page-settings-link", data: { target: ".submenu" }
   #new-link
     = render 'prototypes/website/new_link_menu'

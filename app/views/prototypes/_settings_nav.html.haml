@@ -1,9 +1,15 @@
-.text-center.text-uppercase
-  = prototype_partial_link(icon('long-arrow-left', 'Main Menu'), "property_nav", "#sidebar", class: "nav-link")
-  %ul.nav.nav-pills.nav-stacked
-    %li= prototype_partial_link "Property Settings", "settings::property", "#sidebar"
-    %li= prototype_partial_link "Website Settings", "settings::website", "#sidebar"
-    %li= prototype_partial_link "Website Theme", "settings::theme", "#sidebar"
-    %li= prototype_partial_link "Company Info", "settings::company", "#sidebar"
-    %li= prototype_partial_link "Billing Info", "settings::billing", "#sidebar"
-    %li= prototype_partial_link "My Account", "settings::account", "#sidebar"
+.text-uppercase
+  = prototype_partial_link(icon('long-arrow-left', 'Clarendon Hill'), "properties_nav", "#sidebar", class: "nav-link")
+  %ul.nav.nav-pills.nav-stacked.icon-margin
+    %li= link_to icon("tag", "Issues"), prototype_page_path(page: "issues")
+    %li= link_to icon("comment", "News"), prototype_page_path(page: "news")
+    %li= link_to icon("copy", "Documents"), prototype_page_path(page: "documents")
+    %li= link_to icon("users", "People"), prototype_page_path(page: "people")
+    %li= link_to icon("globe", "Website"), prototype_page_path(page: "site")
+    %li.active= prototype_partial_link(icon("cog", "Settings"), "settings_nav", "#sidebar")
+.submenu.text-uppercase
+  %ul.nav.nav-pills.nav-stacked{style: "padding-top: 68px;"}
+    %li= prototype_partial_link "Property Settings", "settings::property", ".submenu"
+    %li= prototype_partial_link "Company Info", "settings::company", ".submenu"
+    %li= prototype_partial_link "Billing Info", "settings::billing", ".submenu"
+    %li= prototype_partial_link "My Account", "settings::account", ".submenu"

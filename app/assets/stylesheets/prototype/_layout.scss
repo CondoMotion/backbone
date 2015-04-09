@@ -31,6 +31,10 @@ body {
   font-size: 0.9em;
   padding-top: 40px;
 
+  &.has-submenu {
+    width: 310px;
+  }
+
   a.nav-link {
     margin-bottom: 30px;
     padding: 10px 15px;
@@ -61,6 +65,10 @@ body {
   -ms-transition: all .5s ease-in-out,-moz-transform .5s ease-out 2s;
   transition: all .5s ease-in-out,transform .5s ease-out 2s;
   box-shadow: 0 0 25px rgba(0,0,0,.11), 0 0 0 1px rgba(0,0,0,.03);
+
+  &.has-submenu {
+    left: 310px;
+  }
 
   &.full {
     top: 0;

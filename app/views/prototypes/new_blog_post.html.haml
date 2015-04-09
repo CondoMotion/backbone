@@ -1,4 +1,6 @@
-#sidebar
-  = render "prototypes/blog_posts/settings"
-#main
+#sidebar.has-submenu
+  = render "property_nav"
+  .submenu
+    = render "prototypes/blog_posts/settings"
+#main.has-submenu
   = render "prototypes/website/iframe"

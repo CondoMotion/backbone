@@ -1,7 +1,7 @@
 .text-uppercase
-  = prototype_partial_link icon('long-arrow-left', 'Back'), "edit_navigation", "#sidebar", class: "nav-link"
+  = prototype_partial_link icon('long-arrow-left', 'Back'), "edit_navigation", ".submenu", class: "nav-link"
 %div{style: "padding: 0 15px;"}
-  = link_to icon('files-o'), prototype_page_path(page: "blogs::posts"), remote: true, class: "prototype-partial-link btn btn-sm btn-default pull-right", data: { target: "#sidebar" }
+  = link_to icon('files-o'), prototype_page_path(page: "blogs::posts"), remote: true, class: "prototype-partial-link btn btn-sm btn-default pull-right", data: { target: ".submenu" }
   %h4{style: "line-height: 30px;"} Blog Settings
   .form-group
     = label_tag :page_title, "Title", class: "control-label"
@@ -23,6 +23,6 @@
   %p
     = link_to icon("home", "Set as Homepage"), "#", class: "btn btn-default btn-xs"
   .btn-group{style: "width: 100%;"}
-    = prototype_partial_link "Save", "edit_navigation", "#sidebar", class: "btn btn-default", style: "width: 33.3333%;"
-    = prototype_partial_link "Cancel", "edit_navigation", "#sidebar", class: "btn btn-default", style: "width: 33.3333%;"
-    = prototype_partial_link "Delete", "edit_navigation", "#sidebar", class: "btn btn-default btn-danger-hover", style: "width: 33.3333%;"
+    = prototype_partial_link "Save", "edit_navigation", ".submenu", class: "btn btn-default", style: "width: 33.3333%;"
+    = prototype_partial_link "Cancel", "edit_navigation", ".submenu", class: "btn btn-default", style: "width: 33.3333%;"
+    = prototype_partial_link "Delete", "edit_navigation", ".submenu", class: "btn btn-default btn-danger-hover", style: "width: 33.3333%;"
