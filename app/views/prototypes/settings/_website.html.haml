@@ -1,4 +1,4 @@
-= render 'prototypes/settings/back'
+= prototype_partial_link(icon('long-arrow-left', 'Back'), "website_submenu", ".submenu", class: "nav-link text-uppercase")
 %div{style: "padding: 0 15px;"}
   %h4 Website Settings
   .form-group
@@ -19,4 +19,6 @@
   .form-group
     = label_tag :favicon, "Favicon", class: "control-label"
     = file_field_tag :favicon
-  = render 'prototypes/settings/buttons'
+  %p
+    = prototype_partial_link "Save", "website_submenu", ".submenu", class: "btn btn-default"
+    = prototype_partial_link "Cancel", "website_submenu", ".submenu", class: "btn btn-link"

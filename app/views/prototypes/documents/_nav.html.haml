@@ -1,6 +1,6 @@
 .text-uppercase
   = prototype_partial_link(icon('long-arrow-left', 'Clarendon Hill'), "properties_nav", "#sidebar", class: "nav-link")
-  %ul.nav.nav-pills.nav-stacked
+  %ul.nav.nav-pills.nav-stacked.icon-margin
     %li= link_to icon("tag", "Issues"), prototype_page_path(page: "issues")
     %li= link_to icon("comment", "News"), prototype_page_path(page: "news")
     %li.active= link_to icon("copy", "Documents"), prototype_page_path(page: "documents"), style: "background: #ddd;"
