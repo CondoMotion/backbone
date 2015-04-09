@@ -19,9 +19,11 @@ $ ->
     alert data
 
   $("body").on "ajax:error", ".prototype-partial-link", (e, xhr, status, error) ->
-    console.log error
     parent.displayPartial($(this), $(this).data("target"), xhr.responseText)
 
   $(".grid-stack").gridstack
     cell_height: 80
     vertical_margin: 10
+
+  $("body").on "click", ".add-block", (e) ->
+    $("#new-block", $("#website-iframe").contents()).html("<img src='http://placehold.it/300x250' class='img-responsive' />")
