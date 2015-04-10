@@ -1,12 +1,14 @@
 .text-center.text-uppercase
-  %h5{style: "margin-bottom: 15px;"} Company
+  %h4.nav-heading{style: "padding: 0 15px;"}
+    Company
+    = link_to icon("plus"), "#", class: "btn btn-xs btn-default pull-right"
   %ul.nav.nav-pills.nav-stacked{style: "margin-bottom: 40px;"}
-    %li= link_to icon("plus", "New Site"), '#', class: "text-uppercase", style: "border: 1px dashed #ddd; margin-bottom: 15px;"
     %li= prototype_partial_link("The Hofeller Company", "property_nav", "#sidebar")
     %li= prototype_partial_link("Complete Property Care", "property_nav", "#sidebar")
-  %h5{style: "margin-bottom: 15px;"} Properties
+  %h4.nav-heading{style: "padding: 0 15px;"}
+    Properties
+    = link_to icon("plus"), "#", class: "btn btn-xs btn-default pull-right"
   %ul.nav.nav-pills.nav-stacked{style: "margin-bottom: 90px;"}
-    %li= link_to icon("plus", "New Property"), '#', class: "text-uppercase", style: "border: 1px dashed #ddd; margin-bottom: 15px;"
     %li= prototype_partial_link("1409 River St.", "property_nav", "#sidebar")
     %li= prototype_partial_link("197-205 Kent", "property_nav", "#sidebar")
     %li= prototype_partial_link("Cambridge Co-Housing", "property_nav", "#sidebar")

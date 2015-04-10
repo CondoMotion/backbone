@@ -3,7 +3,7 @@
 %div{style: "padding: 0 15px;"}
   %h4.nav-heading
     Blog Settings
-    = link_to icon('files-o'), prototype_page_path(page: "blogs::posts"), remote: true, class: "prototype-partial-link btn btn-sm btn-default pull-right", data: { target: ".submenu" }
+    = link_to icon('files-o'), prototype_page_path(page: "blogs::posts"), remote: true, class: "prototype-partial-link btn btn-xs btn-default pull-right", data: { target: ".submenu" }
   .form-group
     = label_tag :page_title, "Title", class: "control-label"
     = text_field_tag :page_title, "Blog", class: "form-control"

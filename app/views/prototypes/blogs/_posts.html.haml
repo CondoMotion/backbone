@@ -3,15 +3,14 @@
 %div{style: "padding: 0 15px;"}
   %h4.nav-heading
     Posts
-    = link_to icon('cog'), prototype_page_path(page: "blogs::settings"), remote: true, class: "prototype-partial-link btn btn-sm btn-default pull-right", data: { target: ".submenu" }
+    = link_to icon('cog'), prototype_page_path(page: "blogs::settings"), remote: true, class: "prototype-partial-link btn btn-xs btn-default pull-right", data: { target: ".submenu" }
+    = link_to icon("plus"), prototype_page_path('new_blog_post'), class: "btn btn-xs btn-default pull-right"
   .form-group
     = text_field_tag :search, "", class: "form-control search-input", placeholder: "Search Posts"
   %ul.nav.nav-pills.nav-justified{style: "margin-bottom: 15px;"}
     %li.active= link_to "All", "#all", data: { toggle: "tab" }
     %li= link_to "Drafts", "#drafts", data: { toggle: "tab" }
     %li= link_to "Published", "#published", data: { toggle: "tab" }
-  %ul.nav.nav-pills.nav-stacked
-    %li= link_to icon("plus", "New Post"), prototype_page_path('new_blog_post'), class: "text-uppercase", style: "border: 1px dashed #ddd; margin-bottom: 15px;"
   .tab-content
     .tab-pane.active#all
       .list-group
