@@ -1,0 +1,39 @@
+#left.pull-left
+  .scroll-panel
+    .scroll-panel-header
+      .row
+        .col-xs-10
+          = text_field_tag :search, "", class: "form-control search-input", placeholder: "Filter Issues"
+        .col-xs-2
+          = prototype_partial_link("<i class='glyphicon glyphicon-plus'></i>".html_safe, "issues::new", "#right", class: "btn btn-default pull-right")
+    .scroll-panel-body.no-padding
+      %div{style: "border-bottom: 1px solid #f1f1f1;"}
+        .row.text-center
+          .col-md-4
+            .issue-tab.active
+              = link_to "#", data: { toggle: "tab", target: "#all"} do
+                .count 7
+                All
+          .col-md-4
+            .issue-tab
+              = link_to "#", data: { toggle: "tab", target: "#unassigned"} do
+                .count 5
+                Unassigned
+          .col-md-4
+            .issue-tab
+              = link_to "#", data: { toggle: "tab", target: "#mine"} do
+                .count 2
+                Mine
+      .list-group
+        .tab-content
+          .tab-pane.active#all
+            - 7.times do
+              = render 'prototypes/issues/issue'
+          .tab-pane.active#unassigned
+            - 5.times do
+              = render 'prototypes/issues/issue'
+          .tab-pane.active#mine
+            - 2.times do
+              = render 'prototypes/issues/issue'
+#right.pull-left
+  = render 'prototypes/issues/no_content'

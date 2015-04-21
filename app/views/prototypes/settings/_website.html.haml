@@ -1,4 +1,4 @@
-= prototype_partial_link(icon('long-arrow-left', 'Back'), "website_submenu", ".submenu", class: "nav-link text-uppercase")
+= prototype_partial_link(icon('long-arrow-left', 'Back'), "navigation::website", ".sidebar-nav__panel-secondary", class: "nav-link text-uppercase")
 
 .nav-heading-wrapper
   %h4.nav-heading Website Settings
@@ -23,5 +23,5 @@
     = label_tag :favicon, "Favicon", class: "control-label"
     = file_field_tag :favicon
   %p
-    = prototype_partial_link "Save", "website_submenu", ".submenu", class: "btn btn-default"
-    = prototype_partial_link "Cancel", "website_submenu", ".submenu", class: "btn btn-link"
+    = prototype_partial_link "Save", "navigation::website", ".sidebar-nav__panel-secondary", class: "btn btn-default"
+    = prototype_partial_link "Cancel", "navigation::website", ".sidebar-nav__panel-secondary", class: "btn btn-link"

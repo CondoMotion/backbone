@@ -1,0 +1,29 @@
+%ul.nav.nav-pills.nav-stacked{style: "padding-top: 68px;"}
+  %li
+    = link_to prototype_page_path(page: "navigation::properties"), remote: true, class: "prototype-partial-link close-nav", data: { target: ".sidebar-nav__panel-primary" } do
+      = icon "home", class: "fa-fw"
+      %span.sidebar-nav-label Clarendon Hill
+  %li
+    = link_to prototype_page_path(page: "issues::index"), remote: true, class: "prototype-partial-link close-nav", data: { target: "#main" } do
+      = icon "tags", class: "fa-fw"
+      %span.sidebar-nav-label Issues
+  %li
+    = link_to prototype_page_path(page: "news::index"), remote: true, class: "prototype-partial-link close-nav", data: { target: "#main" } do
+      = icon "comment", class: "fa-fw"
+      %span.sidebar-nav-label News
+  %li
+    = link_to prototype_page_path(page: "documents::index"), remote: true, class: "prototype-partial-link close-nav", data: { target: "#main" } do
+      = icon "files-o", class: "fa-fw"
+      %span.sidebar-nav-label Documents
+  %li
+    = link_to prototype_page_path(page: "people::index"), remote: true, class: "prototype-partial-link close-nav", data: { target: "#main" } do
+      = icon "users", class: "fa-fw"
+      %span.sidebar-nav-label People
+  %li
+    = link_to prototype_page_path(page: "site"), remote: true, class: "prototype-partial-link open-nav", data: { target: "body" } do
+      = icon "globe", class: "fa-fw"
+      %span.sidebar-nav-label Website
+  %li
+    = link_to prototype_page_path(page: "navigation::settings"), remote: true, class: "prototype-partial-link open-nav", data: { target: ".sidebar-nav__panel-secondary" } do
+      = icon "cog", class: "fa-fw"
+      %span.sidebar-nav-label Settings

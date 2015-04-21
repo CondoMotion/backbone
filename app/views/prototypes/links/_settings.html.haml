@@ -1,5 +1,5 @@
 .text-uppercase
-  = prototype_partial_link icon('long-arrow-left', 'Back'), "edit_navigation", ".submenu", class: "nav-link"
+  = prototype_partial_link icon('long-arrow-left', 'Back'), "navigation::edit_nav", ".sidebar-nav__panel-secondary", class: "nav-link"
 %div{style: "padding: 0 15px;"}
   %h4.nav-heading Link Settings
   .form-group
@@ -13,6 +13,6 @@
       = check_box_tag :new_tab
       Open in a New Tab
   .btn-group{style: "width: 100%;"}
-    = prototype_partial_link "Save", "edit_navigation", ".submenu", class: "btn btn-default", style: "width: 33.3333%;"
-    = prototype_partial_link "Cancel", "edit_navigation", ".submenu", class: "btn btn-default", style: "width: 33.3333%;"
-    = prototype_partial_link "Delete", "edit_navigation", ".submenu", class: "btn btn-default btn-danger-hover", style: "width: 33.3333%;"
+    = prototype_partial_link "Save", "navigation::edit_nav", ".sidebar-nav__panel-secondary", class: "btn btn-default", style: "width: 33.3333%;"
+    = prototype_partial_link "Cancel", "navigation::edit_nav", ".sidebar-nav__panel-secondary", class: "btn btn-default", style: "width: 33.3333%;"
+    = prototype_partial_link "Delete", "navigation::edit_nav", ".sidebar-nav__panel-secondary", class: "btn btn-default btn-danger-hover", style: "width: 33.3333%;"

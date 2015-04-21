@@ -1,3 +1,12 @@
+@toggleNav = () ->
+  $(".sidebar-nav").toggleClass "panel-open"
+
+@openNav = () ->
+  $(".sidebar-nav").addClass "panel-open"
+
+@closeNav = () ->
+  $(".sidebar-nav").removeClass "panel-open"
+
 @showMenu = () ->
   $('#main').removeClass "full"
 
@@ -32,3 +41,12 @@ $ ->
   $("body").on "click", ".issue-tab", (e) ->
     $(".issue-tab").removeClass "active"
     $(@).addClass "active"
+
+  $("body").on "click", ".toggle-nav", (e) ->
+    parent.toggleNav()
+
+  $("body").on "click", ".close-nav", (e) ->
+    parent.closeNav()
+
+  $("body").on "click", ".open-nav", (e) ->
+    parent.openNav()

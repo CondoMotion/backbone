@@ -1,9 +1,0 @@
-.text-uppercase
-  = prototype_partial_link(icon('home', 'Clarendon Hill'), "properties_nav", "#sidebar", class: "nav-link")
-  %ul.nav.nav-pills.nav-stacked.icon-margin
-    %li= link_to icon("tag", "Issues"), prototype_page_path(page: "issues")
-    %li= link_to icon("comment", "News"), prototype_page_path(page: "news")
-    %li= link_to icon("copy", "Documents"), prototype_page_path(page: "documents")
-    %li= link_to icon("users", "People"), prototype_page_path(page: "people")
-    %li.active= link_to icon("globe", "Website"), prototype_page_path(page: "site")
-    %li= prototype_partial_link(icon("cog", "Settings"), "settings_nav", "#sidebar")

@@ -4,6 +4,6 @@
   .pull-left
     = file_field_tag :attachment
   .pull-right
-    = link_to "Cancel", prototype_page_path(page: "documents"), class: "btn btn-link"
-    = link_to "Save", prototype_page_path(page: "documents"), class: "btn btn-primary"
+    = prototype_partial_link "Cancel", "documents::index", "#main", class: "btn btn-link"
+    = prototype_partial_link "Save", "documents::index", "#main", class: "btn btn-primary"
   .clearfix

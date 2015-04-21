@@ -1,5 +1,5 @@
 .text-uppercase
-  = prototype_partial_link icon('long-arrow-left', 'Back'), "blogs::posts", ".submenu", class: "nav-link"
+  = prototype_partial_link icon('long-arrow-left', 'Back'), "blogs::posts", ".sidebar-nav__panel-secondary", class: "nav-link"
 
 .nav-heading-wrapper
   %h4.nav-heading Blog Post Settings
@@ -23,6 +23,6 @@
       = check_box_tag :visible
       Visible to logged in users only
   .btn-group{style: "width: 100%;"}
-    = prototype_partial_link "Save", "blogs::posts", ".submenu", class: "btn btn-default", style: "width: 33.3333%;"
-    = prototype_partial_link "Cancel", "blogs::posts", ".submenu", class: "btn btn-default", style: "width: 33.3333%;"
-    = prototype_partial_link "Delete", "blogs::posts", ".submenu", class: "btn btn-default btn-danger-hover", style: "width: 33.3333%;"
+    = prototype_partial_link "Save", "blogs::posts", ".sidebar-nav__panel-secondary", class: "btn btn-default", style: "width: 33.3333%;"
+    = prototype_partial_link "Cancel", "blogs::posts", ".sidebar-nav__panel-secondary", class: "btn btn-default", style: "width: 33.3333%;"
+    = prototype_partial_link "Delete", "blogs::posts", ".sidebar-nav__panel-secondary", class: "btn btn-default btn-danger-hover", style: "width: 33.3333%;"
