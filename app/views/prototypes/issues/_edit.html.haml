@@ -35,7 +35,7 @@
             .col-xs-6
               .pull-right
                 = link_to "Cancel", '#action-tab', class: "btn btn-link", data: { toggle: "tab" }
-                = submit_tag "Send Message", class: "btn btn-primary"
+                = link_to "Send Message", "#action-tab", class: "btn btn-primary", data: { toggle: "tab" }
         .tab-pane#note-tab
           = text_area_tag :note, "", class: "form-control", placeholder: "Create an internal note for your team that will not be seen by the resident who reported this issue", rows: 5, style: "margin: 10px 0;"
           .row
@@ -44,7 +44,7 @@
             .col-xs-6
               .pull-right
                 = link_to "Cancel", '#action-tab', class: "btn btn-link", data: { toggle: "tab" }
-                = submit_tag "Create Note", class: "btn btn-primary"
+                = link_to "Create Note", "#action-tab", class: "btn btn-primary", data: { toggle: "tab" }
     .note{style: "border-top: 1px solid #ddd;"}
       .pad
         %h5
