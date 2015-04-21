@@ -33,3 +33,33 @@
 
 .mt0 { margin-top: 0px; }
 .mt30 { margin-top: 30px; }
+.text-uppercase { text-transform: uppercase; }
+.text-lighter { font-weight: 100; }
+.text-light { font-weight: 300; }
+.pad { padding: 0 30px; }
+
+body {
+  background: #f1f1f1;
+}
+.container-lg { 
+  max-width: 1580px; 
+  margin: 0 auto;
+}
+
+.team-bg {
+  background-image: image_url('team.png');
+  background-size: cover;
+  color: #fff;
+  height: 600px;
+}
+
+#main-cta {
+  background-color: #222;
+  width: 450px;
+  opacity: 0.9;
+  border: none;
+  color: #fff;
+  position: fixed;
+  top: 150px;
+  right: 80px;
+}

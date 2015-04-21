@@ -1,4 +1,4 @@
-%nav.navbar.navbar-default.navbar-static-top
+%nav.navbar.navbar-inverse.navbar-static-top
   .container
     .navbar-header
       = link_to "Condo Motion", root_url, class: (current_page?(root_url) ? "navbar-brand active" : "navbar-brand")
@@ -8,10 +8,10 @@
         %span.icon-bar
         %span.icon-bar
     #navbar-collapse.collapse.navbar-collapse
-      %ul.nav.navbar-nav
-        = nav_link_to "Home", root_url
-        = nav_link_to "About", about_url
-        = nav_link_to "Pricing", pricing_url
-        = nav_link_to "Contact", contact_url
+      / %ul.nav.navbar-nav
+      /   = nav_link_to "Home", root_url
+      /   = nav_link_to "About", about_url
+      /   = nav_link_to "Pricing", pricing_url
+      /   = nav_link_to "Contact", contact_url
       %ul.nav.navbar-nav.navbar-right
         %li= link_to "Try it Free", pricing_path

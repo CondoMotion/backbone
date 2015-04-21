@@ -101,28 +101,7 @@ table.tablesorter thead tr th:hover {
   }
 
   /* Bootstrap Default Overrides - Customized Dropdowns for the Side Nav */
-  .navbar-inverse {
-    background-color: #269ECC;
-    border-color: #269ECC;
-    .navbar-brand {
-      color: #FFFFFF;
-      opacity: 0.8;
-      &:hover {
-        opacity: 1;
-      }
-    }
-  }
-  .navbar-inverse .navbar-nav > li > a {
-    color: #FFFFFF;
-  }
-  .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-    background-color: darken(#269ECC, 10%);
-    color: white;
-  }
-  .navbar-inverse .navbar-nav > .dropdown > a .caret {
-    border-top-color: #FFFFFF;
-    border-bottom-color: #FFFFFF;
-  }
+
 
   .side-nav>li.dropdown>ul.dropdown-menu {
   position: relative;
