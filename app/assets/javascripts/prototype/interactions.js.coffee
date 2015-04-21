@@ -29,6 +29,7 @@ $ ->
 
   $("body").on "ajax:error", ".prototype-partial-link", (e, xhr, status, error) ->
     parent.displayPartial($(this), $(this).data("target"), xhr.responseText)
+    $(".sidebar-nav__panel-secondary").html($(this).data('menu'))
 
   $(".grid-stack").gridstack
     cell_height: 80

@@ -20,7 +20,7 @@
       = icon "users", class: "fa-fw"
       %span.sidebar-nav-label People
   %li
-    = link_to prototype_page_path(page: "site"), remote: true, class: "prototype-partial-link open-nav", data: { target: "body" } do
+    = link_to prototype_page_path(page: "site"), remote: true, class: "prototype-partial-link open-nav", data: { target: "#main", menu: "#{ render 'prototypes/navigation/website'}" } do
       = icon "globe", class: "fa-fw"
       %span.sidebar-nav-label Website
   %li
