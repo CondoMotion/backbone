@@ -1,7 +1,11 @@
 .well#main-cta.hidden-sm.hidden-xs
   .pad
-    %h3.text-uppercase.text-light{style: 'letter-spacing: 3px;'} What sets Condo Motion apart?
-
+    %h3.text-uppercase.text-light{style: 'letter-spacing: 3px; margin: 0;'} What sets Condo Motion apart?
+    %ul.text-lighter{style: "padding: 30px 0 30px 20px; font-size: 1.2em; letter-spacing: 2px;"}
+      %li{style: "margin-bottom: 20px;"} Manage all of your properties, staff, and residents in one place
+      %li{style: "margin-bottom: 20px;"} Easily track issues, share documents, and post announcements
+      %li Instantly create beautiful websites for your company and every property
+    = link_to "Schedule a Demo", prototype_path, class: "btn btn-success btn-block text-uppercase text-light", style: 'letter-spacing: 2px;'
 .jumbotron.team-bg
   .container
     .row

@@ -36,7 +36,7 @@
 .text-uppercase { text-transform: uppercase; }
 .text-lighter { font-weight: 100; }
 .text-light { font-weight: 300; }
-.pad { padding: 0 30px; }
+.pad { padding: 30px; }
 
 body {
   background: #f1f1f1;
@@ -54,7 +54,7 @@ body {
 }
 
 #main-cta {
-  background-color: #222;
+  background-color: $navbar-inverse-bg;
   width: 450px;
   opacity: 0.9;
   border: none;
