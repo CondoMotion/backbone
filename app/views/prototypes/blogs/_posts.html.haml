@@ -4,25 +4,25 @@
   %h4.nav-heading
     Posts
     = link_to icon('cog'), prototype_page_path(page: "blogs::settings"), remote: true, class: "prototype-partial-link btn btn-xs btn-default pull-right", data: { target: ".sidebar-nav__panel-secondary" }
-    = link_to icon("plus"), prototype_page_path('new_blog_post'), class: "btn btn-xs btn-default pull-right"
+    = link_to icon("plus"), prototype_page_path('website::new_blog_post'), class: "btn btn-xs btn-default pull-right prototype-partial-link", remote: true, data: { target: "#main", menu: "#{render('prototypes/blog_posts/settings') }"}
   .form-group
     = text_field_tag :search, "", class: "form-control search-input", placeholder: "Search Posts"
-  %ul.nav.nav-pills.nav-justified{style: "margin-bottom: 15px;"}
-    %li.active= link_to "All", "#all", data: { toggle: "tab" }
-    %li= link_to "Drafts", "#drafts", data: { toggle: "tab" }
-    %li= link_to "Published", "#published", data: { toggle: "tab" }
-  .tab-content
-    .tab-pane.active#all
-      .list-group
-        - 3.times do
-          = render 'prototypes/blog_posts/blog_post', draft: true
-        - 5.times do
-          = render 'prototypes/blog_posts/blog_post', draft: false
-    .tab-pane#drafts
-      .list-group
-        - 3.times do
-          = render 'prototypes/blog_posts/blog_post', draft: true
-    .tab-pane#published
-      .list-group
-        - 5.times do
-          = render 'prototypes/blog_posts/blog_post', draft: false
+%ul.nav.nav-pills.nav-justified{style: "margin-bottom: 5px;"}
+  %li.active= link_to "All", "#all", data: { toggle: "tab" }
+  %li= link_to "Drafts", "#drafts", data: { toggle: "tab" }
+  %li= link_to "Published", "#published", data: { toggle: "tab" }
+.tab-content
+  .tab-pane.active#all
+    .list-group
+      - 3.times do
+        = render 'prototypes/blog_posts/blog_post', draft: true
+      - 5.times do
+        = render 'prototypes/blog_posts/blog_post', draft: false
+  .tab-pane#drafts
+    .list-group
+      - 3.times do
+        = render 'prototypes/blog_posts/blog_post', draft: true
+  .tab-pane#published
+    .list-group
+      - 5.times do
+        = render 'prototypes/blog_posts/blog_post', draft: false
