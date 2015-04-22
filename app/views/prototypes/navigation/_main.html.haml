@@ -22,8 +22,12 @@
   %li
     = link_to prototype_page_path(page: "site"), remote: true, class: "prototype-partial-link open-nav", data: { target: "#main", menu: "#{ render 'prototypes/navigation/website'}" } do
       = icon "globe", class: "fa-fw"
-      %span.sidebar-nav-label Website
+      %span.sidebar-nav-label 
+        Website
+        = icon "angle-right", class: "pull-right"
   %li
     = link_to prototype_page_path(page: "navigation::settings"), remote: true, class: "prototype-partial-link open-nav", data: { target: ".sidebar-nav__panel-secondary" } do
       = icon "cog", class: "fa-fw"
-      %span.sidebar-nav-label Settings
+      %span.sidebar-nav-label 
+        Settings
+        = icon "angle-right", class: "pull-right"

@@ -22,7 +22,7 @@ $sidebar-width: 270px;
     transition: background-color 200ms ease;
 
     &.sidebar-nav__panel-primary {
-      .nav-pills li > a > i {
+      .nav-pills li > a i {
         font-size: 1.3em;
         opacity: 0.8;
         position: relative;
