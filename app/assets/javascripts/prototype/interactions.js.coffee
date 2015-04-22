@@ -7,30 +7,37 @@
 @closeNav = () ->
   $(".sidebar-nav").removeClass "panel-open"
 
-@showMenu = () ->
-  $('#main').removeClass "full"
+@toggleThirdNav = () ->
+  $(".sidebar-nav").toggleClass "third-panel-open"
+
+@openThirdNav = () ->
+  $(".sidebar-nav").addClass "third-panel-open"
+
+@closeThirdNav = () ->
   $(".sidebar-nav").removeClass "third-panel-open"
 
-@hideMenu = () ->
+@closeFullScreen = () ->
+  $('#main').removeClass "full"
+  @closeThirdNav()
+
+@openFullScreen = () ->
   $('#main').addClass "full"
+  @closeThirdNav()
 
-@toggleMenu = () ->
+@toggleFullScreen = () ->
   $('#main').toggleClass "full"
-
-@toggleThirdMenu = () ->
-  $(".sidebar-nav").toggleClass "third-panel-open"
 
 @displayPartial = (link, target, html) ->
   if link.hasClass "show-menu"
-    @showMenu()
+    @closeFullScreen()
   if link.hasClass "hide-menu"
-    @hideMenu()
+    @openFullScreen()
   $(target).html html
 
 $ ->
   $("body").on "click", ".properties-nav-link", (e) ->
     e.preventDefault()
-    parent.toggleThirdMenu()
+    parent.toggleThirdNav()
 
   $(".prototype-partial-link").on "ajax:success", (e, data, status, xhr) ->
     alert data
