@@ -16,6 +16,9 @@
 @toggleMenu = () ->
   $('#main').toggleClass "full"
 
+@toggleThirdMenu = () ->
+  $(".sidebar-nav").toggleClass "third-panel-open"
+
 @displayPartial = (link, target, html) ->
   if link.hasClass "show-menu"
     @showMenu()
@@ -24,6 +27,10 @@
   $(target).html html
 
 $ ->
+  $("body").on "click", ".properties-nav-link", (e) ->
+    e.preventDefault()
+    parent.toggleThirdMenu()
+    
   $(".prototype-partial-link").on "ajax:success", (e, data, status, xhr) ->
     alert data
 

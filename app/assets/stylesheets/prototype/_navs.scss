@@ -37,6 +37,14 @@ $sidebar-width: 270px;
       -webkit-transform: translate3d($sidebar-width, 0, 0);
       transform: translate3d($sidebar-width, 0, 0);
     }
+
+    &.sidebar-nav__panel-third {
+      width: $sidebar-width;
+      -webkit-transition: -webkit-transform 200ms ease;
+      transition: transform 200ms ease;
+      -webkit-transform: translate3d($sidebar-width, 0, 0);
+      transform: translate3d($sidebar-width, 0, 0);
+    }
   }
 
   &.panel-open {
@@ -67,6 +75,13 @@ $sidebar-width: 270px;
     .sidebar-nav__panel-secondary {
       -webkit-transform: translate3d($sidebar-primary-collapsed-width, 0, 0);
       transform: translate3d($sidebar-primary-collapsed-width, 0, 0);
+    }
+  }
+
+  &.third-panel-open {
+    .sidebar-nav__panel-third {
+      -webkit-transform: translate3d(0px, 0, 0);
+      transform: translate3d(0px, 0, 0);
     }
   }
 }
