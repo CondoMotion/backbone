@@ -9,6 +9,7 @@
 
 @showMenu = () ->
   $('#main').removeClass "full"
+  $(".sidebar-nav").removeClass "third-panel-open"
 
 @hideMenu = () ->
   $('#main').addClass "full"
@@ -30,7 +31,7 @@ $ ->
   $("body").on "click", ".properties-nav-link", (e) ->
     e.preventDefault()
     parent.toggleThirdMenu()
-    
+
   $(".prototype-partial-link").on "ajax:success", (e, data, status, xhr) ->
     alert data
 
