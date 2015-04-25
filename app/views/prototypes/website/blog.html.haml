@@ -3,3 +3,19 @@
     .color-overlay
     .container.text-center
       %h2 Blog
+
+  %section
+    .container
+      - 5.times do
+        = link_to prototype_page_path("website::blog_post"), class: "prototype-partial-link", remote: true, data: { target: "#main", menu: "#{render('prototypes/blog_posts/settings')}" }, style: "color: #333;" do
+          .row{style: "padding-top: 30px; padding-bottom: 30px;"}
+            .col-sm-2
+              .text-center
+                %p= image_tag "http://placehold.it/200x200", class: "img-responsive img-circle"
+                %p
+                  %span.text-muted by
+                  Author Name
+            .col-sm-9.col-sm-offset-1
+              %h4.text-lighter.no-margin Mar 25, 2015
+              %h3 Blog Post Title
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit..
