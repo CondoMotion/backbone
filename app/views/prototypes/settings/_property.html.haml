@@ -4,5 +4,16 @@
   %h4.nav-heading Property Settings
 
 %div{style: "padding: 0 15px;"}
-  form here
+  .form-group
+    = label_tag :name, "Property Name"
+    = text_field_tag :name, "Clarendon Hill", class: "form-control"
+
+  .form-group
+    = label_tag :name, "Buildings"
+    %ul.list-group
+      %a.list-group-item.list-group-item-transparent{href: "#"}
+        123 Main St.
+      %a.list-group-item.list-group-item-transparent{href: "#"}
+        125 Main St.
+
   = render 'prototypes/settings/buttons'
