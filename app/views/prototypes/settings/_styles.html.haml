@@ -1,0 +1,43 @@
+= prototype_partial_link(icon('long-arrow-left', 'Back'), "navigation::website", ".sidebar-nav__panel-secondary", class: "nav-link text-uppercase")
+
+.nav-heading-wrapper
+  %h4.nav-heading Colors
+
+%ul.nav.nav-pills.nav-stacked
+  %li
+    = link_to "#" do
+      %span.color-preview{style: "width: 20px; height: 20px; display: inline-block; background: #fff; border-radius: 2px;   position: absolute; top: 50%; margin-top: -10px;"}
+      %span{style: "padding-left: 30px;"} Page Background
+  %li
+    = link_to "#" do
+      %span.color-preview{style: "width: 20px; height: 20px; display: inline-block; background: #000; border-radius: 2px;   position: absolute; top: 50%; margin-top: -10px;"}
+      %span{style: "padding-left: 30px;"} Headers
+  %li
+    = link_to "#" do
+      %span.color-preview{style: "width: 20px; height: 20px; display: inline-block; background: #333; border-radius: 2px;   position: absolute; top: 50%; margin-top: -10px;"}
+      %span{style: "padding-left: 30px;"} Text
+  %li
+    = link_to "#" do
+      %span.color-preview{style: "width: 20px; height: 20px; display: inline-block; background: #428bca; border-radius: 2px;   position: absolute; top: 50%; margin-top: -10px;"}
+      %span{style: "padding-left: 30px;"} Links
+  %li
+    = link_to "#" do
+      %span.color-preview{style: "width: 20px; height: 20px; display: inline-block; background: #222; border-radius: 2px;   position: absolute; top: 50%; margin-top: -10px;"}
+      %span{style: "padding-left: 30px;"} Navbar Background
+  %li
+    = link_to "#" do
+      %span.color-preview{style: "width: 20px; height: 20px; display: inline-block; background: #fff; border-radius: 2px;   position: absolute; top: 50%; margin-top: -10px;"}
+      %span{style: "padding-left: 30px;"} Navbar Text
+
+.nav-heading-wrapper
+  %h4.nav-heading Fonts
+
+%ul.nav.nav-pills.nav-stacked
+  %li
+    = link_to "#" do
+      %small Heading Font
+      = select_tag :page_title, options_for_select(["Open Sans", "Helvetica"], "Helvetica"), class: "form-control"
+  %li
+    = link_to "#" do
+      %small Body Font
+      = select_tag :page_title, options_for_select(["Open Sans", "Helvetica"], "Open Sans"), class: "form-control"
