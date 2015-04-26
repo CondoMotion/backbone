@@ -1,0 +1,10 @@
+.feature {
+  padding: 50px 0;
+  background: #fff;
+
+  .feature-heading {
+    @extend .text-light;
+    @extend .text-uppercase;
+    line-height: 1.5;
+  }
+}

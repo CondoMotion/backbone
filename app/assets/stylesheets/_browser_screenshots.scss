@@ -1,0 +1,35 @@
+.browser-screenshot{
+  border: 1px solid #ddd;
+  @include border-top-radius(5px);
+  margin-bottom: 20px;
+
+  .browser-bar {
+    padding: 10px 15px 5px 15px;
+    @include gradient-vertical(#E8E6E7, darken(#E8E6E7, 5%));
+    @include border-top-radius(5px);
+
+    .browser-bar-button {
+      @include border-top-radius(50%);
+      @include border-bottom-radius(50%);
+      margin-right: 5px;
+      width: 13px;
+      height: 13px;
+      display: inline-block;
+
+      &.browser-bar-button-close {
+        background-color: #FF4F4E;
+        border: 1px solid darken(#FF4F4E, 10%);
+      }
+
+      &.browser-bar-button-minimize {
+        background-color: #FFC400;
+        border: 1px solid darken(#FFC400, 10%);
+      }
+
+      &.browser-bar-button-expand {
+        background-color: #00D94C;
+        border: 1px solid darken(#00D94C, 10%);
+      }
+    }
+  }
+}
