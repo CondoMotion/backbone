@@ -53,6 +53,13 @@ body {
   height: 600px;
 }
 
+.city-street-bg {
+  background-image: image-url('city-street.jpg');
+  background-size: cover;
+  height: 400px;
+  background-position: bottom center;
+}
+
 #main-cta {
   background-color: $navbar-inverse-bg;
   width: 450px;
