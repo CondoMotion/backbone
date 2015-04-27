@@ -26,6 +26,7 @@ end
 
 gem 'bootstrap-sass', '~> 3.0.2.0'
 gem 'font-awesome-sass', '~> 4.3.0'
+gem 'ionicons-rails'
 gem 'jquery-rails'
 gem 'devise'
 gem 'haml'
