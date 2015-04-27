@@ -51,7 +51,26 @@ body {
   background-size: cover;
   color: #fff;
   height: 600px;
+
+  h2 {
+    letter-spacing: 3px; 
+    margin: 100px 0 60px 0;
+  }
 }
+
+@media (max-width: $screen-xs-max) {
+  .team-bg {
+    h2 {
+      margin: 40px 0 25px 0;
+      font-size: 24px;
+
+      br {
+        display: none;
+      }
+    }
+  }
+}
+
 
 .city-street-bg {
   background-image: image-url('city-street.jpg');
