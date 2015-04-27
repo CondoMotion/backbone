@@ -1,7 +1,7 @@
 = link_to prototype_page_path(page: "people::edit"), remote: true, class: "prototype-partial-link list-group-item", data: { target: "#right" } do
   %h5 
     John Doe
-    %span.pull-right.label.label-info= role
+    %span.pull-right.label{class: role_class}= role
   %p.text-muted
     jdoe@example.com
     %span.pull-right 555-555-5555

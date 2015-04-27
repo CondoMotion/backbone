@@ -9,8 +9,8 @@
     .scroll-panel-body.no-padding
       .list-group
         - 3.times do
-          = render 'prototypes/people/person', role: "Manager"
+          = render 'prototypes/people/person', role: "Manager", role_class: "label-info"
         - 5.times do
-          = render 'prototypes/people/person', role: "Resident"
+          = render 'prototypes/people/person', role: "Resident", role_class: "label-success"
 #right.pull-left
   = render 'prototypes/people/no_content'
