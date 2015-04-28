@@ -1,3 +1,5 @@
+$brand-success: #07BE90;
+
 $navbar-height: 80px;
 $navbar-inverse-bg: #1D252C;
 
@@ -8,6 +10,7 @@ $navbar-inverse-bg: #1D252C;
 @import "dashboard";
 
 @import "browser_screenshots";
+@import "buttons";
 @import "features";
 
 @import "apps/menu";

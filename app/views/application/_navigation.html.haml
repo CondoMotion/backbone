@@ -8,11 +8,12 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
+
+
     #navbar-collapse.collapse.navbar-collapse
       / %ul.nav.navbar-nav
       /   = nav_link_to "Home", root_url
       /   = nav_link_to "About", about_url
       /   = nav_link_to "Pricing", pricing_url
       /   = nav_link_to "Contact", contact_url
-      %ul.nav.navbar-nav.navbar-right
-        %li= link_to "Try it Free", prototype_path
+      = link_to "Schedule a Demo", prototype_path, class: "btn btn-success btn-outline navbar-btn navbar-right"
