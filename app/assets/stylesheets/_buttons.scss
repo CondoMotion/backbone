@@ -1,7 +1,7 @@
 @mixin btn-outline-variant($color, $bg) {
   color: $bg;
 
-  &:hover {
+  &:active, &:hover, &:focus {
     color: $color;
   }
 }
